@@ -13,7 +13,7 @@ interface CalendarEvent {
 }
 
 const CalendarPage = () => {
-  return <div className="">Calendar Events</div>;
+  return <div className="">Calendar Event Details </div>;
 };
 
 export default CalendarPage;
