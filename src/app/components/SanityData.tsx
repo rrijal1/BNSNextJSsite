@@ -21,3 +21,10 @@ export async function getallCalendarEvents() {
   );
   return events;
 }
+
+export async function getallClubEvents() {
+  const events = await client.fetch(
+    '*[_type == "clubevent"]{_id, startDate, slug, excerpt, title, slug, endDate, image}'
+  );
+  return events;
+}
