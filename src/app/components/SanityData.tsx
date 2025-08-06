@@ -17,7 +17,7 @@ export async function getPost(slug: string) {
 
 export async function getallCalendarEvents() {
   const events = await client.fetch(
-    '*[_type == "calendar"]{_id, date, title, timeFrom, timeTo, isHoliday}'
+    '*[_type == "calendar"]{_id, date, title, timeFrom, timeTo, isHoliday, details}'
   );
   return events;
 }

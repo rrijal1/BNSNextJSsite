@@ -1,7 +1,7 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
-import { getPost, getAllPosts } from "@/app/components/posts";
+import { getPost, getAllPosts } from "@/app/components/SanityData";
 import { PortableTextBlock, TypedObject } from "@portabletext/types";
 import { client } from "@/lib/sanity";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
