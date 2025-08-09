@@ -12,7 +12,7 @@ async function CalendarEvents() {
   try {
     const events = await getallCalendarEvents();
     return <Calendar events={events} />;
-  } catch (error) {
+  } catch {
     return <div className="text-red-500">Failed to load calendar events</div>;
   }
 }

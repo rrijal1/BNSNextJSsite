@@ -173,7 +173,7 @@ const Menu = ({ onLinkClick }: { onLinkClick?: () => void }) => {
       </li>
       <li className="w-full lg:w-auto mt-4 lg:mt-0">
         <a
-          className="block lg:inline-block px-6 py-2 mx-2 text-white bg-red-600 rounded-md hover:bg-red-700 transition-colors duration-300 text-center"
+          className="block lg:inline-block px-6 py-2 mx-2 text-white bg-red-600 rounded-md hover:bg-red-700 transition-colors duration-300 text-center focus:outline-none"
           href="https://bloomnf.org/gift-education"
           target="_blank"
           rel="noreferrer"
@@ -191,7 +191,7 @@ export default function Header({ className }: { className?: string }) {
 
   return (
     <header
-      className={`bg-blue-800 shadow-md lg:sticky lg:top-0 z-20 ${className}`}
+      className={`bg-footerBlue shadow-md lg:sticky lg:top-0 z-20 ${className}`}
       id="header"
     >
       <div className="container mx-auto flex justify-between items-center px-4 lg:px-8 py-4">

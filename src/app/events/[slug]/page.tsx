@@ -1,26 +1,33 @@
-import { client } from '@/lib/sanity';
-import { ClubEvent } from '@/src/types/allTypes';
+import { client, urlFor } from '@/lib/sanity';
+import { ClubEvent } from '@/types/allTypes';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
+import type { TypedObject } from '@portabletext/types';
 
-interface EventDetailPageProps {
-  params: {
-    slug: string;
-  };
-}
+// Align with existing pattern used elsewhere in app: params as Promise
+type EventDetailPageProps = {
+  params: Promise<{ slug: string }>;
+};
 
-const EventDetailPage = async ({ params }: EventDetailPageProps) => {
-  const query = `*[_type == "clubevent" && slug.current == "${params.slug}"][0]{
+async function getEvent(slug: string): Promise<ClubEvent & { body?: TypedObject[] }> {
+  const query = `*[_type == "clubevent" && slug.current == $slug][0]{
     _id,
     title,
     excerpt,
-    image,
+    "image": mainImage,
     slug,
     startDate,
     endDate,
     body
   }`;
-  const event: ClubEvent = await client.fetch(query);
+  const event: ClubEvent & { body?: TypedObject[] } = await client.fetch(query, { slug });
+  return event;
+}
+
+const EventDetailPage = async ({ params }: EventDetailPageProps) => {
+  const resolved = await params;
+  const event = await getEvent(resolved.slug);
+  console.log("Fetched event data for dynamic page:", event);
 
   if (!event) {
     return <div className="text-center py-10">Event not found.</div>;
@@ -34,7 +41,7 @@ const EventDetailPage = async ({ params }: EventDetailPageProps) => {
       {event.image && (
         <div className="relative w-full h-96 mb-8">
           <Image
-            src={event.image.asset._ref.replace('image-', 'https://cdn.sanity.io/images/hdf6d0e0/production/').replace('-png', '.png').replace('-jpg', '.jpg').replace('-jpeg', '.jpeg').replace('-gif', '.gif')}
+            src={urlFor(event.image).url()}
             alt={event.title}
             layout="fill"
             objectFit="cover"
@@ -43,9 +50,11 @@ const EventDetailPage = async ({ params }: EventDetailPageProps) => {
         </div>
       )}
 
-      <div className="prose lg:prose-xl max-w-none">
-        <PortableText value={event.body} />
-      </div>
+      {event.body && (
+        <div className="prose lg:prose-xl max-w-none">
+          <PortableText value={event.body} />
+        </div>
+      )}
     </div>
   );
 };

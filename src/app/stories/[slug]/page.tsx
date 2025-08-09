@@ -71,7 +71,9 @@ export default async function Story({
     .filter((block) => block._type === "block")
     .map((block) =>
       "children" in block
-        ? block.children.map((child: any) => child.text).join("")
+        ? (block as PortableTextBlock).children
+            .map((child) => ('text' in child ? (child as { text: string }).text : ''))
+            .join("")
         : ""
     )
     .join(" ");

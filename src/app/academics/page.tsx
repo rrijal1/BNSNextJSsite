@@ -155,12 +155,12 @@ const AcademicsPage: React.FC = () => {
             <p>
               DEAR stands for Drop Everything And Read. Every Friday, students
               at Bloom have an hour of DEAR time where they study their favorite
-              Novel, Newspaper article or anything that’s not a part of their
+              Novel, Newspaper article or anything that&apos;s not a part of their
               school curriculum.
             </p>
             <p className="mt-4">
               With the implementation of DEAR culture, we have seen significant
-              improvement in students' reading habits.
+              improvement in students&apos; reading habits.
             </p>
           </div>
 
@@ -181,11 +181,11 @@ const AcademicsPage: React.FC = () => {
             <h2 className="text-3xl font-bold mb-6">Passion First</h2>
             <p>
               We deeply believe that passion is a major driving component of
-              one's success in life.
+              one&apos;s success in life.
             </p>
             <p className="mt-4">
               Bloom Nepal is merely an institution with the right set of tools
-              and an environment for fostering and nurturing each child's
+              and an environment for fostering and nurturing each child&apos;s
               passion.
             </p>
           </div>

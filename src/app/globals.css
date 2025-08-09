@@ -8,7 +8,18 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-footerBlue: #22364d;
+
+  /* Fonts mapping to utilities: font-main, font-form, font-sans */
+  --font-main:
+    var(--font-raleway), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji";
+  --font-form:
+    var(--font-merriweather-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
+  /* Make Tailwind's default font-sans use our main font */
+  --font-sans: var(--font-main);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -22,5 +33,315 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* ===== Ported styles from old Gatsby site (Tailwind v1) ===== */
+html {
+  scroll-behavior: unset;
+}
+
+button:focus {
+  outline-offset: 0px;
+  outline: 1px solid black;
+}
+
+section {
+  @apply mt-24 py-8 bg-gray-100 px-4 text-gray-900 text-lg;
+}
+
+@media (min-width: 768px) {
+  section.no-x-margin {
+    @apply -mx-12;
+  }
+}
+
+.section-head {
+  @apply font-semibold text-2xl uppercase tracking-wide leading-tight text-gray-800;
+}
+
+.caption {
+  @apply text-xs font-normal px-4 mt-1;
+}
+
+.external-url,
+.out-link {
+  @apply underline;
+}
+
+.external-url:hover,
+.out-link:hover {
+  @apply bg-gray-800 text-white;
+}
+.disc li {
+  @apply list-disc;
+}
+
+ol {
+  @apply text-gray-700;
+}
+ul {
+  @apply text-gray-700;
+}
+
+form {
+  @apply my-4 py-8 flex-col -mb-8;
+}
+
+form input,
+form select {
+  @apply font-form text-sm;
+}
+
+.form-label {
+  @apply uppercase text-xs font-medium tracking-wide pl-2 text-gray-700;
+}
+.form-field {
+  @apply mt-4;
+}
+.form-field input,
+.form-field select {
+  @apply px-4 py-2 text-black font-light border-transparent border-2;
+}
+.form-field input:focus,
+.form-field select:focus {
+  @apply outline-none border-gray-900 border-2;
+}
+
+.location-button {
+  @apply text-white px-8 py-4 my-4 mr-4;
+}
+
+.button-outline {
+  @apply border-2 border-transparent;
+}
+.button-outline:active {
+  @apply outline-none border-2 border-gray-400;
+}
+.button-outline:focus {
+  @apply outline-none border-2 border-gray-400;
+}
+
+.submit-button {
+  @apply border-transparent border-2;
+}
+.submit-button:focus {
+  @apply outline-none border-gray-400 border-2;
+}
+.submit-button:active {
+  @apply outline-none border-gray-400 border-2;
+}
+
+.in-link {
+  @apply border-b-2 inline-block border-red-900 mx-1;
+}
+
+.emo {
+  @apply text-lg;
+}
+
+.in-link:hover {
+  @apply px-1  mx-0 bg-blue-900 text-white border-transparent;
+}
+
+.emo {
+  color: transparent;
+  text-shadow: 0 0 0 #2a4365;
+}
+
+.sanity-block a:hover {
+  text-decoration: underline;
+}
+
+.heading-underline-on-hover:hover h3 {
+  text-decoration: underline;
+}
+
+section .no-top-margin {
+  @apply mt-0;
+}
+
+@media (min-width: 1024px) {
+  section {
+    background-color: white;
+    margin-top: 164px;
+  }
+  section .no-top-margin {
+    margin-top: 0px;
+  }
+  form {
+    background-color: white;
+    padding-top: 0rem;
+  }
+  form label {
+    @apply text-sm;
+  }
+  form input,
+  form select {
+    border-color: black;
+    @apply bg-gray-200 mt-2 text-base w-full px-16;
+  }
+  form input:focus {
+    background-color: white;
+  }
+  ol,
+  ul {
+    @apply text-gray-900;
+  }
+}
+
+input::placeholder {
+  @apply text-gray-400;
+}
+
+.no-select {
+  user-select: none;
+}
+
+.section-for-small-devices {
+  @apply mx-auto px-4;
+}
+
+.section-image-fix {
+  @apply text-center;
+}
+
+@media (min-width: 768px) {
+  .section-image-fix {
+    @apply max-w-lg;
+  }
+}
+
+@media (min-width: 640px) {
+  .section-for-small-devices {
+    @apply px-8;
+  }
+  section {
+    @apply px-8;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-image-fix {
+    @apply max-w-full;
+  }
+  .section-for-small-devices {
+    @apply max-w-full px-0;
+  }
+}
+
+.footer-menu-card {
+  @apply text-center  py-4 my-4;
+}
+.footer-menu-card ul {
+  @apply text-base;
+}
+
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection,
+p::selection,
+span::selection,
+li::selection,
+div::selection,
+a::selection,
+br::selection,
+button::selection,
+table::selection,
+th::selection,
+td::selection,
+strong::selection,
+i::selection,
+em::selection,
+label::selection,
+input::selection {
+  background: rgb(50, 111, 226);
+  color: white;
+}
+
+img::selection {
+  background: rgb(231, 231, 231);
+}
+
+.formatted-table td,
+.formatted-table th {
+  @apply px-4 py-2 border-2 border-collapse;
+}
+
+.sanity-heading-1 {
+  @apply text-4xl;
+}
+.sanity-heading-2 {
+  @apply text-2xl;
+}
+.sanity-heading-3 {
+  @apply text-xl;
+}
+.sanity-heading-4 {
+  @apply text-lg;
+}
+
+.sanity-block {
+  @apply text-lg;
+}
+
+.sanity-block p {
+  @apply mt-6;
+}
+
+.sanity-block h1 {
+  @apply text-4xl  mt-6 py-4 font-semibold;
+}
+.sanity-block h2 {
+  @apply text-2xl  mt-6 py-2 font-semibold;
+}
+.sanity-block h3 {
+  @apply text-lg  mt-6 font-medium;
+}
+.sanity-block h4,
+.sanity-block h5,
+.sanity-block h6 {
+  @apply text-base  mt-6 font-medium;
+}
+
+.sanity-block li {
+  @apply list-disc list-inside text-gray-700;
+}
+.sanity-block ul,
+.sanity-block ol {
+  @apply mt-2;
+}
+.arrow {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 2px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.menu-dropdown:hover i {
+}
+.menu-dropdown:hover .down {
+  transform: rotate(-135deg);
 }

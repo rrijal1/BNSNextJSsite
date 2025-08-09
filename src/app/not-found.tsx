@@ -2,119 +2,111 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+    <div
+      style={{ textAlign: "center", padding: "50px 20px", fontFamily: "Arial" }}
+    >
       <svg
-        width="400"
-        height="300"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ display: "block", margin: "0 auto" }}
+        viewBox="0 0 500 300"
+        width="100%"
+        height="auto"
+        style={{ maxWidth: "500px", margin: "0 auto" }}
       >
-        {/* Background */}
-        <rect width="100%" height="100%" fill="#007BFF" />
+        {/* Blackboard */}
+        <rect
+          x="30"
+          y="30"
+          width="440"
+          height="200"
+          rx="15"
+          fill="#333"
+          stroke="#222"
+          strokeWidth="4"
+        />
 
-        {/* Monitor */}
-        <g transform="translate(150, 50)">
-          <rect
-            x="0"
-            y="0"
-            width="100"
-            height="80"
-            rx="10"
-            fill="none"
-            stroke="#FFFFFF"
-            strokeWidth="2"
-          />
-          <rect x="10" y="10" width="80" height="40" fill="#007BFF" />
-          <circle cx="50" cy="30" r="20" fill="#FFFFFF" />
-          <path
-            d="M40 20 L60 40 M50 20 L50 40 M60 20 L40 40"
-            stroke="#007BFF"
-            strokeWidth="4"
-          />
-        </g>
-
-        {/* Left Tablet */}
-        <g transform="translate(100, 100)">
-          <rect
-            x="0"
-            y="0"
-            width="50"
-            height="80"
-            rx="10"
-            fill="none"
-            stroke="#FFFFFF"
-            strokeWidth="2"
-          />
-          <rect x="10" y="10" width="30" height="40" fill="#007BFF" />
-          <path
-            d="M25 50 L25 70 M20 60 L30 60"
-            stroke="#FFFFFF"
-            strokeWidth="2"
-          />
-          <path d="M25 30 L25 50" stroke="#FF0000" strokeWidth="4" />
-        </g>
-
-        {/* Right Tablet */}
-        <g transform="translate(250, 120)">
-          <rect
-            x="0"
-            y="0"
-            width="40"
-            height="60"
-            rx="8"
-            fill="none"
-            stroke="#FFFFFF"
-            strokeWidth="2"
-          />
-          <rect x="5" y="5" width="30" height="30" fill="#007BFF" />
-          <path d="M20 35 L20 55" stroke="#FF0000" strokeWidth="4" />
-        </g>
-
-        {/* 404 Text */}
+        {/* Chalk 404 */}
         <text
-          x="170"
-          y="200"
-          fontSize="40"
-          fontFamily="Arial"
-          fill="#FFFF00"
+          x="250"
+          y="110"
+          fontSize="64"
+          fontFamily="Comic Sans MS, cursive"
+          fill="white"
           textAnchor="middle"
         >
           404
         </text>
         <text
-          x="170"
-          y="240"
-          fontSize="12"
-          fontFamily="Arial"
-          fill="#FFFFFF"
+          x="250"
+          y="160"
+          fontSize="20"
+          fontFamily="Comic Sans MS, cursive"
+          fill="white"
           textAnchor="middle"
         >
-          Page not found
+          You missed the class!
         </text>
 
-        {/* Base Line */}
+        {/* Desk */}
+        <rect x="60" y="230" width="380" height="20" fill="#a0522d" />
+        <rect x="60" y="250" width="380" height="10" fill="#8b4513" />
+
+        {/* Apple */}
+        <circle cx="100" cy="225" r="10" fill="red" />
+        <path d="M100 215 Q98 210 102 210 Q104 210 103 215" fill="green" />
+
+        {/* Wandering Student */}
+        <circle cx="400" cy="225" r="15" fill="#fdd835" />
+        <rect x="390" y="240" width="20" height="25" fill="#1976d2" />
         <line
-          x1="50"
-          y1="150"
-          x2="350"
-          y2="150"
-          stroke="#FFFFFF"
+          x1="390"
+          y1="265"
+          x2="385"
+          y2="280"
+          stroke="#000"
+          strokeWidth="2"
+        />
+        <line
+          x1="410"
+          y1="265"
+          x2="415"
+          y2="280"
+          stroke="#000"
+          strokeWidth="2"
+        />
+        <line
+          x1="390"
+          y1="245"
+          x2="380"
+          y2="255"
+          stroke="#000"
+          strokeWidth="2"
+        />
+        <line
+          x1="410"
+          y1="245"
+          x2="420"
+          y2="255"
+          stroke="#000"
           strokeWidth="2"
         />
       </svg>
+
+      <p style={{ fontSize: "18px", marginTop: "30px" }}>
+        Looks like this page skipped school! Let’s get you back on track.
+      </p>
       <Link
         href="/"
         style={{
           display: "inline-block",
           marginTop: "20px",
-          padding: "10px 20px",
-          backgroundColor: "#0070f3",
-          color: "white",
+          padding: "12px 24px",
+          backgroundColor: "#1976d2",
+          color: "#fff",
+          borderRadius: "8px",
           textDecoration: "none",
-          borderRadius: "5px",
+          fontWeight: "bold",
         }}
       >
-        Return Home
+        🏫 Back to Homepage
       </Link>
     </div>
   );

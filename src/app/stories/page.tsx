@@ -26,7 +26,7 @@ async function StoriesList() {
         ))}
       </div>
     );
-  } catch (error) {
+  } catch {
     return <div className="text-red-500">Failed to load stories</div>;
   }
 }

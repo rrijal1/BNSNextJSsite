@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { PortableText } from '@portabletext/react';
+import type { TypedObject } from '@portabletext/types';
 
 interface CalendarEvent {
   _id: string;
@@ -10,7 +11,7 @@ interface CalendarEvent {
   timeFrom?: string;
   timeTo?: string;
   isHoliday?: boolean;
-  details?: any[];
+  details?: TypedObject[];
 }
 
 interface CalendarProps {
@@ -78,7 +79,7 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
                   </div>
                 )}
               </div>
-              {expandedEvent === event._id && hasDetails && (
+              {expandedEvent === event._id && hasDetails && event.details && (
                 <div className="mt-4 pl-20 prose">
                   <PortableText value={event.details} />
                 </div>

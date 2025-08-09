@@ -16,7 +16,7 @@ const FacilitiesPage = () => {
         <div className="bg-white p-8 rounded-xl shadow-lg mb-12">
           <h2 className="text-3xl font-bold text-center mb-6">Facilities and Features</h2>
           <p className="text-lg text-center max-w-4xl mx-auto mb-8">
-            We strive to be consistent with the facilities we provide across our network of schools. However, there are differences as demanded by natural factors like location, weather, etc. Please select the school you'd like to learn more about.
+            We strive to be consistent with the facilities we provide across our network of schools. However, there are differences as demanded by natural factors like location, weather, etc. Please select the school you&apos;d like to learn more about.
           </p>
           <div className="flex justify-center gap-4">
             <button className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">Bloom Nepal School, Lalitpur</button>
@@ -65,11 +65,11 @@ const FacilitiesPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h4 className="text-2xl font-semibold mb-3">Residence & Day Scholars</h4>
-              <p>Students can stay with us in the residence halls or may choose to commute from home if that's an option. This mixed residential setting allows us to create a diverse cultural experience without forgetting the local taste of things.</p>
+              <p>Students can stay with us in the residence halls or may choose to commute from home if that&apos;s an option. This mixed residential setting allows us to create a diverse cultural experience without forgetting the local taste of things.</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h4 className="text-2xl font-semibold mb-3">Resident System</h4>
-              <p>Oh, the staff vs. student football matches on Saturdays, the rounds during the study hours, and the noise of chicken dinner in the dining hall; Bloom is really a close-knit family. There are a total of 4 hostels (residential blocks), which we call houses, that house about 130 students.</p>
+            <p>Oh, the staff vs. student football matches on Saturdays, the rounds during the study hours, and the noise of chicken dinner in the dining hall; Bloom is really a close-knit family. There are a total of 4 hostels (residential blocks), which we call houses, that house about 130 students.</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h4 className="text-2xl font-semibold mb-3">Weekday Boarding Facility</h4>

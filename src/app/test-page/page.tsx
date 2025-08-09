@@ -1,322 +1,191 @@
 "use client";
+import Image from "next/image";
+import CTAInlink from "@/app/components/CTAInLink";
 
-import React, { useState, useEffect, useRef } from "react";
-import { client } from "@/lib/sanity";
-import { PortableText } from "@portabletext/react";
-
-const serializers = {
-  types: {
-    code: (props: { node: { language: string; code: string } }) => (
-      <pre data-language={props.node.language}>
-        <code>{props.node.code}</code>
-      </pre>
-    ),
-  },
-};
-
-interface Location {
-  location: string;
-}
-
-interface Fee {
-  school: Location;
-  grade: string;
-  basicFees: number;
-  basicFeesWithMeals: number | null;
-  hostelFees: number | string | null;
-}
-
-interface OtherFee {
-  location: Location;
-  _rawDetails: PortableTextBlock[];
-}
-
-interface PaymentProcedure {
-  location: Location;
-  _rawDetails: PortableTextBlock[];
-}
-
-interface SanityData {
-  schoolLocations: Location[];
-  fees: Fee[];
-  otherFees: OtherFee[];
-  paymentProcedure: PaymentProcedure[];
-}
-
-async function getAllSanityData() {
-  const query = `{
-    "schoolLocations": *[_type == "schoolLocations"] {
-      location
-    },
-    "fees": *[_type == "fees"] {
-      school->{location},
-      grade,
-      basicFees,
-      basicFeesWithMeals,
-      hostelFees
-    },
-    "otherFees": *[_type == "otherFees"] {
-      location->{location},
-      _rawDetails
-    },
-    "paymentProcedure": *[_type == "paymentProcedure"] {
-      location->{location},
-      _rawDetails
-    }
-  }`;
-
-  try {
-    const data = await client.fetch(query);
-    console.log("Fetched data from Sanity:", data);
-    return data;
-  } catch (error) {
-    console.error("Error fetching data from Sanity:", error);
-    return {
-      schoolLocations: [],
-      fees: [],
-      otherFees: [],
-      paymentProcedure: [],
-    };
-  }
-}
-
-// Helper function to approximate BS year
-const getCurrentBSYear = () => {
-  const today = new Date();
-  const year = today.getFullYear();
-  return year + 57; // Rough BS conversion (e.g., 2025 AD ≈ 2082 BS)
-};
-
-const todayDateRaw = () => {
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.toLocaleString("default", { month: "short" });
-  const date = today.getDate();
-  const hours = today.getHours();
-  const minutes = today.getMinutes();
-  const time = `${hours}:${minutes < 10 ? "0" + minutes : minutes} AM`;
-  return `${month}-${date}, ${year} ${time}`;
-};
-
-const SchoolPricingTable = ({
-  location,
-  fees,
-  otherFees,
-}: {
-  location: string;
-  fees: Fee[];
-  otherFees: OtherFee[];
-}) => {
-  const otherFeesForCurrentSchool =
-    otherFees.find((schoolData) => schoolData.location.location === location)
-      ?._rawDetails || [];
-
-  const classesInAscendingOrder = [
-    "PG",
-    "Nursery",
-    "LKG",
-    "UKG",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-  ];
-  const currentSchoolFees = fees.filter(
-    (fee) => fee.school.location === location
-  );
-  const classesInCurrentSchoolLocation = currentSchoolFees.map(
-    (fee) => fee.grade
-  );
-
-  const requiredClasses = classesInAscendingOrder.filter((grade) =>
-    classesInCurrentSchoolLocation.includes(grade)
-  );
-
-  const hasMealPlan = currentSchoolFees[0]?.basicFeesWithMeals !== null;
-  const hasHostel = currentSchoolFees[0]?.hostelFees !== null;
-
+export default function Home() {
   return (
-    <div>
-      <table
-        className="mt-4 md:mt-8 lg:mt-12 border-collapse formatted-table"
-        style={{ borderCollapse: "collapse" }}
-      >
-        <thead className="font-medium">
-          <tr className="hover:bg-red-800 hover:text-white md:text-xl">
-            <th className="font-medium">Grade</th>
-            <th className="font-medium">Basic Fees</th>
-            {hasMealPlan && (
-              <th className="font-medium">Basic Fees With Meal Plans</th>
-            )}
-            {hasHostel && (
-              <th className="font-medium">Fees with Hostel Facilities</th>
-            )}
-          </tr>
-        </thead>
-        <tbody>
-          {requiredClasses.map((grade) => {
-            const feeIndex = classesInCurrentSchoolLocation.indexOf(grade);
-            const fee = currentSchoolFees[feeIndex];
-            return (
-              <tr key={grade} className="hover:bg-blue-800 hover:text-white">
-                <td className="font-medium">{grade}</td>
-                <td>{fee?.basicFees || 0}</td>
-                {hasMealPlan && <td>{fee?.basicFeesWithMeals || 0}</td>}
-                {hasHostel && (
-                  <td>
-                    {fee?.hostelFees || (
-                      <span className="text-sm">
-                        Hostel Facility Not Available
-                      </span>
-                    )}
-                  </td>
-                )}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <PortableText
-        value={otherFeesForCurrentSchool}
-        components={serializers}
-      />
-    </div>
-  );
-};
-
-const SchoolHowToPay = ({
-  location,
-  howToPay,
-}: {
-  location: string;
-  howToPay: PaymentProcedure[];
-}) => {
-  const requiredData =
-    howToPay.find((schoolData) => schoolData.location.location === location)
-      ?._rawDetails || [];
-  return (
-    <div className="mt-8">
-      <h3 className="section-head">
-        Payment Procedure For <span className="text-red-800">{location}</span>
-      </h3>
-      <PortableText value={requiredData} components={serializers} />
-    </div>
-  );
-};
-
-export default function FeesPage() {
-  const [showOptions, setShowOptions] = useState(false);
-  const [currentSchoolLocation, setCurrentSchoolLocation] = useState("Itahari");
-  const [data, setData] = useState<SanityData>({
-    schoolLocations: [],
-    fees: [],
-    otherFees: [],
-    paymentProcedure: [],
-  });
-  const schoolSelectionBox = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    async function fetchData() {
-      const fetchedData = await getAllSanityData();
-      setData(fetchedData);
-    }
-    fetchData();
-  }, []);
-
-  const handleAfterClick = () => {
-    if (schoolSelectionBox.current) {
-      schoolSelectionBox.current.scrollIntoView();
-      window.scrollBy(0, -window.innerHeight / 2);
-    }
-    console.log("School changed to:", currentSchoolLocation);
-  };
-
-  return (
-    <div className="min-h-screen">
-      <div className="sticky top-0 z-10 bg-white shadow-md">
-        <div className="md:border py-8 px-8" ref={schoolSelectionBox}>
-          <div className="flex justify-between items-center">
-            <div className="mr-4">
-              <div className="text-xs md:text-sm text-gray-600 uppercase tracking-wide font-medium">
-                You&apos;re viewing
-              </div>
-              <div>
-                Bloom Nepal School,{" "}
-                <span className="font-medium capitalize text-red-800">
-                  {currentSchoolLocation}
-                </span>
-              </div>
-            </div>
-            <button
-              className={`font-medium uppercase text-white py-2 px-4 rounded no-select ${
-                showOptions ? "bg-red-900" : "bg-blue-900"
-              }`}
-              onClick={() => setShowOptions(!showOptions)}
-            >
-              {showOptions ? "X" : "Change"}
-            </button>
-          </div>
-          {showOptions && (
-            <div className="mt-8 flex-col">
-              {data.schoolLocations.map((location, index) => (
-                <button
-                  key={index}
-                  className={`rounded bg-gray-600 text-white py-4 px-6 my-4 mr-4 block ${
-                    currentSchoolLocation === location.location
-                      ? "bg-red-800"
-                      : ""
-                  }`}
-                  onClick={() => {
-                    setCurrentSchoolLocation(location.location);
-                    setShowOptions(false);
-                    handleAfterClick();
-                  }}
-                >
-                  Bloom Nepal School,{" "}
-                  <span className="capitalize">{location.location}</span>
-                </button>
-              ))}
-            </div>
-          )}
+    <main className="flex min-h-screen flex-col bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative w-full min-h-[80vh] flex flex-col md:flex-row items-center justify-center gap-8 px-6 py-12 bg-gray-100">
+        {/* Hero Image */}
+        <div className="relative w-full md:w-[500px] h-[300px] md:h-[400px] flex-shrink-0">
+          <Image
+            src="/HomePageImageDrone.jpg"
+            alt="Bloom Nepal School Campus"
+            fill
+            priority
+            className="object-cover rounded-lg shadow-lg"
+            sizes="(max-width: 768px) 100vw, 500px"
+          />
         </div>
-      </div>
 
-      <section className="lg:border-r lg:border-b lg:border-gray-600 lg:mt-16 mt-8 px-4">
-        <h1 className="section-head lg:text-center text-2xl font-bold">
-          School Fees and Payment Methods
-        </h1>
-        <p className="mt-4 lg:px-12 lg:mt-8 lg:text-center text-gray-600">
-          Towards our mission of making quality education accessible to
-          everyone, we have worked hard to put up a competitive pricing without
-          compromising the quality of the education we provide. Please select
-          the desired school for details.
+        {/* Hero Content */}
+        <div className="text-center md:text-left max-w-xl">
+          <h1 className="text-5xl md:text-6xl lg:text-6xl tracking-wide font-extrabold leading-tight text-[#013265]">
+            Bloom Nepal School
+          </h1>
+          <p className="mt-4 text-lg md:text-xl text-gray-700">
+            Nurturing Passion, Shaping the Future – A Center of Excellence in
+            Education.
+          </p>
+          <div className="mt-6">
+            <CTAInlink
+              linkto="/admission"
+              text="Apply for Admission"
+              className="bg-[#be1e2d] hover:bg-red-700 text-white font-semibold shadow-lg transition-transform transform hover:scale-105"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="container mx-auto px-6 py-16 text-center">
+        <h2 className="text-4xl lg:text-4xl tracking-wide font-bold text-[#013265]">
+          Our Story
+        </h2>
+        <p className="mt-6 text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          Founded by MIT graduate Ram K. Rijal, Bloom Nepal School was born out
+          of the belief that passion-driven learning empowers students to excel
+          in every aspect of life. From just 17 students in 2013 to over 700
+          today, our journey has been nothing short of extraordinary.
         </p>
       </section>
 
-      <div className="px-4">
-        <section className="lg:border-l lg:border-b lg:border-gray-600 lg:mt-48 md:mt-32 mt-16">
-          <h2 className="section-head text-xl font-bold mt-8 mb-4">
-            Fee Structure {getCurrentBSYear()} BS ({todayDateRaw()})
+      {/* Stats */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl lg:text-4xl tracking-wide font-bold text-[#013265]">
+            Excellence in Numbers
           </h2>
-          <SchoolPricingTable
-            location={currentSchoolLocation}
-            fees={data.fees}
-            otherFees={data.otherFees}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-[#dee5dc] p-8 rounded-lg shadow hover:shadow-lg transition transform hover:scale-105">
+              <h3 className="text-5xl font-extrabold text-[#be1e2d]">80%</h3>
+              <p className="mt-2 text-gray-700">
+                Graduates with top scholarships
+              </p>
+            </div>
+            <div className="bg-[#dee5dc] p-8 rounded-lg shadow hover:shadow-lg transition transform hover:scale-105">
+              <h3 className="text-5xl font-extrabold text-[#013265]">700+</h3>
+              <p className="mt-2 text-gray-700">Students Nationwide</p>
+            </div>
+            <div className="bg-[#dee5dc] p-8 rounded-lg shadow hover:shadow-lg transition transform hover:scale-105">
+              <h3 className="text-5xl font-extrabold text-green-700">35+</h3>
+              <p className="mt-2 text-gray-700">Districts Represented</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="container mx-auto px-6 py-16">
+        <h2 className="text-3xl lg:text-4xl tracking-wide font-bold text-center text-[#013265]">
+          Our Core Values
+        </h2>
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-white p-8 rounded-lg shadow hover:shadow-lg transition transform hover:scale-105">
+            <h3 className="text-2xl font-semibold text-[#be1e2d]">
+              Passion-Based Learning
+            </h3>
+            <p className="mt-4 text-gray-600">
+              We value sports, arts, science, and every passion equally. Our
+              mission is to align academic growth with each student’s unique
+              interests.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow hover:shadow-lg transition transform hover:scale-105">
+            <h3 className="text-2xl font-semibold text-green-700">
+              Inspiring Environment
+            </h3>
+            <p className="mt-4 text-gray-600">
+              Surrounded by passionate teachers and peers, our students
+              naturally discover and develop their interests.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Student Work */}
+      <section className="bg-[#dee5dc] py-16">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl lg:text-4xl tracking-wide font-bold text-[#013265]">
+            Student Creations
+          </h2>
+          <p className="mt-4 text-gray-700">
+            Discover what our students are building, creating, and achieving.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <CTAInlink
+              linkto="/stories"
+              text="Stories"
+              className="bg-[#013265] hover:bg-blue-900"
+            />
+            <CTAInlink
+              linkto="/events"
+              text="Events"
+              className="bg-[#013265] hover:bg-blue-900"
+            />
+            <CTAInlink
+              linkto="/calendar"
+              text="Calendar"
+              className="bg-[#013265] hover:bg-blue-900"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Scholarships */}
+      <section className="container mx-auto px-6 py-16 text-center">
+        <h2 className="text-3xl lg:text-4xl tracking-wide font-bold text-[#013265]">
+          Education for All
+        </h2>
+        <p className="mt-4 text-gray-600 max-w-3xl mx-auto">
+          Students from over 35 districts – from the Himalayas to the Terai –
+          study at Bloom Nepal thanks to our scholarship programs.
+        </p>
+        <div className="mt-8 flex justify-center gap-6">
+          <CTAInlink
+            linkto="/scholarship"
+            text="Apply for Scholarship"
+            className="bg-[#be1e2d] hover:bg-red-700 text-[#fffefe]"
           />
-        </section>
-        <section className="lg:border-r lg:border-b lg:border-gray-600 mt-16">
-          <SchoolHowToPay
-            location={currentSchoolLocation}
-            howToPay={data.paymentProcedure}
+          <CTAInlink
+            linkto="/support"
+            text="Support a Student"
+            className="bg-[#013265] hover:bg-blue-900 text-[#fffefe]"
           />
-        </section>
-      </div>
-    </div>
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl lg:text-4xl tracking-wide font-bold text-[#013265]">
+            Our Partners
+          </h2>
+          <div className="mt-8 flex justify-center items-center gap-8 flex-wrap">
+            <Image
+              src="/google-logo.png"
+              alt="Google"
+              width={100}
+              height={50}
+            />
+            <Image src="/zayed.png" alt="Zayed Prize" width={100} height={50} />
+            <Image src="/bloom-ed.jpeg" alt="BloomEd" width={100} height={50} />
+            <Image
+              src="/canopy.jpeg"
+              alt="Canopy Nepal"
+              width={100}
+              height={50}
+            />
+            <Image
+              src="/mit-solve.jpeg"
+              alt="MIT Solve"
+              width={100}
+              height={50}
+            />
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

@@ -57,7 +57,7 @@ const CareersPage = () => {
         </div>
 
         <div className="text-center mt-16">
-          <p className="text-lg text-gray-600">Don't see a suitable opening? Send us your resume at <a href="mailto:careers@bloom.edu.np" className="text-blue-600 hover:underline">careers@bloom.edu.np</a></p>
+          <p className="text-lg text-gray-600">Don&apos;t see a suitable opening? Send us your resume at <a href="mailto:careers@bloom.edu.np" className="text-blue-600 hover:underline">careers@bloom.edu.np</a></p>
         </div>
       </main>
     </div>
