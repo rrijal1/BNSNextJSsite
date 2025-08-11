@@ -3,7 +3,7 @@ import { FeesSanityData } from "@/app/components/FeesPageClient";
 
 export async function getAllPosts() {
   const posts = await client.fetch(
-    '*[_type == "post"]{_id, title, "author": author->name, "image": mainImage.asset->url, "slug": slug.current, _createdAt}'
+    '*[_type == "post"]{_id, title, people, "author": author->name, "image": mainImage.asset->url, "slug": slug.current, _createdAt}'
   );
   return posts;
 }
@@ -22,8 +22,6 @@ export async function getScholarshipPosts() {
   );
   return posts;
 }
-
-
 
 export async function getallCalendarEvents() {
   const events = await client.fetch(

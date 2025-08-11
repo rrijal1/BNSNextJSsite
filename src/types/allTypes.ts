@@ -4,6 +4,7 @@ export interface Post {
   author: string;
   image: string;
   slug: string;
+  people?: string;
 }
 
 export interface ClubEvent {
