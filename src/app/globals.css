@@ -9,6 +9,10 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-footerBlue: #22364d;
+  --color-brandBlue: #013265;
+  --color-brandWhite: #fffefe;
+  --color-brandRed: #be1e2d;
+  --color-brandGrey: #dee5dc;
 
   /* Fonts mapping to utilities: font-main, font-form, font-sans */
   --font-main:
