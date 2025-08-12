@@ -1,10 +1,14 @@
 "use client";
 import Image from "next/image";
 import CTAInlink from "@/app/components/CTAInLink";
+import WhatsAppButton from "@/app/components/WhatsAppButton";
+import ScrollToTopButton from "@/app/components/ScrollToTopButton";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-gray-50">
+      <WhatsAppButton />
+      <ScrollToTopButton />
       {/* Hero Section */}
       <section className="relative w-full min-h-[80vh] flex flex-col md:flex-row items-center justify-center gap-8 px-6 py-12 bg-gray-100">
         {/* Hero Image */}
