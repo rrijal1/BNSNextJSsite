@@ -1,5 +1,5 @@
 import { client } from "@/lib/sanity";
-import { FeesSanityData } from "@/app/components/FeesPageClient";
+import { FeesSanityData, Fee } from "@/app/components/FeesPageClient";
 
 export async function getAllPosts() {
   const posts = await client.fetch(
@@ -37,6 +37,14 @@ export async function getallClubEvents() {
   return events;
 }
 
+interface RawFee {
+  school: { location: string };
+  grade: string;
+  basicFees: string;
+  basicFeesWithMeals: string | null;
+  hostelFees: number | string | null;
+}
+
 export async function getFeesData(): Promise<FeesSanityData> {
   const query = `{
     "fees": *[_type == "fees"]{..., "school": school->{location}}, 
@@ -45,7 +53,7 @@ export async function getFeesData(): Promise<FeesSanityData> {
   }`;
   const data = await client.fetch(query);
 
-  const parsedFees = data.fees.map((fee: any) => ({
+  const parsedFees: Fee[] = data.fees.map((fee: RawFee) => ({
     ...fee,
     basicFees: parseFloat(fee.basicFees),
     basicFeesWithMeals: fee.basicFeesWithMeals
@@ -54,7 +62,7 @@ export async function getFeesData(): Promise<FeesSanityData> {
   }));
 
   const schoolLocations = Array.from(
-    new Set(parsedFees.map((f: any) => f.school.location))
+    new Set(parsedFees.map((f: Fee) => f.school.location))
   ).map((location) => ({ location }));
 
   return {

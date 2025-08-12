@@ -2,8 +2,19 @@
 import { useRouter } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/lib/sanity";
+import Image from "next/image";
+import type { PortableTextBlock } from "@portabletext/types";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-export default function PassionStories({ posts, subtitle }: { posts: any[], subtitle: string }) {
+interface PassionStory {
+  _id: string;
+  title: string;
+  slug: string;
+  mainImage: SanityImageSource;
+  excerpt: string | PortableTextBlock[];
+}
+
+export default function PassionStories({ posts }: { posts: PassionStory[] }) {
   const router = useRouter();
   return (
     <section className="py-12 bg-gray-50">
@@ -17,10 +28,12 @@ export default function PassionStories({ posts, subtitle }: { posts: any[], subt
               onClick={() => router.push(`/stories/${post.slug}`)}
             >
               {post.mainImage && (
-                <img
+                <Image
                   src={urlFor(post.mainImage).url()}
                   alt={post.title}
                   className="w-full h-48 object-cover"
+                  width={400}
+                  height={300}
                 />
               )}
               <div className="p-6">

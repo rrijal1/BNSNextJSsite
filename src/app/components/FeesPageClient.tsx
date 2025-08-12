@@ -8,7 +8,7 @@ interface LocationDoc {
   location: string;
 }
 
-interface Fee {
+export interface Fee {
   school: LocationDoc;
   grade: string;
   basicFees: number;
@@ -223,7 +223,7 @@ export default function FeesPageClient({ data }: { data: FeesSanityData }) {
           <div className="section-for-small-devices">
             <div className="flex justify-between items-center">
               <div>
-                <span className="text-gray-600">You're viewing: </span>
+                <span className="text-gray-600">You&apos;re viewing: </span>
                 <span className="font-medium capitalize text-red-800">
                   Bloom Nepal School, {currentSchoolLocation}
                 </span>

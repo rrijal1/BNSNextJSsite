@@ -8,7 +8,7 @@ const ContactPage = () => {
     phone: "",
     email: "",
     date: "",
-    location: "Select",
+    location: "select",
   });
 
   const [errors, setErrors] = useState({
