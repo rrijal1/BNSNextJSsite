@@ -3,6 +3,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
+import { urlFor } from "@/lib/sanity";
+import Image from "next/image";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 interface LocationDoc {
   location: string;
@@ -32,6 +35,26 @@ export interface FeesSanityData {
   otherFees: OtherFee[];
   paymentProcedure: PaymentProcedure[];
 }
+
+const ptComponents = {
+  types: {
+    blockImage: ({ value }: { value: SanityImageSource }) => {
+      if (!value) {
+        return null;
+      }
+      return (
+        <Image
+          src={urlFor(value).url()}
+          alt="QR Code"
+          width={200}
+          height={200}
+          className="mx-auto"
+          style={{ width: 'auto', height: 'auto' }}
+        />
+      );
+    },
+  },
+};
 
 function getCurrentBSYear() {
   const today = new Date();
@@ -153,7 +176,7 @@ function SchoolHowToPay({
         Payment Procedure For <span className="text-red-800">{location}</span>
       </h3>
       <div className="prose">
-        <PortableText value={requiredData} />
+        <PortableText value={requiredData} components={ptComponents} />
       </div>
     </div>
   );

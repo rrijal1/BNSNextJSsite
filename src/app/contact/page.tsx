@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import WhatsAppButton from "@/app/components/WhatsAppButton";
+import ScrollToTopButton from "@/app/components/ScrollToTopButton";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -35,7 +37,7 @@ const ContactPage = () => {
         isValid = false;
       }
 
-      const phoneRegex = /^[0-9\+]{10,15}$/;
+      const phoneRegex = /^[0-9+]{10,15}$/;
       if (!formData.phone || !phoneRegex.test(formData.phone)) {
         newErrors.phone = "Invalid or missing phone number.";
         isValid = false;
@@ -87,6 +89,8 @@ const ContactPage = () => {
 
   return (
     <div className="bg-gray-100 text-gray-800">
+      <WhatsAppButton />
+      <ScrollToTopButton />
       <main className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold text-center mb-8">Contact Us</h1>
 
