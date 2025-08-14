@@ -1,20 +1,44 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+/* =========================================
+   THEME TOKENS
+========================================= */
+@theme {
+  /* Base colors */
+  --color-background: #ffffff;
+  --color-foreground: #171717;
   --color-footerBlue: #22364d;
+
+  /* Brand colors */
   --color-brandBlue: #013265;
-  --color-brandWhite: #fffefe;
   --color-brandRed: #be1e2d;
   --color-brandGrey: #dee5dc;
+  --color-brandWhite: #fffefe;
 
-  /* Fonts mapping to utilities: font-main, font-form, font-sans */
+  /* Button colors (light) */
+  --color-primary: var(--color-brandBlue);
+  --color-primary-hover: #01244e;
+  --color-secondary: var(--color-brandRed);
+  --color-secondary-hover: #9b1824;
+  --color-tertiary: var(--color-brandGrey);
+  --color-tertiary-hover: #c4d0c3;
+
+  /* Button colors (dark) */
+  --color-primary-dark: #1e90ff;
+  --color-primary-dark-hover: #4682b4;
+  --color-secondary-dark: #ff4040;
+  --color-secondary-dark-hover: #cd2626;
+  --color-tertiary-dark: #f5f5f5;
+  --color-tertiary-dark-hover: #e0e0e0;
+
+  /* Sizing */
+  --spacing-2: 0.5rem;
+  --spacing-4: 1rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --border-radius: 0.375rem;
+
+  /* Fonts (map Next/font vars if you have them) */
   --font-main:
     var(--font-raleway), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
@@ -22,25 +46,29 @@
   --font-form:
     var(--font-merriweather-sans), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
-  /* Make Tailwind's default font-sans use our main font */
   --font-sans: var(--font-main);
-  --font-mono: var(--font-geist-mono);
+  --font-mono:
+    var(--font-geist-mono, ui-monospace), SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Dark-mode overrides for base surface colors */
+@variant dark {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-background: #0a0a0a;
+    --color-foreground: #ededed;
   }
 }
 
+/* =========================================
+   GLOBAL STYLES
+========================================= */
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-background);
+  color: var(--color-foreground);
   font-family: var(--font-sans);
 }
 
-/* ===== Ported styles from old Gatsby site (Tailwind v1) ===== */
 html {
   scroll-behavior: unset;
 }
@@ -50,121 +78,202 @@ button:focus {
   outline: 1px solid black;
 }
 
+/* =========================================
+   BUTTON COMPONENTS
+========================================= */
+@layer components {
+  /* Base Button */
+  .btn {
+    @apply inline-flex items-center justify-center font-semibold rounded-[var(--border-radius)]
+      transition-colors select-none
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+      focus-visible:ring-offset-[var(--color-background)]
+      font-main disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Sizes */
+  .btn-sm {
+    @apply px-[var(--spacing-2)] py-1 text-[calc(var(--font-size-base)*0.875)];
+  }
+  .btn-md {
+    @apply px-[var(--spacing-4)] py-2 text-[var(--font-size-base)];
+  }
+  .btn-lg {
+    @apply px-6 py-3 text-[var(--font-size-lg)];
+  }
+
+  /* Variants */
+  .btn-primary {
+    @apply bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)]
+      focus-visible:ring-[var(--color-primary)]
+      dark:bg-[var(--color-primary-dark)] dark:hover:bg-[var(--color-primary-dark-hover)]
+      dark:focus-visible:ring-[var(--color-primary-dark)];
+  }
+
+  .btn-secondary {
+    @apply bg-[var(--color-secondary)] text-white hover:bg-[var(--color-secondary-hover)]
+      focus-visible:ring-[var(--color-secondary)]
+      dark:bg-[var(--color-secondary-dark)] dark:hover:bg-[var(--color-secondary-dark-hover)]
+      dark:focus-visible:ring-[var(--color-secondary-dark)];
+  }
+
+  .btn-tertiary {
+    @apply bg-[var(--color-tertiary)] text-gray-800 hover:bg-[var(--color-tertiary-hover)]
+      focus-visible:ring-[var(--color-tertiary)]
+      dark:bg-[var(--color-tertiary-dark)] dark:hover:bg-[var(--color-tertiary-dark-hover)]
+      dark:focus-visible:ring-[var(--color-tertiary-dark)];
+  }
+
+  .btn-outline {
+    @apply bg-transparent border border-[var(--color-primary)] text-[var(--color-primary)]
+      hover:bg-[var(--color-primary)] hover:text-white
+      focus-visible:ring-[var(--color-primary)]
+      dark:border-[var(--color-primary-dark)] dark:text-[var(--color-primary-dark)]
+      dark:hover:bg-[var(--color-primary-dark)] dark:hover:text-white
+      dark:focus-visible:ring-[var(--color-primary-dark)];
+  }
+}
+
+/* =========================================
+  SITE STYLES (ported & v4-safe)
+========================================= */
+@layer components {
+  /* Headings & text */
+  .section-head {
+    @apply font-semibold text-2xl uppercase tracking-wide leading-tight text-gray-800;
+  }
+  .caption {
+    @apply text-xs font-normal px-4 mt-1;
+  }
+  .external-url,
+  .out-link {
+    @apply underline;
+  }
+  .external-url:hover,
+  .out-link:hover {
+    @apply bg-gray-800 text-white;
+  }
+  .disc li {
+    @apply list-disc;
+  }
+
+  /* Forms */
+  .form-label {
+    @apply uppercase text-xs font-medium tracking-wide pl-2 text-gray-700;
+  }
+  .form-field {
+    @apply mt-4;
+  }
+  .form-field input,
+  .form-field select {
+    @apply px-4 py-2 text-black font-light border-transparent border-2;
+  }
+  .form-field input:focus,
+  .form-field select:focus {
+    @apply outline-none border-gray-900 border-2;
+  }
+
+  /* Misc buttons */
+  .location-button {
+    @apply text-white px-8 py-4 my-4 mr-4;
+  }
+  .button-outline {
+    @apply border-2 border-transparent;
+  }
+  .button-outline:active,
+  .button-outline:focus {
+    @apply outline-none border-2 border-gray-400;
+  }
+  .submit-button {
+    @apply border-transparent border-2;
+  }
+  .submit-button:focus,
+  .submit-button:active {
+    @apply outline-none border-gray-400 border-2;
+  }
+
+  /* Links */
+  .in-link {
+    @apply border-b-2 inline-block border-red-900 mx-1;
+  }
+  .in-link:hover {
+    @apply px-1 mx-0 bg-blue-900 text-white border-transparent;
+  }
+
+  /* Typography */
+  .emo {
+    @apply text-lg;
+  }
+  .sanity-heading-1 {
+    @apply text-4xl;
+  }
+  .sanity-heading-2 {
+    @apply text-2xl;
+  }
+  .sanity-heading-3 {
+    @apply text-xl;
+  }
+  .sanity-heading-4 {
+    @apply text-lg;
+  }
+  .sanity-block {
+    @apply text-lg;
+  }
+  .sanity-block p {
+    @apply mt-6;
+  }
+  .sanity-block h1 {
+    @apply text-4xl mt-6 py-4 font-semibold;
+  }
+  .sanity-block h2 {
+    @apply text-2xl mt-6 py-2 font-semibold;
+  }
+  .sanity-block h3 {
+    @apply text-lg mt-6 font-medium;
+  }
+  .sanity-block h4,
+  .sanity-block h5,
+  .sanity-block h6 {
+    @apply text-base mt-6 font-medium;
+  }
+  .sanity-block li {
+    @apply list-disc list-inside text-gray-700;
+  }
+  .sanity-block ul,
+  .sanity-block ol {
+    @apply mt-2;
+  }
+
+  /* Footer */
+  .footer-menu-card {
+    @apply text-center py-4 my-4;
+  }
+  .footer-menu-card ul {
+    @apply text-base;
+  }
+  .formatted-table td,
+  .formatted-table th {
+    @apply px-4 py-2 border-2 border-collapse;
+  }
+}
+
+/* Layout */
 section {
   @apply mt-24 py-8 bg-gray-100 px-4 text-gray-900 text-lg;
 }
-
 @media (min-width: 768px) {
   section.no-x-margin {
     @apply -mx-12;
   }
 }
-
-.section-head {
-  @apply font-semibold text-2xl uppercase tracking-wide leading-tight text-gray-800;
+@media (min-width: 640px) {
+  .section-for-small-devices {
+    @apply px-8;
+  }
+  section {
+    @apply px-8;
+  }
 }
-
-.caption {
-  @apply text-xs font-normal px-4 mt-1;
-}
-
-.external-url,
-.out-link {
-  @apply underline;
-}
-
-.external-url:hover,
-.out-link:hover {
-  @apply bg-gray-800 text-white;
-}
-.disc li {
-  @apply list-disc;
-}
-
-ol {
-  @apply text-gray-700;
-}
-ul {
-  @apply text-gray-700;
-}
-
-form {
-  @apply my-4 py-8 flex-col -mb-8;
-}
-
-form input,
-form select {
-  @apply font-form text-sm;
-}
-
-.form-label {
-  @apply uppercase text-xs font-medium tracking-wide pl-2 text-gray-700;
-}
-.form-field {
-  @apply mt-4;
-}
-.form-field input,
-.form-field select {
-  @apply px-4 py-2 text-black font-light border-transparent border-2;
-}
-.form-field input:focus,
-.form-field select:focus {
-  @apply outline-none border-gray-900 border-2;
-}
-
-.location-button {
-  @apply text-white px-8 py-4 my-4 mr-4;
-}
-
-.button-outline {
-  @apply border-2 border-transparent;
-}
-.button-outline:active {
-  @apply outline-none border-2 border-gray-400;
-}
-.button-outline:focus {
-  @apply outline-none border-2 border-gray-400;
-}
-
-.submit-button {
-  @apply border-transparent border-2;
-}
-.submit-button:focus {
-  @apply outline-none border-gray-400 border-2;
-}
-.submit-button:active {
-  @apply outline-none border-gray-400 border-2;
-}
-
-.in-link {
-  @apply border-b-2 inline-block border-red-900 mx-1;
-}
-
-.emo {
-  @apply text-lg;
-}
-
-.in-link:hover {
-  @apply px-1  mx-0 bg-blue-900 text-white border-transparent;
-}
-
-.emo {
-  color: transparent;
-  text-shadow: 0 0 0 #2a4365;
-}
-
-.sanity-block a:hover {
-  text-decoration: underline;
-}
-
-.heading-underline-on-hover:hover h3 {
-  text-decoration: underline;
-}
-
-section .no-top-margin {
-  @apply mt-0;
-}
-
 @media (min-width: 1024px) {
   section {
     background-color: white;
@@ -192,40 +301,6 @@ section .no-top-margin {
   ul {
     @apply text-gray-900;
   }
-}
-
-input::placeholder {
-  @apply text-gray-400;
-}
-
-.no-select {
-  user-select: none;
-}
-
-.section-for-small-devices {
-  @apply mx-auto px-4;
-}
-
-.section-image-fix {
-  @apply text-center;
-}
-
-@media (min-width: 768px) {
-  .section-image-fix {
-    @apply max-w-lg;
-  }
-}
-
-@media (min-width: 640px) {
-  .section-for-small-devices {
-    @apply px-8;
-  }
-  section {
-    @apply px-8;
-  }
-}
-
-@media (min-width: 1024px) {
   .section-image-fix {
     @apply max-w-full;
   }
@@ -234,13 +309,38 @@ input::placeholder {
   }
 }
 
-.footer-menu-card {
-  @apply text-center  py-4 my-4;
+form {
+  @apply my-4 py-8 flex-col -mb-8;
 }
-.footer-menu-card ul {
-  @apply text-base;
+form input,
+form select {
+  @apply font-form text-sm;
+}
+input::placeholder {
+  @apply text-gray-400;
+}
+ol {
+  @apply text-gray-700;
+}
+ul {
+  @apply text-gray-700;
+}
+.no-select {
+  user-select: none;
+}
+.section-for-small-devices {
+  @apply mx-auto px-4;
+}
+.section-image-fix {
+  @apply text-center;
+}
+@media (min-width: 768px) {
+  .section-image-fix {
+    @apply max-w-lg;
+  }
 }
 
+/* Selection styling */
 h1::selection,
 h2::selection,
 h3::selection,
@@ -265,58 +365,23 @@ input::selection {
   background: rgb(50, 111, 226);
   color: white;
 }
-
 img::selection {
   background: rgb(231, 231, 231);
 }
 
-.formatted-table td,
-.formatted-table th {
-  @apply px-4 py-2 border-2 border-collapse;
+/* Icons & small helpers */
+.emo {
+  color: transparent;
+  text-shadow: 0 0 0 #2a4365;
 }
-
-.sanity-heading-1 {
-  @apply text-4xl;
+.sanity-block a:hover {
+  text-decoration: underline;
 }
-.sanity-heading-2 {
-  @apply text-2xl;
+.heading-underline-on-hover:hover h3 {
+  text-decoration: underline;
 }
-.sanity-heading-3 {
-  @apply text-xl;
-}
-.sanity-heading-4 {
-  @apply text-lg;
-}
-
-.sanity-block {
-  @apply text-lg;
-}
-
-.sanity-block p {
-  @apply mt-6;
-}
-
-.sanity-block h1 {
-  @apply text-4xl  mt-6 py-4 font-semibold;
-}
-.sanity-block h2 {
-  @apply text-2xl  mt-6 py-2 font-semibold;
-}
-.sanity-block h3 {
-  @apply text-lg  mt-6 font-medium;
-}
-.sanity-block h4,
-.sanity-block h5,
-.sanity-block h6 {
-  @apply text-base  mt-6 font-medium;
-}
-
-.sanity-block li {
-  @apply list-disc list-inside text-gray-700;
-}
-.sanity-block ul,
-.sanity-block ol {
-  @apply mt-2;
+section .no-top-margin {
+  @apply mt-0;
 }
 .arrow {
   border: solid black;
@@ -324,27 +389,17 @@ img::selection {
   display: inline-block;
   padding: 2px;
 }
-
 .right {
   transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
 }
-
 .left {
   transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
 }
-
 .up {
   transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
 }
-
 .down {
   transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
-.menu-dropdown:hover i {
 }
 .menu-dropdown:hover .down {
   transform: rotate(-135deg);

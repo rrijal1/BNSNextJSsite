@@ -1,3 +1,4 @@
+
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
@@ -6,8 +7,14 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'cdn.sanity.io',
-        port: '', 
+        port: '',
         pathname: '/images/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'tailwindcss.com',
+        port: '',
+        pathname: '/plus-assets/img/component-images/**',
       },
     ],
   },
