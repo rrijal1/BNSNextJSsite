@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
+import Button from "@/app/components/Button";
+import { motion, AnimatePresence } from "framer-motion";
 
 // ---------- Data Types ----------
 interface Book {
@@ -8,6 +10,7 @@ interface Book {
   subject: string;
   publication: string;
 }
+
 interface BookData {
   [key: number]: Book[];
 }
@@ -54,67 +57,131 @@ const bookData: BookData = {
   ],
 };
 
-const grades = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const grades = Array.from({ length: 10 }, (_, i) => i + 1);
 
 // ---------- Book List Component ----------
 const BookList: React.FC = () => {
   const [selectedGrade, setSelectedGrade] = useState<number>(1);
 
+  // Memoize books to prevent unnecessary re-renders
+  const books = useMemo(() => bookData[selectedGrade] || [], [selectedGrade]);
+
+  // Animation variants for table rows
+  const rowVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -10 },
+  };
+
   return (
-    <div>
-      <div className="text-center">
-        <h2 className="text-3xl font-bold text-brand-blue mb-2">Book List</h2>
-        <p className="mb-8 text-gray-600">
-          Select a grade to view the official book list for the academic year.
-        </p>
-      </div>
+    <section className="container mx-auto px-4 py-8">
+      <div className="flex flex-col md:flex-row gap-8">
+        {/* Info Section */}
+        <div className="w-full md:w-2/5 space-y-4">
+          <h2 className="text-3xl font-bold text-brand-blue">Book List</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Select your grade to view the official book list for the academic
+            year 2082 BS.
+          </p>
+          <p className="text-gray-600 leading-relaxed">
+            Both Lubhoo and Itahari Schools follow the same book list.
+          </p>
+        </div>
 
-      {/* Grade Selector */}
-      <div className="flex flex-wrap justify-center gap-2 mb-8">
-        {grades.map((grade) => (
-          <button
-            key={grade}
-            onClick={() => setSelectedGrade(grade)}
-            className={`px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 ${
-              selectedGrade === grade
-                ? "bg-brand-red text-white scale-110 shadow-md"
-                : "bg-white text-brand-blue hover:bg-brand-blue hover:text-white shadow-sm"
-            }`}
+        {/* Content Section */}
+        <div className="w-full md:w-3/5">
+          {/* Grade Selector */}
+          <div
+            role="tablist"
+            aria-label="Grade selection"
+            className="flex flex-wrap justify-center gap-2 mb-8"
           >
-            Grade {grade}
-          </button>
-        ))}
-      </div>
-
-      {/* Book Table */}
-      <div className="overflow-x-auto bg-white rounded-lg shadow-md p-4">
-        <table className="min-w-full text-sm">
-          <thead>
-            <tr>
-              <th className="p-3 text-left font-semibold text-gray-500">S.N.</th>
-              <th className="p-3 text-left font-semibold text-gray-500">Subject</th>
-              <th className="p-3 text-left font-semibold text-gray-500">Publication</th>
-            </tr>
-          </thead>
-          <tbody>
-            {(bookData[selectedGrade] || []).map((book, index) => (
-              <tr key={book.sn} className={index % 2 === 0 ? '' : 'bg-gray-50'}>
-                <td className="p-3 text-gray-800">{book.sn}</td>
-                <td className="p-3 text-brand-blue font-medium">{book.subject}</td>
-                <td className="p-3 text-gray-800">{book.publication}</td>
-              </tr>
+            {grades.map((grade) => (
+              <Button
+                key={grade}
+                onClick={() => setSelectedGrade(grade)}
+                variant={selectedGrade === grade ? "primary" : "outline"}
+                size="sm"
+                className="min-w-[70px] transition-all duration-200"
+                aria-selected={selectedGrade === grade}
+                role="tab"
+              >
+                Grade {grade}
+              </Button>
             ))}
-            {!bookData[selectedGrade] && (
-              <tr>
-                <td colSpan={3} className="text-center p-8 text-gray-500">
-                  Book list for Grade {selectedGrade} is not available yet.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+          </div>
+
+          {/* Book Table */}
+          <div className="overflow-x-auto bg-white rounded-xl shadow-lg border border-gray-100">
+            <table className="min-w-full text-sm">
+              <thead className="bg-gray-50 transition-colors duration-200 ">
+                <tr className=" hover:bg-brandRed hover:brandWhite">
+                  <th
+                    scope="col"
+                    className="p-4 text-left font-semibold text-gray-500 uppercase tracking-wide transition-colors duration-200"
+                  >
+                    S.N.
+                  </th>
+                  <th
+                    scope="col"
+                    className="p-4 text-left font-semibold text-gray-500 uppercase tracking-wide transition-colors duration-200"
+                  >
+                    Subject
+                  </th>
+                  <th
+                    scope="col"
+                    className="p-4 text-left font-semibold text-gray-500 uppercase tracking-wide transition-colors duration-200"
+                  >
+                    Publication
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <AnimatePresence>
+                  {books.length > 0 ? (
+                    books.map((book, index) => (
+                      <motion.tr
+                        key={book.sn}
+                        variants={rowVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        transition={{ duration: 0.2, delay: index * 0.05 }}
+                        className={`transition-colors duration-200 hover:bg-brand-blue ${
+                          index % 2 === 0 ? "bg-white" : "bg-gray-50"
+                        }`}
+                      >
+                        <td className="p-4 text-gray-800 hover:text-white transition-colors duration-200">
+                          {book.sn}
+                        </td>
+                        <td className="p-4 text-brand-blue font-medium hover:text-white transition-colors duration-200">
+                          {book.subject}
+                        </td>
+                        <td className="p-4 text-gray-700 hover:text-white transition-colors duration-200">
+                          {book.publication}
+                        </td>
+                      </motion.tr>
+                    ))
+                  ) : (
+                    <motion.tr
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="text-center"
+                    >
+                      <td colSpan={3} className="p-8 text-gray-500 italic">
+                        Book list for Grade {selectedGrade} is not available
+                        yet.
+                      </td>
+                    </motion.tr>
+                  )}
+                </AnimatePresence>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

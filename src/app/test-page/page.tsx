@@ -26,17 +26,14 @@ export default function TestPage() {
       </section>
 
       {/* Button Styles */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Buttons</h2>
+      <section className="mb-12 bg-gray-800 text-white py-8 w-full">
+        <h2 className="text-2xl font-semibold mb-4 text-center">Buttons</h2>
         <main className="flex flex-wrap justify-center gap-4">
           <Button variant="primary" size="md">
             Primary
           </Button>
           <Button variant="secondary" size="lg">
             Secondary
-          </Button>
-          <Button variant="tertiary" size="sm">
-            Tertiary
           </Button>
           <Button variant="outline" size="md">
             Outline

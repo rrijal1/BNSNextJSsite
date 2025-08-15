@@ -29,7 +29,7 @@ const AboutPage = () => {
             </div>
             <div className="md:w-1/2">
               <Image
-                src="/placeholder.svg"
+                src="/bloom-main.jpg"
                 alt="Founder of Bloom Nepal School"
                 width={500}
                 height={300}
