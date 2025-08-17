@@ -4,12 +4,12 @@ import Image from 'next/image';
 
 const TeamPage = () => {
   const teamMembers = [
-    { name: 'Ram K. Rijal', role: 'Founder', imageUrl: '/placeholder.svg' },
-    { name: 'Jane Doe', role: 'Principal', imageUrl: '/placeholder.svg' },
-    { name: 'John Smith', role: 'Academic Coordinator', imageUrl: '/placeholder.svg' },
-    { name: 'Emily White', role: 'Admissions Officer', imageUrl: '/placeholder.svg' },
-    { name: 'Michael Brown', role: 'Head of Sports', imageUrl: '/placeholder.svg' },
-    { name: 'Sarah Green', role: 'Librarian', imageUrl: '/placeholder.svg' },
+    { name: 'Ram K. Rijal', role: 'Founder', imageUrl: '/ram-rijal.jpg' },
+    { name: 'Subekshya', role: 'Principal', imageUrl: '/subekshya.jpg' },
+    { name: 'John Smith', role: 'Academic Coordinator', imageUrl: '/bloomie.png' },
+    { name: 'Emily White', role: 'Admissions Officer', imageUrl: '/bloomie.png' },
+    { name: 'Michael Brown', role: 'Head of Sports', imageUrl: '/bloomie.png' },
+    { name: 'Sarah Green', role: 'Librarian', imageUrl: '/bloomie.png' },
   ];
 
   return (

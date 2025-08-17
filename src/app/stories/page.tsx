@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { getAllPosts } from "@/app/components/SanityData";
+import { getAllPosts } from "@/app/components/data/SanityData";
 import StoryCard from "@/app/components/StoryCard";
 
 interface Post {

@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { getallCalendarEvents } from "@/app/components/SanityData";
+import { getallCalendarEvents } from "@/app/components/data/SanityData";
 import Calendar from "@/app/components/Calendar";
 
 // Loading component for better UX
@@ -27,4 +27,3 @@ export default function CalendarPage() {
     </div>
   );
 }
-

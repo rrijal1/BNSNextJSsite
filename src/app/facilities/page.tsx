@@ -33,7 +33,7 @@ const FacilitiesPage = () => {
           </div>
           <div>
             <Image
-              src="/placeholder.svg"
+              src="/lalitpurLocation.jpg"
               alt="Bloom Nepal School Location"
               width={600}
               height={400}
@@ -45,7 +45,7 @@ const FacilitiesPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 items-center">
           <div>
             <Image
-              src="/placeholder.svg"
+              src="/internationalExposure.jpg"
               alt="International Exposure"
               width={600}
               height={400}

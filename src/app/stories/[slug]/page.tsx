@@ -1,7 +1,7 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
-import { getPost, getAllPosts } from "@/app/components/SanityData";
+import { getPost, getAllPosts } from "@/app/components/data/SanityData";
 import { PortableTextBlock, TypedObject } from "@portabletext/types";
 import { client } from "@/lib/sanity";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
@@ -72,7 +72,9 @@ export default async function Story({
     .map((block) =>
       "children" in block
         ? (block as PortableTextBlock).children
-            .map((child) => ('text' in child ? (child as { text: string }).text : ''))
+            .map((child) =>
+              "text" in child ? (child as { text: string }).text : ""
+            )
             .join("")
         : ""
     )
