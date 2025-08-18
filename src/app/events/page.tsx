@@ -1,4 +1,4 @@
-import { getAllClubEvents } from "@/lib/sanity";
+import { getAllClubEvents } from "@/app/components/data/SanityData";
 import { ClubEvent } from "@/types/allTypes";
 import EventFilter from "@/app/components/EventFilter";
 

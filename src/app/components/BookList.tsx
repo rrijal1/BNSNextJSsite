@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import Button from "@/app/components/Button";
+import Button from "@/app/components/ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ---------- Data Types ----------

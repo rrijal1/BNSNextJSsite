@@ -1,5 +1,5 @@
 import CTASection from "@/app/components/CTASection";
-import Button from "@/app/components/Button";
+import Button from "@/app/components/ui/Button";
 
 export default function TestPage() {
   return (

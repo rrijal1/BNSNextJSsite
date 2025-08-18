@@ -1,5 +1,6 @@
 import { client } from "@/lib/sanity";
 import { FeesSanityData, Fee } from "@/app/components/FeesPageClient";
+import { ClubEvent } from "@/types/allTypes";
 
 export async function getAllPosts() {
   const posts = await client.fetch(
@@ -30,11 +31,18 @@ export async function getallCalendarEvents() {
   return events;
 }
 
-export async function getallClubEvents() {
-  const events = await client.fetch(
-    '*[_type == "clubevent"]{_id, startDate, slug, excerpt, title, slug, endDate, image}'
-  );
-  return events;
+export async function getAllClubEvents(): Promise<ClubEvent[]> {
+  const query = `*[_type == "clubevent"] | order(startDate asc) {
+    _id,
+    title,
+    excerpt,
+    "image": mainImage,
+    slug,
+    startDate,
+    endDate,
+    body
+  }`;
+  return client.fetch(query);
 }
 
 interface RawFee {

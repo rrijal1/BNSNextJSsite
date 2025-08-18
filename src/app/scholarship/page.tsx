@@ -1,5 +1,5 @@
 import BannerInfo from "@/app/components/BannerInfo";
-import ScholarshipStories from "@/app/components/ScholarshipStories";
+import ScholarshipStories from "@/app/components/scholarships/ScholarshipStories";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -24,10 +24,10 @@ export default async function ScholarshipPage() {
       <section className="px-4 py-16 w-full lg:border-r lg:border-b border-gray-600 lg:text-center md:pb-20 md:mt-16 lg:px-20">
         <div className="section-for-small-devices">
           <Image
-            src="/file.svg"
+            src="/bloomie.png"
             alt="A young female student"
-            width={1200}
-            height={675}
+            width={400}
+            height={305}
           />
           <h3 className="section-head mt-4 text-4xl xl:text-5xl">
             Quality education should be accessible to people from{" "}
@@ -47,9 +47,9 @@ export default async function ScholarshipPage() {
               <div className="section-image-fix">
                 <Image
                   className="mt-4 lg:hidden"
-                  src="/globe.svg"
-                  width={1200}
-                  height={675}
+                  src="/bloomie.png"
+                  width={400}
+                  height={205}
                   alt="Two Boy Students Standing"
                 />
               </div>
@@ -80,9 +80,9 @@ export default async function ScholarshipPage() {
             <div className="lg:w-1/2 lg-8">
               <Image
                 className="mt-4 hidden lg:block"
-                src="/globe.svg"
-                width={1200}
-                height={675}
+                src="/bloomie.png"
+                width={400}
+                height={200}
                 alt="Two Boy Students Standing"
               />
             </div>
@@ -200,9 +200,9 @@ export default async function ScholarshipPage() {
         <div className="section-for-small-devices lg:flex lg:items-center">
           <div className="hidden lg:block w-1/2 lg:pr-8">
             <Image
-              src="/vercel.svg"
-              width={1200}
-              height={675}
+              src="/bloomie.png"
+              width={400}
+              height={205}
               alt="A female student doing her homework"
             />
           </div>
@@ -212,9 +212,9 @@ export default async function ScholarshipPage() {
             </h3>
             <div className="mt-6 lg:hidden section-image-fix">
               <Image
-                src="/vercel.svg"
-                width={1200}
-                height={675}
+                src="/bloomie.png"
+                width={400}
+                height={250}
                 alt="A female student doing her homework"
               />
             </div>

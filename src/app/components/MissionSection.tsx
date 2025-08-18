@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Button from "./Button";
+import Button from "./ui/Button";
 
 interface MissionTopic {
   title: string;
@@ -64,8 +64,8 @@ const MissionSection: React.FC = () => {
         <h2 className="text-3xl font-bold mb-4">Achieving Our Mission</h2>
         <p className="text-gray-600 max-w-3xl mx-auto">
           We are always experimenting with various policies, putting forward
-          programs and testing their effectiveness in achieving our mission. Here
-          are some of the things we are doing.
+          programs and testing their effectiveness in achieving our mission.
+          Here are some of the things we are doing.
         </p>
       </div>
 

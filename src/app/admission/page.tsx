@@ -14,7 +14,7 @@ const links = {
     2: "https://drive.google.com/file/d/116B6TsGwAfm5Qjm3Yh0dmwmBOu9O0dJT/view",
     3: "https://drive.google.com/file/d/1dX5WF4643-4cGxiio4oZRc6ZLQu7YEuL/view",
     4: "https://drive.google.com/file/d/1kAZsxRRlglHgmOt433SqGo5n0eEyKQi3/view",
-    5: "https://drive.google.com/file/d/1lXDXLTVl5XCq7amBNh7k3BZ11H3_rINA/view",
+    5: "https://drive.com/file/d/1lXDXLTVl5XCq7amBNh7k3BZ11H3_rINA/view",
     6: "https://drive.google.com/file/d/1G0ilmmqzleqRqKpUGsSFISyViD8cC6Yy/view",
     7: "https://drive.google.com/file/d/1XobaNDmN1DO8hw8GnSWTr4x96ZL2flnJ/view",
     8: "https://drive.google.com/file/d/15qH4bRUmfWGzFKSuHKTtgoTtC1Qb-29w/view",
@@ -32,7 +32,7 @@ function SectionHero() {
           </h2>
           <div className="mt-4 lg:hidden section-image-fix">
             <Image
-              src="/file.svg"
+              src="/group-on-back.jpg"
               alt="students standing"
               width={800}
               height={600}
@@ -47,7 +47,7 @@ function SectionHero() {
         </div>
         <div className="hidden lg:block lg:w-1/2 lg:pl-8">
           <Image
-            src="/globe.svg"
+            src="/bloom-main.jpg"
             alt="Hexagonal Photo Collection of Students"
             width={800}
             height={600}
@@ -208,10 +208,10 @@ function DownloadSampleQuestions() {
             <h4 className="text-2xl font-medium text-blue-800">Apologies</h4>
             <p className="mt-2">
               {grade === "10"
-                ? "Sorry, we don\'t take admission for grade 10."
+                ? "Sorry, we don't take admission for grade 10."
                 : grade === "9"
-                ? "We do take limited admission for grade 9 but don\'t take entrace exam. Please contact the school office for details on how to apply."
-                : `Sorry, we don\'t have sample entrance questions for grade ${grade} currently. Please check back in the future.`}
+                ? "We do take limited admission for grade 9 but don't take entrace exam. Please contact the school office for details on how to apply."
+                : `Sorry, we don't have sample entrance questions for grade ${grade} currently. Please check back in the future.`}
             </p>
           </div>
         )}
@@ -269,7 +269,7 @@ function FirstStepForm({ takingAdmission, admissionGrades }: { takingAdmission: 
           <div>
             {displayErrorMessage && (
               <p className="text-red-800 text-base font-medium">
-                Sorry, one or more fields on the form below aren&apos;t correct!
+                Sorry, one or more fields on the form below aren't correct!
               </p>
             )}
             <div className="form-field">
@@ -340,7 +340,7 @@ export default function AdmissionPage() {
         <div className="section-for-small-devices lg:flex items-center">
           <div className="md:w-1/2 lg:pr-8 hidden lg:block">
             <Image
-              src="/window.svg"
+              src="/two-girls.jpg"
               alt="two girl students posing for a photo"
               width={800}
               height={600}
@@ -351,7 +351,7 @@ export default function AdmissionPage() {
             <h2 className="section-head">Scholarship</h2>
             <div className="mt-4 lg:hidden section-image-fix">
               <Image
-                src="/window.svg"
+                src="/two-girls.jpg"
                 alt="two girl students posing for a photo"
                 width={800}
                 height={600}
@@ -376,7 +376,7 @@ export default function AdmissionPage() {
           </h2>
           <ul className="mt-4 list-disc pl-4 md:text-gray-800 md:mt-8">
             <li>Examination may be conducted online/in-person.</li>
-            <li>You need to take the examination yourself; any help by third person isn&apos;t allowed.</li>
+            <li>You need to take the examination yourself; any help by third person isn't allowed.</li>
             <li>Subjects covered in exam vary by grade. See sample questions below.</li>
             <li>Entrance exam is just one part of the holistic application process. It is a major but not the only determining factor for admission.</li>
             <li>Come prepared, but don’t be nervous.</li>
