@@ -1,6 +1,6 @@
 import React from "react";
 import { getRulesAndRegulations } from "../components/data/SanityData";
-import PortableText from "../components/footer/PortableText";
+import PortableText from "../components/shared/PortableText";
 
 export default async function RulesPage() {
   const rulesContent = await getRulesAndRegulations();

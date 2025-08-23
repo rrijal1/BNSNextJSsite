@@ -1,6 +1,6 @@
 import React from "react";
 import { getPrivacyPolicy } from "../components/data/SanityData";
-import PortableText from "../components/footer/PortableText";
+import PortableText from "../components/shared/PortableText";
 
 export default async function PrivacyPage() {
   const privacyContent = await getPrivacyPolicy();
