@@ -1,6 +1,7 @@
 import { client } from "@/lib/sanity";
 import { FeesSanityData, Fee } from "@/app/components/FeesPageClient";
 import { ClubEvent } from "@/types/allTypes";
+import { PortableTextBlock } from "@portabletext/types";
 
 export async function getAllPosts() {
   const posts = await client.fetch(
@@ -78,4 +79,34 @@ export async function getFeesData(): Promise<FeesSanityData> {
     fees: parsedFees,
     schoolLocations,
   };
+}
+
+// Site Settings Functions for Privacy Policy and Rules & Regulations
+interface SiteSettings {
+  privacyPolicy: PortableTextBlock[];
+  rulesAndRegulations: PortableTextBlock[];
+}
+
+export async function getPrivacyPolicy(): Promise<PortableTextBlock[]> {
+  try {
+    const data = await client.fetch<SiteSettings>(
+      `*[_id=="siteSettings"][0]{privacyPolicy}`
+    );
+    return data?.privacyPolicy || [];
+  } catch (error) {
+    console.error("Error fetching privacy policy:", error);
+    return [];
+  }
+}
+
+export async function getRulesAndRegulations(): Promise<PortableTextBlock[]> {
+  try {
+    const data = await client.fetch<SiteSettings>(
+      `*[_id=="siteSettings"][0]{rulesAndRegulations}`
+    );
+    return data?.rulesAndRegulations || [];
+  } catch (error) {
+    console.error("Error fetching rules and regulations:", error);
+    return [];
+  }
 }

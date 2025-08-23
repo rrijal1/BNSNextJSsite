@@ -3,11 +3,8 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Raleway, Merriweather_Sans } from "next/font/google";
 import "./globals.css";
-import Header from '@/app/components/Header';
-import Footer from '@/app/components/Footer';
-
-
-
+import Header from "@/app/components/header/Header";
+import Footer from "@/app/components/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +13,10 @@ export const metadata: Metadata = {
 
 // Google fonts used in old site theme
 const raleway = Raleway({ subsets: ["latin"], variable: "--font-raleway" });
-const merriweatherSans = Merriweather_Sans({ subsets: ["latin"], variable: "--font-merriweather-sans" });
+const merriweatherSans = Merriweather_Sans({
+  subsets: ["latin"],
+  variable: "--font-merriweather-sans",
+});
 
 export default function RootLayout({
   children,
