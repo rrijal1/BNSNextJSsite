@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 // --- Data ---
 interface SingularMenuItem {
@@ -96,7 +97,7 @@ const MenuGroup = ({
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center w-full text-left font-medium py-2 px-4 lg:px-1 lg:mr-4 my-2 lg:my-0 text-white hover:text-blue-200 transition-colors duration-300"
+        className="flex items-center w-full text-left font-medium py-2 px-4 lg:px-1 lg:mr-4 my-2 lg:my-0 text-white hover:text-white/80 transition-all duration-200"
       >
         {menuItem.text}
         <svg
@@ -121,13 +122,13 @@ const MenuGroup = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="lg:absolute lg:py-2 bg-gray-800 bg-opacity-50 lg:shadow-lg lg:rounded-md w-full lg:w-48"
+            className="lg:absolute lg:py-2 bg-brandBlue/90 lg:shadow-lg lg:rounded-md w-full lg:w-48 border border-white/20"
           >
             {menuItem.items.map((item) => (
               <li key={item.linkTo}>
                 <Link
                   href={item.linkTo}
-                  className="capitalize font-medium block my-1 py-2 px-8 text-white hover:bg-gray-700 hover:text-white"
+                  className="capitalize font-medium block my-1 py-2 px-8 text-white hover:bg-white/20 hover:text-white transition-all duration-200"
                   onClick={handleLinkClick}
                 >
                   {item.text}
@@ -154,7 +155,7 @@ const Menu = ({ onLinkClick }: { onLinkClick?: () => void }) => {
           ) : (
             <Link
               href={menuItem.linkTo}
-              className="block lg:inline-block px-4 py-2 mx-2 text-white hover:text-blue-200 transition-colors duration-300"
+              className="block lg:inline-block px-4 py-2 mx-2 text-white hover:text-white/80 transition-all duration-200"
               onClick={onLinkClick}
             >
               {menuItem.text}
@@ -164,7 +165,7 @@ const Menu = ({ onLinkClick }: { onLinkClick?: () => void }) => {
       ))}
       <li className="w-full lg:w-auto">
         <Link
-          className="block lg:inline-block px-4 py-2 mx-2 text-white hover:text-blue-200 transition-colors duration-300"
+          className="block lg:inline-block px-4 py-2 mx-2 text-white hover:text-white/80 transition-all duration-200"
           href="/contact"
           onClick={onLinkClick}
         >
@@ -173,7 +174,7 @@ const Menu = ({ onLinkClick }: { onLinkClick?: () => void }) => {
       </li>
       <li className="w-full lg:w-auto mt-4 lg:mt-0">
         <a
-          className="block lg:inline-block px-6 py-2 mx-2 text-white bg-red-600 rounded-md hover:bg-red-700 transition-colors duration-300 text-center focus:outline-none"
+          className="block lg:inline-block px-6 py-2 mx-2 text-white bg-brandRed rounded-md hover:bg-brandRed/80 transition-all duration-200 text-center focus:outline-none shadow-sm hover:shadow-md"
           href="https://bloomnf.org/gift-education"
           target="_blank"
           rel="noreferrer"
@@ -191,7 +192,7 @@ export default function Header({ className }: { className?: string }) {
 
   return (
     <header
-      className={`bg-footerBlue shadow-md lg:sticky lg:top-0 z-20 ${className}`}
+      className={`bg-brandBlue shadow-md lg:sticky lg:top-0 z-20 ${className || ""}`}
       id="header"
     >
       <div className="container mx-auto flex justify-between items-center px-4 lg:px-8 py-4">
@@ -213,26 +214,17 @@ export default function Header({ className }: { className?: string }) {
         {/* Mobile Menu Button */}
         <div className="block lg:hidden">
           <button
-            className="text-gray-800 hover:text-blue-800 focus:outline-none"
+            className="text-white focus:outline-none focus:ring-0 outline-none border-none no-outline"
             onClick={() => {
               const newMenuOpenState = !menuOpen;
               setMenuOpen(newMenuOpenState);
             }}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
-              />
-            </svg>
+            {menuOpen ? (
+              <FaTimes className="w-7 h-7" />
+            ) : (
+              <FaBars className="w-7 h-7" />
+            )}
           </button>
         </div>
       </div>
@@ -245,7 +237,7 @@ export default function Header({ className }: { className?: string }) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden w-full bg-gray-800 bg-opacity-50 shadow-md overflow-hidden"
+            className="lg:hidden w-full bg-brandBlue/95 shadow-md overflow-hidden"
           >
             <Menu onLinkClick={() => setMenuOpen(false)} />
           </motion.nav>
