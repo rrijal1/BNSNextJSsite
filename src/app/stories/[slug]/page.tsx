@@ -85,8 +85,12 @@ export default async function Story({
             <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-12 gap-8">
               <div className="lg:w-1/2 space-y-6">
                 <div className="inline-flex items-center px-4 py-2 bg-brandBlue/10 rounded-full text-brandBlue text-sm font-medium">
-                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   School Story
                 </div>
@@ -97,23 +101,41 @@ export default async function Story({
                   <div className="flex items-center space-x-2">
                     <div className="w-10 h-10 bg-brandBlue rounded-full flex items-center justify-center">
                       <span className="text-white font-semibold text-sm">
-                        {post.author ? post.author.charAt(0).toUpperCase() : 'A'}
+                        {post.author
+                          ? post.author.charAt(0).toUpperCase()
+                          : "A"}
                       </span>
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900">By {post.author || 'Anonymous'}</p>
+                      <p className="font-medium text-gray-900">
+                        By {post.author || "Anonymous"}
+                      </p>
                       <p className="text-sm text-gray-500">
-                        {post._createdAt && new Date(post._createdAt).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
+                        {post._createdAt &&
+                          new Date(post._createdAt).toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            }
+                          )}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-1 text-brandBlue">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
                     </svg>
                     <span className="font-medium">{readingTime} min read</span>
                   </div>
@@ -138,20 +160,26 @@ export default async function Story({
       </section>
 
       <div className="container mx-auto px-4">
-
         {/* Main blog content */}
         <div className="max-w-4xl mx-auto mb-16">
-          <PortableText value={post.body as PortableTextBlock[]} variant="blog" />
+          <PortableText
+            value={post.body as PortableTextBlock[]}
+            variant="blog"
+          />
         </div>
 
         {/* Professional Share Section */}
         <div className="max-w-4xl mx-auto mb-12">
           <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8 border border-gray-100">
             <div className="text-center mb-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Share this story</h3>
-              <p className="text-gray-600">Help spread the word about our school community</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Share this story
+              </h3>
+              <p className="text-gray-600">
+                Help spread the word about our school community
+              </p>
             </div>
-            
+
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`}
@@ -192,8 +220,18 @@ export default async function Story({
             href="/stories"
             className="inline-flex items-center space-x-2 text-brandBlue hover:text-brandRed font-medium transition-colors duration-200 group"
           >
-            <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            <svg
+              className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
             </svg>
             <span>View all Stories</span>
           </Link>
@@ -205,12 +243,14 @@ export default async function Story({
             <div className="container mx-auto px-4">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">Read Similar Stories</h2>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                    Read Similar Stories
+                  </h2>
                   <p className="text-gray-600 max-w-2xl mx-auto">
                     Discover more inspiring stories from our school community
                   </p>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {pastArticles.slice(0, 6).map((article) => (
                     <Link
@@ -236,19 +276,24 @@ export default async function Story({
                           <div className="flex items-center space-x-2">
                             <div className="w-6 h-6 bg-brandBlue rounded-full flex items-center justify-center">
                               <span className="text-white text-xs font-medium">
-                                {article.author ? article.author.charAt(0).toUpperCase() : 'A'}
+                                {article.author
+                                  ? article.author.charAt(0).toUpperCase()
+                                  : "A"}
                               </span>
                             </div>
-                            <span>By {article.author || 'Anonymous'}</span>
+                            <span>By {article.author || "Anonymous"}</span>
                           </div>
                         </div>
                         {article._createdAt && (
                           <p className="text-xs text-gray-400">
-                            {new Date(article._createdAt).toLocaleDateString('en-US', {
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric'
-                            })}
+                            {new Date(article._createdAt).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                              }
+                            )}
                           </p>
                         )}
                       </div>
