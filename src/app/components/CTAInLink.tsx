@@ -2,19 +2,19 @@ import Link from "next/link";
 
 export default function CTAInlink({
   linkto,
-  text,
   className = "",
+  children, // Use children instead of text
 }: {
   linkto: string;
-  text: string;
   className?: string;
+  children: React.ReactNode; // Add children type
 }) {
   return (
     <Link
       href={linkto}
-      className={`inline-block px-6 py-2 text-white rounded ${className}`}
+      className={`inline-block px-6 py-2 rounded transition-colors duration-200 ${className}`}
     >
-      {text}
+      {children} {/* Use children here */}
     </Link>
   );
 }

@@ -11,9 +11,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section
-      className={`hero-section relative w-full min-h-[80vh] flex flex-col md:flex-row md:flex-nowrap items-center justify-center gap-8 px-6 py-12 bg-gray-100 my-8 ${className}`}
+      className={`relative w-full min-h-[80vh] flex items-center justify-center py-16 md:py-24 bg-gray-50 ${className}`}
     >
-      {children}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {children}
+      </div>
     </section>
   );
 };

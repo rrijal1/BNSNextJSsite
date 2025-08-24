@@ -1,4 +1,3 @@
-import CTASection from "@/app/components/CTASection";
 import Button from "@/app/components/ui/Button";
 
 export default function TestPage() {
@@ -42,10 +41,6 @@ export default function TestPage() {
       </section>
 
       {/* CTA Section */}
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">CTA Section</h2>
-        <CTASection />
-      </section>
     </main>
   );
 }
