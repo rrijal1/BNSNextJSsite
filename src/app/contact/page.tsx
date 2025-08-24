@@ -392,7 +392,7 @@ const ContactPage = () => {
                         +977 9851147140, +977 1-5709030
                       </p>
                       <p className="text-gray-600 text-sm">
-                        WhatsApp/Viber: +977 9851147140
+                        WhatsApp/Viber: +977 9841207231
                       </p>
                     </div>
                   </div>
