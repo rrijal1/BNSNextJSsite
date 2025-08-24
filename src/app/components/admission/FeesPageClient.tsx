@@ -224,7 +224,7 @@ function SchoolHowToPay({
               />
             </svg>
             Payment Procedure for{" "}
-            <span className="text-yellow-300 capitalize">{location}</span>
+            <span className="px-1 text-yellow-300 capitalize">{location}</span>
           </h3>
         </div>
         <div className="px-6 py-6">
@@ -481,12 +481,8 @@ export default function FeesPageClient({ data }: { data: FeesSanityData }) {
               <span className="text-brandGreen capitalize">
                 {currentSchoolLocation}
               </span>{" "}
-              Campus Fees
+              School Fees
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Updated as of {todayDateRaw()}. All fees are in Nepalese Rupees
-              (NPR).
-            </p>
           </div>
 
           <SchoolPricingTable
