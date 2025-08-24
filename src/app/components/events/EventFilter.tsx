@@ -285,7 +285,7 @@ const EventFilter: React.FC<EventFilterProps> = ({
       {/* Events Grid */}
       <div className="space-y-6">
         {filteredEvents().length > 0 ? (
-          filteredEvents().map((event, index) => (
+          filteredEvents().map((event) => (
             <EventCard key={event._id} event={event} />
           ))
         ) : (

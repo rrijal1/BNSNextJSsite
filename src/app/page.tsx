@@ -48,8 +48,8 @@ export default function Home() {
               </h1>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl">
                 Nurturing Passion, Shaping the Future – A Center of Excellence
-                in Education. Where every student's potential is recognized and
-                nurtured to create global citizens of tomorrow.
+                in Education. Where every student&apos;s potential is recognized
+                and nurtured to create global citizens of tomorrow.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <CTAInlink
@@ -187,18 +187,22 @@ export default function Home() {
                   application process today.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <a
+                  <Link
                     href="/contact"
+                    aria-label="Schedule a tour"
+                    key={"schedule-tour"}
                     className="inline-flex items-center justify-center px-8 py-4 border-2 border-brandBlue text-brandBlue font-semibold rounded-2xl hover:bg-brandBlue/5 transition-all duration-300 w-full sm:w-auto"
                   >
                     Schedule a Tour
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/admission"
+                    aria-label="Apply for admission"
+                    key={"apply-admission"}
                     className="inline-flex items-center justify-center px-8 py-4 bg-brandBlue text-white font-semibold rounded-2xl hover:bg-brandBlue/90 transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto"
                   >
                     Apply Now
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -231,8 +235,10 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                   <div className="space-y-4">
-                    <a
-                      href="mailto:info@bloomnepalschool.edu.np"
+                    <Link
+                      href="mailto:info@bloom.edu.np"
+                      aria-label="Email us"
+                      key={"email-us"}
                       className="flex items-center text-gray-700 hover:text-brandGreen transition-colors"
                     >
                       <svg
@@ -248,10 +254,12 @@ export default function Home() {
                           d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                         />
                       </svg>
-                      info@bloomnepalschool.edu.np
-                    </a>
-                    <a
-                      href="tel:+9771234567890"
+                      info@bloomn.edu.np
+                    </Link>
+                    <Link
+                      href="tel:+9775530190"
+                      aria-label="Call us"
+                      key={"call-us"}
                       className="flex items-center text-gray-700 hover:text-brandGreen transition-colors"
                     >
                       <svg
@@ -268,12 +276,13 @@ export default function Home() {
                         />
                       </svg>
                       +977 9851147140
-                    </a>
+                    </Link>
                   </div>
                   <div className="flex items-center space-x-4">
-                    <a
+                    <Link
                       href="https://wa.me/9779800000000"
                       target="_blank"
+                      key={"whatsapp"}
                       rel="noopener noreferrer"
                       className="p-3 bg-green-100 text-green-600 rounded-full hover:bg-green-200 transition-colors"
                       aria-label="WhatsApp"
@@ -285,11 +294,12 @@ export default function Home() {
                       >
                         <path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12z" />
                       </svg>
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="https://facebook.com/bloomnepalschool"
                       target="_blank"
                       rel="noopener noreferrer"
+                      key={"facebook"}
                       className="p-3 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 transition-colors"
                       aria-label="Facebook"
                     >
@@ -300,7 +310,7 @@ export default function Home() {
                       >
                         <path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12z" />
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -402,8 +412,8 @@ export default function Home() {
                 </h3>
                 <p className="text-gray-600">
                   We value sports, arts, science, and every passion equally. Our
-                  mission is to align academic growth with each student's unique
-                  interests.
+                  mission is to align academic growth with each student&apos;s
+                  unique interests.
                 </p>
               </div>
 
@@ -585,8 +595,10 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Event Card 1 */}
-              <a
+              <Link
                 href="/events/inter-school-robotics-challenge"
+                key={"inter-school-robotics-challenge"}
+                aria-label="Inter-school Robotics Challenge"
                 className="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center gap-2 mb-4">
@@ -599,8 +611,8 @@ export default function Home() {
                   Inter-school Robotics Challenge
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Showcase innovation and teamwork in this year's robotics meet
-                  featuring schools from across the region.
+                  Showcase innovation and teamwork in this year&apos;s robotics
+                  meet featuring schools from across the region.
                 </p>
                 <div className="flex items-center text-sm text-gray-500">
                   <svg
@@ -625,11 +637,13 @@ export default function Home() {
                   </svg>
                   Lalitpur Campus
                 </div>
-              </a>
+              </Link>
 
               {/* Event Card 2 */}
-              <a
+              <Link
                 href="/events/creative-arts-week"
+                key={"creative-arts-week"}
+                aria-label="Creative Arts Week"
                 className="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center gap-2 mb-4">
@@ -668,11 +682,13 @@ export default function Home() {
                   </svg>
                   Both Campuses
                 </div>
-              </a>
+              </Link>
 
               {/* News Card */}
-              <a
+              <Link
                 href="/stories/grade-x-results"
+                key={"grade-x-results"}
+                aria-label="Grade X Board Results Announced"
                 className="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center gap-2 mb-4">
@@ -685,7 +701,7 @@ export default function Home() {
                   Grade X Board Results Announced
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  We're proud to announce outstanding results with 92% of
+                  We are proud to announce outstanding results with 92% of
                   students scoring A+ and distinctions in multiple subjects.
                 </p>
                 <div className="inline-flex items-center text-brandBlue font-medium group-hover:underline">
@@ -703,7 +719,7 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

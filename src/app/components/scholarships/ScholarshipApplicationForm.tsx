@@ -72,8 +72,8 @@ export default function ScholarshipApplicationForm() {
             Application Submitted!
           </h3>
           <p className="text-gray-600 max-w-md mx-auto leading-relaxed">
-            Thank you for applying for the Bloom Nepal Scholarship. We'll review
-            your application and contact you within 5-7 business days.
+            Thank you for applying for the Bloom Nepal Scholarship. We&apos;ll
+            review your application and contact you within 5-7 business days.
           </p>
         </div>
       </div>
@@ -238,8 +238,8 @@ export default function ScholarshipApplicationForm() {
                 className="text-sm text-gray-700 leading-relaxed"
               >
                 <span className="text-red-500">*</span> I have all required
-                documents (transcripts, birth certificate, parent's citizenship)
-                and will submit them via email to{" "}
+                documents (transcripts, birth certificate, parent&apos;s
+                citizenship) and will submit them via email to{" "}
                 <a
                   href="mailto:info@bloomn.edu.np"
                   className="text-brandBlue font-medium hover:underline"

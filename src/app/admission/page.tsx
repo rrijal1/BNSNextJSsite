@@ -2,8 +2,6 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import CTAInlink from "@/app/components/ui/CTAInLink";
-import Submit from "@/app/components/Submit";
 import { validateEmail } from "@/utils/form";
 
 const links = {
@@ -54,9 +52,9 @@ function SectionHero() {
                 </h1>
 
                 <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl">
-                  Join a school that's futuristic, teaches empathy, and provides
-                  an environment for fostering each child's unique talents and
-                  interests.
+                  Join a school that&apos;s futuristic, teaches empathy, and
+                  provides an environment for fostering each child&apos;s unique
+                  talents and interests.
                 </p>
               </div>
 
@@ -233,7 +231,7 @@ function AdmissionProcess() {
         number: "02",
         title: "Entrance Examination",
         description:
-          "We meet online or at Bloom Nepal School for your Entrance Exam. Don't be nervous - we've got sample questions below to help you prepare!",
+          "We meet online or at Bloom Nepal School for your Entrance Exam. Dont be nervous - we have got sample questions below to help you prepare!",
         icon: "📚",
       },
       {
@@ -680,7 +678,7 @@ function FirstStepForm({
               <div>
                 <h3 className="font-semibold text-lg">Admissions Open!</h3>
                 <p className="text-white/90">
-                  We're currently accepting applications for grades{" "}
+                  We are currently accepting applications for grades{" "}
                   {admissionGrades} - limited seats available!
                 </p>
               </div>
@@ -746,8 +744,9 @@ function FirstStepForm({
             <div>
               <h3 className="font-semibold text-lg">Admissions Closed</h3>
               <p className="text-white/90">
-                We're not currently accepting new applications. Leave your
-                contact details and we'll notify you when admissions reopen.
+                We&apos;re not currently accepting new applications. Leave your
+                contact details and we&apos;ll notify you when admissions
+                reopen.
               </p>
             </div>
           </div>
@@ -860,8 +859,8 @@ function FirstStepForm({
             <div className="bg-gray-50 rounded-xl p-4">
               <p className="text-sm text-gray-600 text-center">
                 <span className="font-medium">Note:</span> Please provide either
-                a phone number or email address. We'll use this to contact you
-                about your application.
+                a phone number or email address. We&apos;ll use this to contact
+                you about your application.
               </p>
             </div>
 
@@ -986,11 +985,11 @@ function FirstStepForm({
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                    We've Got You!
+                    We&apos;ve Got You!
                   </h3>
                   <p className="text-gray-600 max-w-md mx-auto leading-relaxed">
-                    Thank you for your interest. We'll contact you as soon as
-                    admissions reopen for the next academic year.
+                    Thank you for your interest. We&apos;ll contact you as soon
+                    as admissions reopen for the next academic year.
                   </p>
                 </div>
               </div>
@@ -1093,7 +1092,7 @@ export default function AdmissionPage() {
                       <p className="text-gray-600 text-sm leading-relaxed">
                         Our foundation evaluates applications based on financial
                         need, academic potential, and community involvement.
-                        We're committed to ensuring deserving students get
+                        We&apos;re committed to ensuring deserving students get
                         quality education regardless of their economic
                         background.
                       </p>

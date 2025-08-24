@@ -136,7 +136,7 @@ const ContactPage = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              We'd love to hear from you! Whether you have questions about
+              We&apos;d love to hear from you! Whether you have questions about
               admissions, want to schedule a visit, or need more information
               about our programs.
             </p>
@@ -175,8 +175,8 @@ const ContactPage = () => {
                 </div>
                 <div className="p-6">
                   <p className="text-gray-600 leading-relaxed mb-4">
-                    The best way to reach us is through email. We'll connect you
-                    to the right person or department quickly.
+                    The best way to reach us is through email. We&apos;ll
+                    connect you to the right person or department quickly.
                   </p>
                   <a
                     href="mailto:info@bloom.edu.np"
@@ -226,7 +226,7 @@ const ContactPage = () => {
                 </div>
                 <div className="p-6">
                   <p className="text-gray-600 leading-relaxed mb-4">
-                    Experience our campus firsthand! We'd love to show you
+                    Experience our campus firsthand! We&apos;d love to show you
                     around and help you discover what makes Bloom special.
                   </p>
                   <a
@@ -482,8 +482,8 @@ const ContactPage = () => {
                       Coming Soon
                     </h4>
                     <p className="text-gray-600 leading-relaxed">
-                      We're excited to announce that our Itahari campus is in
-                      development. Stay tuned for more details about this
+                      We&apos;re excited to announce that our Itahari campus is
+                      in development. Stay tuned for more details about this
                       exciting expansion!
                     </p>
                     <div className="mt-4">
@@ -538,7 +538,7 @@ const ContactPage = () => {
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Ready to experience Bloom Nepal School? Fill out the form below
-                and we'll arrange a personalized campus tour for you.
+                and we&apos;ll arrange a personalized campus tour for you.
               </p>
             </div>
 
@@ -564,8 +564,9 @@ const ContactPage = () => {
                     Request Submitted!
                   </h3>
                   <p className="text-gray-600 max-w-md mx-auto leading-relaxed">
-                    Thank you for your interest in Bloom Nepal School! We'll
-                    contact you within 24 hours to schedule your campus visit.
+                    Thank you for your interest in Bloom Nepal School!
+                    We&apos;ll contact you within 24 hours to schedule your
+                    campus visit.
                   </p>
                 </div>
               ) : (

@@ -53,14 +53,6 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
       const dateB = new Date(b.date);
       const todayDate = new Date(todayString);
 
-      // Calculate days from today
-      const daysFromTodayA = Math.abs(
-        (dateA.getTime() - todayDate.getTime()) / (1000 * 60 * 60 * 24)
-      );
-      const daysFromTodayB = Math.abs(
-        (dateB.getTime() - todayDate.getTime()) / (1000 * 60 * 60 * 24)
-      );
-
       // If one is today, prioritize it
       if (a.date === todayString) return -1;
       if (b.date === todayString) return 1;
@@ -174,8 +166,8 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
 
       {/* Events List */}
       <div className="space-y-4">
-        {sortedEvents.map((event, index) => {
-          const { day, month, weekday, fullMonth } = formatDate(event.date);
+        {sortedEvents.map((event) => {
+          const { day, month, weekday } = formatDate(event.date);
           const hasDetails = event.details && event.details.length > 0;
           const eventStatus = getEventStatus(event.date);
           const relativeDate = getRelativeDate(event.date);

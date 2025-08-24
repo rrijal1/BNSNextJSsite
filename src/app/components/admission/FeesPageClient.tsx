@@ -303,7 +303,7 @@ export default function FeesPageClient({ data }: { data: FeesSanityData }) {
               <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-brandGreen rounded-full animate-pulse"></div>
                 <span className="text-gray-600 font-medium">
-                  You're viewing:{" "}
+                  You are viewing:{" "}
                 </span>
                 <span className="font-bold capitalize text-brandGreen bg-brandGreen/10 px-3 py-1 rounded-full text-sm">
                   Bloom Nepal School, {currentSchoolLocation}

@@ -1,6 +1,6 @@
 import ScholarshipStories from "@/app/components/scholarships/ScholarshipStories";
 import Image from "next/image";
-import ScholarshipApplicationForm from "./ScholarshipApplicationForm";
+import ScholarshipApplicationForm from "../components/scholarships/ScholarshipApplicationForm";
 
 const scholarshipStats = [
   { number: "250+", label: "Scholarships Awarded", icon: "🎓" },
@@ -173,7 +173,7 @@ export default async function ScholarshipPage() {
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Through the generosity of donors worldwide and Bloom Nepal
-                Foundation, we've transformed hundreds of lives
+                Foundation, we&apos;ve transformed hundreds of lives
               </p>
             </div>
 
@@ -241,7 +241,7 @@ export default async function ScholarshipPage() {
                 Scholarship Benefits
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                What You'll <span className="text-brandBlue">Receive</span>
+                What You&apos;ll <span className="text-brandBlue">Receive</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Our comprehensive scholarship program covers more than just
@@ -420,7 +420,7 @@ export default async function ScholarshipPage() {
                     Bloom Nepal Foundation
                   </strong>{" "}
                   through the generosity of donors around the world. Together,
-                  we're making quality education accessible to deserving
+                  we&apos;re making quality education accessible to deserving
                   students.
                 </p>
 

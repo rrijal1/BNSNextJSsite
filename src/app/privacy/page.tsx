@@ -1,6 +1,7 @@
 import React from "react";
 import { getPrivacyPolicy } from "../components/data/SanityData";
 import PortableText from "../components/shared/PortableText";
+import Link from "next/link";
 
 export default async function PrivacyPage() {
   const privacyContent = await getPrivacyPolicy();
@@ -53,8 +54,10 @@ export default async function PrivacyPage() {
 
           {/* Back to Home */}
           <div className="text-center mt-12">
-            <a
+            <Link
               href="/"
+              key={"back-to-home"}
+              aria-label="Back to Home"
               className="inline-flex items-center px-6 py-3 bg-brandBlue text-white rounded-lg hover:bg-brandBlue/90 transition-colors duration-200"
             >
               <svg
@@ -71,7 +74,7 @@ export default async function PrivacyPage() {
                 />
               </svg>
               Back to Home
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -13,16 +13,16 @@ const TeamPage = () => {
       department: "Leadership",
       imageUrl: "/ram-rijal.jpg",
       bio: "Visionary leader with over 15 years of experience in educational innovation and community development in Nepal.",
-      email: "ram@bloom.edu.np",
+      email: "rijal.ramk@bloom.edu.np",
       qualifications: "MBA, Educational Leadership",
     },
     {
-      name: "Subekshya Rijal",
+      name: "Sunayna Shrestha",
       role: "Principal",
       department: "Leadership",
-      imageUrl: "/subekshya.jpg",
+      imageUrl: "/face-painting.jpeg",
       bio: "Passionate educator dedicated to nurturing young minds and fostering academic excellence through innovative teaching methods.",
-      email: "subekshya@bloom.edu.np",
+      email: "sunayna@bloom.edu.np",
       qualifications: "M.Ed, Child Psychology",
     },
     {
@@ -475,8 +475,8 @@ const TeamPage = () => {
               </h3>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
                 Join our passionate team of educators and help us shape the
-                future of education in Nepal. We're always looking for dedicated
-                professionals who share our vision.
+                future of education in Nepal. We&apos;re always looking for
+                dedicated professionals who share our vision.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a

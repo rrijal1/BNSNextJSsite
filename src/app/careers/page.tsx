@@ -315,7 +315,7 @@ const CareersPage = () => {
               <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 At Bloom Nepal School, we believe in creating an environment
                 where educators can thrive, innovate, and make a lasting impact
-                on students' lives.
+                on students&apos; lives.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -382,7 +382,7 @@ const CareersPage = () => {
                 Benefits Package
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                We invest in our team members' success and well-being with
+                We invest in our team members&apos; success and well-being with
                 competitive benefits and growth opportunities.
               </p>
             </div>
@@ -605,16 +605,16 @@ const CareersPage = () => {
                 Get In Touch
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-                Don't See the{" "}
+                Don&apos;t See the{" "}
                 <span className="bg-gradient-to-r from-brandBlue to-blue-600 bg-clip-text text-transparent">
                   Perfect
                 </span>{" "}
                 Role?
               </h3>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                We're always looking for talented individuals who share our
-                passion for education. Send us your resume and let's explore how
-                you can contribute to our mission.
+                We&apos;re always looking for talented individuals who share our
+                passion for education. Send us your resume and let&apos;s
+                explore how you can contribute to our mission.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a

@@ -134,7 +134,7 @@ const AcademicsPage: React.FC = () => {
                     learn and understand concepts deeply.
                   </p>
                   <p className="opacity-90 group-hover:opacity-100 transition-opacity duration-300">
-                    Whether it's a Math/Science class or Social Studies, we
+                    Whether it is a Math/Science or a Social Studies class, we
                     maximize the use of in-class and out-of-the-class activities
                     for students to engage with and truly enjoy each topic.
                   </p>
@@ -279,14 +279,14 @@ const AcademicsPage: React.FC = () => {
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <p className="text-lg opacity-90 group-hover:opacity-100 transition-opacity duration-300">
                     We deeply believe that passion is a major driving component
-                    of one's success in life. When students are passionate about
-                    what they're learning, magic happens.
+                    of one&apos;s success in life. When students are passionate
+                    about what they&apos;re learning, magic happens.
                   </p>
                   <p className="opacity-90 group-hover:opacity-100 transition-opacity duration-300">
                     Bloom Nepal is an institution with the right set of tools
-                    and environment for fostering and nurturing each child's
-                    unique passion, helping them discover their potential and
-                    pursue their dreams.
+                    and environment for fostering and nurturing each
+                    child&apos;s unique passion, helping them discover their
+                    potential and pursue their dreams.
                   </p>
                 </div>
 

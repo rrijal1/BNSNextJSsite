@@ -35,12 +35,12 @@ const missionData: MissionTopic[] = [
           <p className="text-lg">
             DEAR stands for <strong>Drop Everything And Read</strong>. Every
             Friday, students at Bloom have an hour of DEAR time where they study
-            their favorite Novel, Newspaper article or anything that's not a
-            part of their school curriculum.
+            their favorite Novel, Newspaper article or anything that&apos;s not
+            a part of their school curriculum.
           </p>
           <p>
             With the implementation of DEAR culture, we have seen significant
-            improvement in students' reading habits and overall literacy
+            improvement in students&apos; reading habits and overall literacy
             development.
           </p>
         </div>

@@ -57,7 +57,7 @@ const NotFound: FC = () => {
           fill="#fff" // White
           textAnchor="middle"
         >
-          Let's get you back to your classroom.
+          Let&apos;s get you back to your classroom.
         </text>
         {/* Modern Desk - Light Wood */}
         <rect x="60" y="230" width="380" height="20" fill="#d2b48c" />
@@ -106,10 +106,6 @@ const NotFound: FC = () => {
           strokeWidth="2"
         />
       </svg>
-
-      <p style={{ fontSize: "18px", marginTop: "30px", color: "#555" }}>
-        Oops! The page you're looking for seems to have wandered off.
-      </p>
       <HomeButton />
     </div>
   );

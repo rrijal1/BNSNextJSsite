@@ -58,7 +58,8 @@ const EventDetailPage = async ({ params }: EventDetailPageProps) => {
             Event Not Found
           </h1>
           <p className="text-gray-600 mb-8">
-            The event you're looking for doesn't exist or has been removed.
+            The event you&apos;re looking for doesn&apos;t exist or has been
+            removed.
           </p>
           <Link
             href="/events"
