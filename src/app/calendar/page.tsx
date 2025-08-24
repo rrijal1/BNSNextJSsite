@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { getallCalendarEvents } from "@/app/components/data/SanityData";
-import Calendar from "@/app/components/Calendar";
+import Calendar from "@/app/components/calendar/Calendar";
 
 // Loading component for better UX
 function CalendarLoading() {

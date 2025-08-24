@@ -1,9 +1,8 @@
 "use client";
 import Image from "next/image";
-import CTAInlink from "@/app/components/CTAInLink";
-import WhatsAppButton from "@/app/components/WhatsAppButton";
+import CTAInlink from "@/app/components/ui/CTAInLink";
+import WhatsAppButton from "@/app/components/ui/WhatsAppButton";
 import HeroSection from "@/app/components/ui/HeroSection";
-import Section from "@/app/components/ui/Section";
 import Link from "next/link";
 
 export default function Home() {

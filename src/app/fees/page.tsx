@@ -1,4 +1,4 @@
-import FeesPageClient from "../components/FeesPageClient";
+import FeesPageClient from "../components/admission/FeesPageClient";
 import { getFeesData } from "../components/data/SanityData";
 
 export default async function FeesPage() {

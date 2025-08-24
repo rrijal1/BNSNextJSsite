@@ -1,5 +1,5 @@
 import { client } from "@/lib/sanity";
-import { FeesSanityData, Fee } from "@/app/components/FeesPageClient";
+import { FeesSanityData, Fee } from "@/app/components/admission/FeesPageClient";
 import { ClubEvent } from "@/types/allTypes";
 import { PortableTextBlock } from "@portabletext/types";
 

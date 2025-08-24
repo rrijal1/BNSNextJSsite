@@ -1,6 +1,6 @@
 import { getAllClubEvents } from "@/app/components/data/SanityData";
 import { ClubEvent } from "@/types/allTypes";
-import EventFilter from "@/app/components/EventFilter";
+import EventFilter from "@/app/components/events/EventFilter";
 
 const EventsPage = async () => {
   const events: ClubEvent[] = await getAllClubEvents();

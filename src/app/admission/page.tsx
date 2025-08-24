@@ -2,7 +2,7 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import CTAInlink from "@/app/components/CTAInLink";
+import CTAInlink from "@/app/components/ui/CTAInLink";
 import Submit from "@/app/components/Submit";
 import { validateEmail } from "@/utils/form";
 
