@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const WhatsAppButton = () => {
   const openWhatsApp = () => {
-    const phoneNumber = "+9779851147140"; // Replace with the actual phone number
+    const phoneNumber = "+9779841207231";
     const message = "Hello! I'm interested in Bloom Nepal School."; // Replace with your desired message
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
