@@ -1,11 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import {
-  FaFacebook,
-  FaYoutube,
-  FaHeart,
-  FaGraduationCap,
-} from "react-icons/fa";
+import { FaFacebook, FaYoutube, FaGraduationCap } from "react-icons/fa";
 
 interface SingularMenuItem {
   name: string;
@@ -128,7 +123,7 @@ export default function Footer() {
                   href="https://www.facebook.com/bloomnepal"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group  hover:bg-brandGreen bg-brandRed p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                  className="group  hover:bg-brandRed bg-brandGreen p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg"
                   title="Follow us on Facebook"
                 >
                   <FaFacebook className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors duration-300" />
@@ -137,7 +132,7 @@ export default function Footer() {
                   href="https://www.youtube.com/channel/UC9VQZppX9zCQt5EajiGKPmg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group hover:bg-brandGreen bg-brandRed p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                  className="group hover:bg-brandRed bg-brandGreen p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg"
                   title="Subscribe to our YouTube channel"
                 >
                   <FaYoutube className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors duration-300" />
@@ -147,10 +142,6 @@ export default function Footer() {
 
             {/* Legal Links with Heart Icon */}
             <div className="flex items-center space-x-4 text-sm">
-              <div className="flex items-center space-x-2">
-                <FaHeart className="w-4 h-4 text-brandRed animate-pulse" />
-                <span className="text-gray-300">Made with care</span>
-              </div>
               <div className="flex items-center space-x-3">
                 <Link
                   href="/privacy"

@@ -1,6 +1,7 @@
 import ScholarshipStories from "@/app/components/scholarships/ScholarshipStories";
 import Image from "next/image";
 import ScholarshipApplicationForm from "../components/scholarships/ScholarshipApplicationForm";
+import { FaHeart } from "react-icons/fa";
 
 const scholarshipStats = [
   { number: "250+", label: "Scholarships Awarded", icon: "🎓" },
@@ -143,8 +144,14 @@ export default async function ScholarshipPage() {
                     />
                   </div>
 
-                  <div className="absolute -top-4 -right-4 w-20 h-20 bg-brandGreen rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg animate-bounce">
-                    <span>Free!</span>
+                  <div className="absolute -top-4 -right-4 w-15 h-15 bg-brandWhite rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg animate-bounce">
+                    <Image
+                      src="/logo-bloom.png"
+                      alt="Bloom Nepal School Logo"
+                      width={60}
+                      height={60}
+                      className="object-contain"
+                    />
                   </div>
 
                   <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-brandBlue rounded-full flex items-center justify-center shadow-lg">

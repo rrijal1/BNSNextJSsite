@@ -745,7 +745,7 @@ const ContactPage = () => {
                       <button
                         type="submit"
                         disabled={!isFormValid}
-                        className={`px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ${
+                        className={`px-8 my-4 py-4 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ${
                           isFormValid
                             ? "bg-gradient-to-r from-brandGreen to-green-600 hover:from-brandGreen/90 hover:to-green-600/90"
                             : "bg-gray-400 cursor-not-allowed"
