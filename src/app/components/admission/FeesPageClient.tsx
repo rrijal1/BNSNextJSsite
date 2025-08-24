@@ -61,17 +61,6 @@ function getCurrentBSYear() {
   return today.getFullYear() + 57;
 }
 
-function todayDateRaw() {
-  const today = new Date();
-  const month = today.toLocaleString("default", { month: "short" });
-  const date = today.getDate();
-  const year = today.getFullYear();
-  const hours = today.getHours();
-  const minutes = today.getMinutes();
-  const time = `${hours}:${minutes < 10 ? "0" + minutes : minutes} ${hours >= 12 ? "PM" : "AM"}`;
-  return `${month}-${date}, ${year} ${time}`;
-}
-
 function SchoolPricingTable({
   location,
   fees,
