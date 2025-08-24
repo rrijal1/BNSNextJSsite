@@ -1,7 +1,6 @@
 import ScholarshipStories from "@/app/components/scholarships/ScholarshipStories";
 import Image from "next/image";
 import ScholarshipApplicationForm from "../components/scholarships/ScholarshipApplicationForm";
-import { FaHeart } from "react-icons/fa";
 
 const scholarshipStats = [
   { number: "250+", label: "Scholarships Awarded", icon: "🎓" },
