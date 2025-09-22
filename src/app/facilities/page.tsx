@@ -9,14 +9,14 @@ const FacilitiesPage = () => {
   const campuses = [
     {
       id: "lalitpur",
-      name: "Lalitpur Campus",
+      name: "Lalitpur School",
       location: "Mahalaxmi, Lalitpur",
       area: "30 ropanis",
       description:
         "Located in the foothills of Sankhadevi, just 45 minutes from Kathmandu city center.",
       image: "/lalitpurLocation.jpg",
       features: [
-        "Spacious Campus",
+        "Spacious Areas",
         "Natural Environment",
         "Modern Infrastructure",
         "Sports Facilities",
@@ -24,11 +24,11 @@ const FacilitiesPage = () => {
     },
     {
       id: "itahari",
-      name: "Itahari Campus",
+      name: "Itahari School",
       location: "Itahari, Sunsari",
       area: "15 ropanis",
       description:
-        "Our eastern campus serving the Koshi region with modern facilities.",
+        "Our eastern school serving the Koshi region with modern facilities.",
       image: "/bloomie.png",
       features: [
         "Urban Location",
@@ -148,7 +148,7 @@ const FacilitiesPage = () => {
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
               <span className="bg-gradient-to-r from-brandBlue via-blue-500 to-blue-600 bg-clip-text text-transparent">
-                World-Class
+                Child Centric
               </span>
               <br />
               <span className="bg-gradient-to-r from-brandGreen to-green-600 bg-clip-text text-transparent">
@@ -186,7 +186,7 @@ const FacilitiesPage = () => {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                Explore Campuses
+                Explore Our Schools
               </a>
               <a
                 href="/admission"
@@ -239,7 +239,7 @@ const FacilitiesPage = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Choose Your{" "}
                 <span className="bg-gradient-to-r from-brandBlue to-blue-600 bg-clip-text text-transparent">
-                  Campus
+                  Locations
                 </span>
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
@@ -305,7 +305,7 @@ const FacilitiesPage = () => {
                           />
                         </svg>
                         <span className="font-semibold">
-                          Campus Area: {selectedCampusData.area}
+                          School Area: {selectedCampusData.area}
                         </span>
                       </div>
                     </div>
@@ -625,7 +625,7 @@ const FacilitiesPage = () => {
                 ?
               </h3>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Visit our campuses to see firsthand how our world-class
+                Visit our Schools to see firsthand how our world-class
                 facilities support student learning and development. Schedule a
                 tour today!
               </p>
