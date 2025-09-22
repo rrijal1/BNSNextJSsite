@@ -1,11 +1,96 @@
-"use client";
 import Image from "next/image";
 import CTAInlink from "@/app/components/ui/CTAInLink";
 import WhatsAppButton from "@/app/components/ui/WhatsAppButton";
 import HeroSection from "@/app/components/ui/HeroSection";
 import Link from "next/link";
+import {
+  getAllPosts,
+  getAllClubEvents,
+  getallCalendarEvents,
+} from "@/app/components/data/SanityData";
 
-export default function Home() {
+export default async function Home() {
+  // Fetch the latest content using existing functions
+  const [allStories, allEvents, allCalendarEvents] = await Promise.all([
+    getAllPosts(),
+    getAllClubEvents(),
+    getallCalendarEvents(),
+  ]);
+
+  // Get the first item from each
+  const latestStory = allStories[0];
+  const latestEvent = allEvents[0];
+  const latestCalendarEvent = allCalendarEvents[0];
+
+  // Helper functions
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  };
+
+  const formatDateRange = (startDate: string, endDate: string) => {
+    if (startDate === endDate) {
+      return formatDate(startDate);
+    }
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const startFormatted = start.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+    });
+    const endFormatted = end.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+    return `${startFormatted}–${endFormatted}`;
+  };
+
+  const getEventStatus = (startDate: string, endDate: string) => {
+    const now = new Date();
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    if (now < start) return "upcoming";
+    if (now > end) return "completed";
+    return "ongoing";
+  };
+
+  const getStatusBadge = (status: string) => {
+    switch (status) {
+      case "upcoming":
+        return {
+          bg: "bg-brandGreen/10",
+          text: "text-brandGreen",
+          label: "Upcoming",
+        };
+      case "ongoing":
+        return {
+          bg: "bg-brandBlue/10",
+          text: "text-brandBlue",
+          label: "Ongoing",
+        };
+      default:
+        return { bg: "bg-gray-100", text: "text-gray-600", label: "Completed" };
+    }
+  };
+
+  const formatTime = (timeString: string) => {
+    try {
+      const date = new Date(timeString);
+      return date.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      });
+    } catch {
+      return timeString; // Return original if parsing fails
+    }
+  };
+
   return (
     <main className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 to-white">
       {" "}
@@ -48,7 +133,7 @@ export default function Home() {
               </h1>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl">
                 Nurturing Passion, Shaping the Future – A Center of Excellence
-                in Education. Where every student&apos;s potential is recognized
+                in Education, where every student&apos;s potential is recognized
                 and nurtured to create global citizens of tomorrow.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -106,7 +191,7 @@ export default function Home() {
                     ))}
                   </div>
                   <div className="text-gray-700">
-                    <p className="text-base font-medium">700+ Happy Students</p>
+                    <p className="text-base font-medium">750+ Happy Students</p>
                     <p className="text-sm text-gray-500">and counting...</p>
                   </div>
                 </div>
@@ -131,29 +216,6 @@ export default function Home() {
                   <span className="truncate">Live: Campus Tour Available</span>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Scroll indicator */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10">
-            <div className="animate-bounce flex flex-col items-center">
-              <span className="text-sm text-gray-500 mb-2">
-                Scroll to explore
-              </span>
-              <svg
-                className="w-6 h-6 text-brandBlue"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
-              </svg>
             </div>
           </div>
         </div>
@@ -186,7 +248,7 @@ export default function Home() {
                   Journey
                 </h3>
                 <p className="text-lg text-gray-600 mb-8 max-w-2xl">
-                  Discover our programs, visit our campuses, and begin your
+                  Discover our programs, visit our schools, and begin your
                   application process today.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -279,7 +341,7 @@ export default function Home() {
                           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                         />
                       </svg>
-                      +977 9851147140
+                      +977 984-1207231
                     </Link>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -340,21 +402,21 @@ export default function Home() {
               <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full">
                 <div className="w-25 h-20 bg-brandGreen/10 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                   <span className="text-3xl px-8 mx-12 font-bold text-brandGreen">
-                    80%
+                    30%
                   </span>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   Top Scholars
                 </h3>
                 <p className="text-gray-600">
-                  Graduates with prestigious scholarships
+                  Get scholarships for further studies
                 </p>
               </div>
 
               <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full">
                 <div className="w-25 h-20 bg-brandBlue/10 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                   <span className="text-3xl font-bold text-brandBlue">
-                    700+
+                    750+
                   </span>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -443,97 +505,9 @@ export default function Home() {
                 </h3>
                 <p className="text-gray-600">
                   Surrounded by passionate teachers and peers, our students
-                  naturally discover and develop their interests in a nurturing
-                  and stimulating setting.
+                  learn and grow in a nurturing and stimulating setting.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Student Work */}
-      <section className="w-full py-16 md:py-24 bg-gradient-to-br from-brandGreen/10 via-white to-brandBlue/10">
-        <div className="w-full md:px-8 px-4">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Student{" "}
-              <span className="bg-gradient-to-r from-brandBlue to-brandGreen bg-clip-text text-transparent">
-                Creations
-              </span>
-            </h2>
-            <p className="text-lg text-gray-600 mb-12">
-              Discover what our students are building, creating, and achieving
-            </p>
-
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-              <CTAInlink
-                linkto="/stories"
-                className="px-6 py-3 bg-brandBlue text-white rounded-lg hover:bg-brandBlue/90 transition-colors duration-300 shadow-sm hover:shadow-md"
-              >
-                <div className="flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-                    ></path>
-                  </svg>
-                  Stories
-                </div>
-              </CTAInlink>
-
-              <CTAInlink
-                linkto="/events"
-                className="px-6 py-3 bg-brandGreen text-white rounded-lg hover:bg-brandGreen/90 transition-colors duration-300 shadow-sm hover:shadow-md"
-              >
-                <div className="flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                  Events
-                </div>
-              </CTAInlink>
-
-              <CTAInlink
-                linkto="/calendar"
-                className="px-6 py-3 bg-brandRed text-white rounded-lg hover:bg-brandRed/90 transition-colors duration-300 shadow-sm hover:shadow-md"
-              >
-                <div className="flex items-center gap-2">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                  Calendar
-                </div>
-              </CTAInlink>
             </div>
           </div>
         </div>
@@ -546,11 +520,11 @@ export default function Home() {
               <div className="text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
                   <span className="bg-gradient-to-r from-brandBlue to-brandGreen bg-clip-text text-transparent">
-                    News & Events
+                    News, Stories and Events
                   </span>
                 </h2>
                 <p className="text-lg text-gray-600">
-                  Latest updates and happenings from our campuses
+                  Latest updates and happenings from our vibrant community
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 justify-center">
@@ -574,6 +548,28 @@ export default function Home() {
                   </svg>
                   View Calendar
                 </CTAInlink>
+
+                <CTAInlink
+                  linkto="/events"
+                  className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-300 flex items-center gap-2"
+                >
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    ></path>
+                  </svg>
+                  All Events
+                </CTAInlink>
+
                 <CTAInlink
                   linkto="/stories"
                   className="px-6 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-300 flex items-center gap-2"
@@ -592,138 +588,201 @@ export default function Home() {
                       d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
                     ></path>
                   </svg>
-                  All News
+                  Stories and News
                 </CTAInlink>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Event Card 1 */}
-              <Link
-                href="/events/inter-school-robotics-challenge"
-                key={"inter-school-robotics-challenge"}
-                aria-label="Inter-school Robotics Challenge"
-                className="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="px-3 py-1 bg-brandGreen/10 text-brandGreen text-xs font-medium rounded-full">
-                    Upcoming
-                  </span>
-                  <span className="text-sm text-gray-500">Sep 28, 2023</span>
+              {/* Latest Calendar Event */}
+              {latestCalendarEvent ? (
+                <div className="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="px-3 py-1 bg-brandBlue/10 text-brandBlue text-xs font-medium rounded-full">
+                      Calendar
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {formatDate(latestCalendarEvent.date)}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-brandBlue transition-colors">
+                    {latestCalendarEvent.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    {latestCalendarEvent.details ||
+                      "Check the calendar for more details about this event."}
+                  </p>
+                  <div className="flex items-center text-sm text-gray-500">
+                    <svg
+                      className="w-4 h-4 mr-1.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                    {latestCalendarEvent.timeFrom && latestCalendarEvent.timeTo
+                      ? `${formatDate(latestCalendarEvent.date)}: ${formatTime(latestCalendarEvent.timeFrom)} - ${formatTime(latestCalendarEvent.timeTo)}`
+                      : `Start Date: ${formatDate(latestCalendarEvent.date)}`}
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-brandBlue transition-colors">
-                  Inter-school Robotics Challenge
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Showcase innovation and teamwork in this year&apos;s robotics
-                  meet featuring schools from across the region.
-                </p>
-                <div className="flex items-center text-sm text-gray-500">
-                  <svg
-                    className="w-4 h-4 mr-1.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    ></path>
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    ></path>
-                  </svg>
-                  Lalitpur Campus
+              ) : (
+                <div className="group bg-white border border-gray-100 rounded-2xl p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">
+                      Calendar
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    No Recent Calendar Events
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    Check back soon for upcoming calendar events and important
+                    dates.
+                  </p>
                 </div>
-              </Link>
+              )}
 
-              {/* Event Card 2 */}
-              <Link
-                href="/events/creative-arts-week"
-                key={"creative-arts-week"}
-                aria-label="Creative Arts Week"
-                className="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="px-3 py-1 bg-brandBlue/10 text-brandBlue text-xs font-medium rounded-full">
-                    Ongoing
-                  </span>
-                  <span className="text-sm text-gray-500">Aug 20–26, 2023</span>
+              {/* Latest Event */}
+              {latestEvent ? (
+                <Link
+                  href={`/events/${latestEvent.slug.current}`}
+                  key={latestEvent._id}
+                  aria-label={latestEvent.title}
+                  className="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className="flex items-center gap-2 mb-4">
+                    {(() => {
+                      const status = getEventStatus(
+                        latestEvent.startDate,
+                        latestEvent.endDate
+                      );
+                      const badge = getStatusBadge(status);
+                      return (
+                        <>
+                          <span
+                            className={`px-3 py-1 ${badge.bg} ${badge.text} text-xs font-medium rounded-full`}
+                          >
+                            {badge.label}
+                          </span>
+                          <span className="text-sm text-gray-500">
+                            {formatDateRange(
+                              latestEvent.startDate,
+                              latestEvent.endDate
+                            )}
+                          </span>
+                        </>
+                      );
+                    })()}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-brandBlue transition-colors">
+                    {latestEvent.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    {latestEvent.excerpt ||
+                      "Join us for this exciting event. Click to learn more!"}
+                  </p>
+                  <div className="flex items-center text-sm text-gray-500">
+                    <svg
+                      className="w-4 h-4 mr-1.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      ></path>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      ></path>
+                    </svg>
+                    School Event
+                  </div>
+                </Link>
+              ) : (
+                <div className="group bg-white border border-gray-100 rounded-2xl p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">
+                      Events
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    No Recent Events
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    Check back soon for exciting school events and activities.
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-brandBlue transition-colors">
-                  Creative Arts Week
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  A celebration of creativity with workshops, exhibitions, and
-                  performances by our talented students.
-                </p>
-                <div className="flex items-center text-sm text-gray-500">
-                  <svg
-                    className="w-4 h-4 mr-1.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    ></path>
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    ></path>
-                  </svg>
-                  Both Campuses
-                </div>
-              </Link>
+              )}
 
-              {/* News Card */}
-              <Link
-                href="/stories/grade-x-results"
-                key={"grade-x-results"}
-                aria-label="Grade X Board Results Announced"
-                className="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="px-3 py-1 bg-brandRed/10 text-brandRed text-xs font-medium rounded-full">
-                    Highlights
-                  </span>
-                  <span className="text-sm text-gray-500">Aug 15, 2023</span>
+              {/* Latest Story */}
+              {latestStory ? (
+                <Link
+                  href={`/stories/${latestStory.slug}`}
+                  key={latestStory._id}
+                  aria-label={latestStory.title}
+                  className="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="px-3 py-1 bg-brandRed/10 text-brandRed text-xs font-medium rounded-full">
+                      Story
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {formatDate(latestStory._createdAt)}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-brandBlue transition-colors">
+                    {latestStory.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    {latestStory.excerpt ||
+                      "Discover inspiring stories from our school community."}
+                  </p>
+                  <div className="inline-flex items-center text-brandBlue font-medium group-hover:underline">
+                    Read full story
+                    <svg
+                      className="ml-2 -mr-1 w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </Link>
+              ) : (
+                <div className="group bg-white border border-gray-100 rounded-2xl p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">
+                      Stories
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    No Recent Stories
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    Check back soon for inspiring stories from our school
+                    community.
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-brandBlue transition-colors">
-                  Grade X Board Results Announced
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  We are proud to announce outstanding results with 92% of
-                  students scoring A+ and distinctions in multiple subjects.
-                </p>
-                <div className="inline-flex items-center text-brandBlue font-medium group-hover:underline">
-                  Read full story
-                  <svg
-                    className="ml-2 -mr-1 w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-              </Link>
+              )}
             </div>
           </div>
         </div>
@@ -745,28 +804,28 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
             {
-              name: "Saraswati K.",
+              name: "Kritim K. Rijal",
               degree: "Computer Science",
-              university: "Pulchowk Campus",
+              university: "Richmond University, USA",
               achievement:
                 "Led the robotics club and now researches AI for social impact at Google AI.",
               image: "/alumni/saraswati.jpg",
             },
             {
-              name: "Anish R.",
-              degree: "Economics",
-              university: "Ashoka University",
+              name: "Prasanna Karki.",
+              degree: "IB DP",
+              university: "UWC, Tanzania",
               achievement:
                 "Debate captain; received a full merit scholarship and now works at the World Bank.",
-              image: "/alumni/anish.jpg",
+              image: "/alumni/Prasanna.jpg",
             },
             {
-              name: "Prabina S.",
-              degree: "Design",
-              university: "Kathmandu University",
+              name: "Rukmani Ghorasainee.",
+              degree: "Compter Science",
+              university: "New York University, Abu Dhabi",
               achievement:
                 "Arts fest winner; now a senior UX designer at Microsoft, specializing in human-centered design.",
-              image: "/alumni/prabina.jpg",
+              image: "/alumni/rukmani.jpg",
             },
           ].map((alumni, index) => (
             <div
