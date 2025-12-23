@@ -2,6 +2,24 @@ import { Suspense } from "react";
 import { getAllPosts } from "@/app/components/data/SanityData";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Stories",
+  description:
+    "Read inspiring stories from Bloom Nepal School students, alumni, and community members. Discover how passion and purpose shape young minds.",
+  keywords: [
+    "Bloom Nepal stories",
+    "student success stories",
+    "alumni testimonials",
+    "education impact",
+  ],
+  openGraph: {
+    title: "Stories | Bloom Nepal School",
+    description:
+      "Read inspiring stories from Bloom Nepal School students, alumni, and community members.",
+  },
+};
 
 interface Post {
   _id: string;

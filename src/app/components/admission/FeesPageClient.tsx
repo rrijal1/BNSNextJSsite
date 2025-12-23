@@ -106,7 +106,7 @@ function SchoolPricingTable({
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>
-            <tr className="bg-gradient-to-r from-brandGreen to-green-600 text-white">
+            <tr className="bg-brandGreen text-white">
               <th className="px-6 py-4 text-left font-semibold text-sm uppercase tracking-wide">
                 Grade
               </th>
@@ -197,7 +197,7 @@ function SchoolHowToPay({
   return (
     <div className="mt-12">
       <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-        <div className="bg-gradient-to-r from-brandBlue to-blue-600 px-6 py-4">
+        <div className="bg-brandBlue px-6 py-4">
           <h3 className="text-xl font-bold text-white flex items-center">
             <svg
               className="w-6 h-6 mr-3"
@@ -413,10 +413,7 @@ export default function FeesPageClient({ data }: { data: FeesSanityData }) {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              Transparent{" "}
-              <span className="bg-gradient-to-r from-brandGreen to-green-600 bg-clip-text text-transparent">
-                Pricing
-              </span>
+              Transparent <span className="text-brandBlue">Fees</span>
               <br />
               for Quality Education
             </h1>
@@ -434,7 +431,7 @@ export default function FeesPageClient({ data }: { data: FeesSanityData }) {
                   key={`top-desktop-${loc.location}`}
                   className={`px-6 py-3 font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-md capitalize ${
                     currentSchoolLocation === loc.location
-                      ? "bg-brandGreen text-white shadow-lg"
+                      ? "bg-brandRed text-white shadow-lg"
                       : "bg-white text-brandBlue border-2 border-brandBlue hover:bg-brandBlue hover:text-white"
                   }`}
                   onClick={() => handleSelectSchool(loc.location)}
@@ -452,7 +449,7 @@ export default function FeesPageClient({ data }: { data: FeesSanityData }) {
         {/* Fee Structure Section */}
         <section className="mb-16">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center px-4 py-2 bg-brandGreen/10 rounded-full text-brandGreen text-sm font-medium mb-4">
+            <div className="inline-flex items-center px-4 py-2 bg-brandRed/10 rounded-full text-brandRed text-sm font-medium mb-4">
               <svg
                 className="w-4 h-4 mr-2"
                 fill="currentColor"
@@ -467,7 +464,7 @@ export default function FeesPageClient({ data }: { data: FeesSanityData }) {
               Fee Structure {getCurrentBSYear()} BS
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              <span className="text-brandGreen capitalize">
+              <span className="text-brandRed capitalize">
                 {currentSchoolLocation}
               </span>{" "}
               School Fees

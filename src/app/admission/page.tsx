@@ -12,7 +12,7 @@ const links = {
     2: "https://drive.google.com/file/d/116B6TsGwAfm5Qjm3Yh0dmwmBOu9O0dJT/view",
     3: "https://drive.google.com/file/d/1dX5WF4643-4cGxiio4oZRc6ZLQu7YEuL/view",
     4: "https://drive.google.com/file/d/1kAZsxRRlglHgmOt433SqGo5n0eEyKQi3/view",
-    5: "https://drive.com/file/d/1lXDXLTVl5XCq7amBNh7k3BZ11H3_rINA/view",
+    5: "https://drive.google.com/file/d/1lXDXLTVl5XCq7amBNh7k3BZ11H3_rINA/view",
     6: "https://drive.google.com/file/d/1G0ilmmqzleqRqKpUGsSFISyViD8cC6Yy/view",
     7: "https://drive.google.com/file/d/1XobaNDmN1DO8hw8GnSWTr4x96ZL2flnJ/view",
     8: "https://drive.google.com/file/d/15qH4bRUmfWGzFKSuHKTtgoTtC1Qb-29w/view",
@@ -43,10 +43,7 @@ function SectionHero() {
               {/* Main Heading */}
               <div className="space-y-6">
                 <h1 className="text-5xl md:text-7xl font-bold text-gray-900 leading-tight">
-                  Be a{" "}
-                  <span className="bg-gradient-to-r from-brandRed to-red-600 bg-clip-text text-transparent">
-                    Bloom
-                  </span>
+                  Be a <span className="text-brandRed">Bloom</span>
                   <br />
                   Nepal Student
                 </h1>
@@ -536,7 +533,7 @@ function DownloadSampleQuestions() {
               type="submit"
               className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ${
                 formValid
-                  ? "bg-gradient-to-r from-brandGreen to-green-600 hover:from-brandGreen/90 hover:to-green-600/90"
+                  ? "bg-brandGreen hover:bg-brandGreen/90"
                   : "bg-gray-400 cursor-not-allowed"
               }`}
               disabled={!formValid}
@@ -658,7 +655,7 @@ function FirstStepForm({
       {/* Status Messages */}
       {!submitted && takingAdmission && (
         <div className="space-y-6">
-          <div className="bg-gradient-to-r from-brandGreen to-green-600 text-white p-6 rounded-2xl shadow-lg">
+          <div className="bg-brandGreen text-white p-6 rounded-2xl shadow-lg">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
                 <svg
@@ -724,7 +721,7 @@ function FirstStepForm({
       )}
 
       {!submitted && !takingAdmission && (
-        <div className="bg-gradient-to-r from-red-500 to-red-600 text-white p-6 rounded-2xl shadow-lg">
+        <div className="bg-brandRed text-white p-6 rounded-2xl shadow-lg">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
               <svg
@@ -870,8 +867,8 @@ function FirstStepForm({
               className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ${
                 formValid
                   ? takingAdmission
-                    ? "bg-gradient-to-r from-brandGreen to-green-600 hover:from-brandGreen/90 hover:to-green-600/90"
-                    : "bg-gradient-to-r from-brandBlue to-blue-600 hover:from-brandBlue/90 hover:to-blue-600/90"
+                    ? "bg-brandGreen hover:bg-brandGreen/90"
+                    : "bg-brandBlue hover:bg-brandBlue/90"
                   : "bg-gray-400 cursor-not-allowed transform-none"
               }`}
               disabled={!formValid}
@@ -1007,6 +1004,22 @@ export default function AdmissionPage() {
   const takingAdmission = true;
   const admissionGrades = "1-8";
 
+  useEffect(() => {
+    document.title = "Admission | Bloom Nepal School";
+
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute(
+      "content",
+      "Apply for admission to Bloom Nepal School. Join a futuristic school that teaches empathy and fosters each child's unique talents. Grades 1-8 admission open."
+    );
+  }, []);
+
   return (
     <main className="min-h-screen bg-white">
       <SectionHero />
@@ -1055,17 +1068,13 @@ export default function AdmissionPage() {
 
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
                   Scholarship{" "}
-                  <span className="text-brandGreen">Opportunities</span>
+                  <span className="text-brandBlue">Opportunities</span>
                 </h2>
 
                 <p className="text-xl text-gray-600 leading-relaxed">
                   We believe education should be accessible to all. Through our
-                  <strong className="text-brandGreen font-semibold">
-                    {" "}
-                    Bloom Nepal Foundation
-                  </strong>
-                  , we provide scholarships to deserving families who need
-                  financial support.
+                  Bloom Nepal Foundation , we provide scholarships to deserving
+                  families who need financial support.
                 </p>
 
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">

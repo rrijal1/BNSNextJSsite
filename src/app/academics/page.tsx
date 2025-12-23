@@ -1,11 +1,26 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import BookList from "@/app/components/academics/BookList";
 import MissionSection from "@/app/components/academics/MissionSection";
 import Image from "next/image";
 
 const AcademicsPage: React.FC = () => {
+  useEffect(() => {
+    document.title = "Academics | Bloom Nepal School";
+
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute(
+      "content",
+      "Discover academic excellence at Bloom Nepal School. View our comprehensive curriculum, book lists, teaching methodology, and approach to quality education."
+    );
+  }, []);
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       {/* Hero Section */}
@@ -36,18 +51,13 @@ const AcademicsPage: React.FC = () => {
               Academic Excellence
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6 animate-fade-in-up">
-              <span className="bg-gradient-to-r from-brandGreen via-green-500 to-green-600 bg-clip-text text-transparent hover:from-brandGreen hover:to-brandBlue transition-all duration-500">
-                Academic
-              </span>{" "}
-              Excellence
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
+              Academic Excellence
               <br />
               <span className="text-3xl md:text-5xl lg:text-6xl text-gray-700">
                 at
               </span>{" "}
-              <span className="bg-gradient-to-r from-brandBlue to-blue-600 bg-clip-text text-transparent">
-                Bloom Nepal
-              </span>
+              <span className="text-brandBlue">Bloom Nepal</span>
             </h1>
 
             <p className="text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300">
@@ -58,10 +68,10 @@ const AcademicsPage: React.FC = () => {
 
             {/* Call to Action Buttons */}
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="px-8 py-3 bg-gradient-to-r from-brandGreen to-green-600 text-white font-semibold rounded-full hover:from-green-600 hover:to-brandGreen transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button className="px-8 py-3 text-brandBlue font-semibold rounded-full border-2 border-brandBlue/20 bg-brandWhite/20 hover:border-brandBlue hover:bg-brandBlue/5 transform hover:scale-105 transition-all duration-300">
                 Explore Curriculum
               </button>
-              <button className="px-8 py-3 bg-white text-brandBlue font-semibold rounded-full border-2 border-brandBlue/20 hover:border-brandBlue hover:bg-brandBlue/5 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button className="px-8 py-3 bg-white text-brandBlue font-semibold rounded-full border-2 border-brandBlue/20 hover:border-brandBlue hover:bg-brandBlue/5 transform hover:scale-105 transition-all duration-300">
                 View Resources
               </button>
             </div>
@@ -74,7 +84,7 @@ const AcademicsPage: React.FC = () => {
         <div className="max-w-6xl mx-auto space-y-16">
           {/* Book List Section */}
           <section className="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:border-brandBlue/20 transition-all duration-300">
-            <div className="bg-gradient-to-r from-brandBlue to-blue-600 px-8 py-6">
+            <div className="bg-brandBlue px-8 py-6">
               <h2 className="text-2xl font-bold text-white flex items-center">
                 <svg
                   className="w-6 h-6 mr-3"
@@ -124,7 +134,7 @@ const AcademicsPage: React.FC = () => {
                 </div>
 
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 group-hover:text-brandGreen transition-colors duration-300">
-                  <span className="text-brandGreen">Hands-On</span> Learning
+                  <span className="text-brandBlue">Hands-On</span> Learning
                 </h2>
 
                 <div className="space-y-4 text-gray-600 leading-relaxed">

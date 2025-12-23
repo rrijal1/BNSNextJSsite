@@ -113,7 +113,7 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
   return (
     <div className="max-w-4xl mx-auto">
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-brandBlue to-blue-600 rounded-2xl p-8 mb-8 text-white">
+      <div className="bg-brandBlue rounded-2xl p-8 mb-8 text-white">
         <div className="flex items-center justify-between">
           <div>
             <div className="inline-flex items-center px-4 py-2 bg-white/10 rounded-full text-white text-sm font-medium mb-4">

@@ -5,6 +5,7 @@ import { PortableTextBlock, TypedObject } from "@portabletext/types";
 import { client } from "@/lib/sanity";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import PortableText from "@/app/components/shared/PortableText";
+import { Metadata } from "next";
 
 // Types
 interface SanityImage extends TypedObject {
@@ -24,6 +25,19 @@ export interface Post {
   body: (PortableTextBlock | SanityImage)[];
   slug: string;
   _createdAt?: string;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const resolvedParams = await params;
+  const post: Post | undefined = await getPost(resolvedParams.slug);
+
+  return {
+    title: post?.title || "Story",
+  };
 }
 
 // Remove old portable text components - now using shared component

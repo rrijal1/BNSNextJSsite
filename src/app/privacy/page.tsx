@@ -2,6 +2,24 @@ import React from "react";
 import { getPrivacyPolicy } from "../components/data/SanityData";
 import PortableText from "../components/shared/PortableText";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Read Bloom Nepal School's privacy policy. Learn how we collect, use, and protect your personal information and data.",
+  keywords: [
+    "privacy policy",
+    "data protection",
+    "personal information",
+    "Bloom Nepal privacy",
+  ],
+  openGraph: {
+    title: "Privacy Policy | Bloom Nepal School",
+    description:
+      "Learn how we collect, use, and protect your personal information and data.",
+  },
+};
 
 export default async function PrivacyPage() {
   const privacyContent = await getPrivacyPolicy();

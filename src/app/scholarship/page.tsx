@@ -1,6 +1,25 @@
 import ScholarshipStories from "@/app/components/scholarships/ScholarshipStories";
 import Image from "next/image";
 import ScholarshipApplicationForm from "../components/scholarships/ScholarshipApplicationForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Scholarship",
+  description:
+    "Education for every deserving student. Apply for full tuition scholarships at Bloom Nepal School. 250+ scholarships awarded, supporting students from 35+ districts.",
+  keywords: [
+    "Bloom Nepal scholarship",
+    "Nepal education scholarship",
+    "free education Nepal",
+    "full tuition scholarship",
+    "merit scholarship",
+  ],
+  openGraph: {
+    title: "Scholarship | Bloom Nepal School",
+    description:
+      "Education for every deserving student. Apply for full tuition scholarships at Bloom Nepal School.",
+  },
+};
 
 const scholarshipStats = [
   { number: "250+", label: "Scholarships Awarded", icon: "🎓" },
@@ -87,12 +106,7 @@ export default async function ScholarshipPage() {
 
                 <div className="space-y-6">
                   <h1 className="text-5xl md:text-7xl font-bold text-gray-900 leading-tight">
-                    Education for{" "}
-                    <span className="bg-gradient-to-r from-brandGreen to-green-600 bg-clip-text text-transparent">
-                      Every
-                    </span>
-                    <br />
-                    Deserving Student
+                    Education for Every Deserving Student
                   </h1>
 
                   <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl">
@@ -175,7 +189,7 @@ export default async function ScholarshipPage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Our <span className="text-brandGreen">Impact</span>
+                Our Impact
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Through the generosity of donors worldwide and Bloom Nepal
@@ -358,8 +372,7 @@ export default async function ScholarshipPage() {
                 Apply Now
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Start Your Journey to{" "}
-                <span className="text-brandGreen">Bloom</span>
+                Start Your Journey to Bloom
               </h2>
               <p className="text-xl text-gray-600">
                 Ready to apply for our scholarship program? Fill out the form
@@ -415,16 +428,11 @@ export default async function ScholarshipPage() {
 
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
                   Powered by{" "}
-                  <span className="text-brandGreen">
-                    Bloom Nepal Foundation
-                  </span>
+                  <span className="text-brandBlue">Bloom Nepal Foundation</span>
                 </h2>
 
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  All our scholarships are provided by{" "}
-                  <strong className="text-brandGreen font-semibold">
-                    Bloom Nepal Foundation
-                  </strong>{" "}
+                  All our scholarships are provided by Bloom Nepal Foundation
                   through the generosity of donors around the world. Together,
                   we&apos;re making quality education accessible to deserving
                   students.

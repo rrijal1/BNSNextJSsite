@@ -157,7 +157,7 @@ const BookList: React.FC = () => {
                   onClick={() => setSelectedGrade(grade)}
                   className={`px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-300 transform hover:scale-105 ${
                     selectedGrade === grade
-                      ? "bg-gradient-to-r from-brandBlue to-blue-600 text-white shadow-lg"
+                      ? "bg-brandBlue text-white shadow-lg"
                       : "bg-white text-gray-700 hover:bg-brandBlue/10 hover:text-brandBlue border border-gray-200"
                   }`}
                   aria-selected={selectedGrade === grade}
@@ -171,7 +171,7 @@ const BookList: React.FC = () => {
 
           {/* Book Table */}
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-            <div className="bg-gradient-to-r from-brandBlue to-blue-600 px-6 py-4">
+            <div className="bg-brandBlue px-6 py-4">
               <h4 className="text-lg font-semibold text-white flex items-center">
                 <svg
                   className="w-5 h-5 mr-2"

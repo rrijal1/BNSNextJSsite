@@ -4,6 +4,7 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
 import Link from "next/link";
+import { Metadata } from "next";
 
 // Align with existing pattern used elsewhere in app: params as Promise
 type EventDetailPageProps = {
@@ -28,6 +29,17 @@ async function getEvent(
     { slug }
   );
   return event;
+}
+
+export async function generateMetadata({
+  params,
+}: EventDetailPageProps): Promise<Metadata> {
+  const resolved = await params;
+  const event = await getEvent(resolved.slug);
+
+  return {
+    title: event?.title || "Event",
+  };
 }
 
 const EventDetailPage = async ({ params }: EventDetailPageProps) => {
@@ -314,7 +326,7 @@ const EventDetailPage = async ({ params }: EventDetailPageProps) => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <div className="bg-gradient-to-r from-brandBlue to-blue-600 px-8 py-6">
+                <div className="bg-brandBlue px-8 py-6">
                   <h2 className="text-2xl font-bold text-white flex items-center">
                     <svg
                       className="w-6 h-6 mr-3"

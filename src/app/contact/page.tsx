@@ -4,6 +4,22 @@ import React, { useState, useEffect } from "react";
 import WhatsAppButton from "@/app/components/ui/WhatsAppButton";
 
 const ContactPage = () => {
+  useEffect(() => {
+    document.title = "Contact | Bloom Nepal School";
+
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute(
+      "content",
+      "Contact Bloom Nepal School. Get in touch with our Lalitpur, Dharan, Biratnagar, and Itahari campuses. Request a campus tour or visit us today."
+    );
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -127,12 +143,7 @@ const ContactPage = () => {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              Connect with{" "}
-              <span className="bg-gradient-to-r from-brandGreen to-green-600 bg-clip-text text-transparent">
-                Bloom
-              </span>
-              <br />
-              Nepal School
+              Connect with Bloom Nepal School
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
@@ -151,7 +162,7 @@ const ContactPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Email Contact */}
               <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="bg-gradient-to-r from-brandGreen to-green-600 px-6 py-4">
+                <div className="bg-brandGreen px-6 py-4">
                   <div className="flex items-center">
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mr-4">
                       <svg
@@ -202,7 +213,7 @@ const ContactPage = () => {
 
               {/* Campus Visit */}
               <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="bg-gradient-to-r from-brandBlue to-blue-600 px-6 py-4">
+                <div className="bg-brandBlue px-6 py-4">
                   <div className="flex items-center">
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mr-4">
                       <svg
@@ -294,7 +305,7 @@ const ContactPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Lalitpur Campus */}
               <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="bg-gradient-to-r from-brandGreen to-green-600 px-6 py-4">
+                <div className="bg-brandGreen px-6 py-4">
                   <div className="flex items-center">
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mr-4">
                       <svg
@@ -439,7 +450,7 @@ const ContactPage = () => {
 
               {/* Itahari Campus */}
               <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="bg-gradient-to-r from-brandBlue to-blue-600 px-6 py-4">
+                <div className="bg-brandBlue px-6 py-4">
                   <div className="flex items-center">
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mr-4">
                       <svg
@@ -534,7 +545,7 @@ const ContactPage = () => {
                 Schedule Your Visit
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Request a <span className="text-brandGreen">Campus Tour</span>
+                Request a <span className="text-brandBlue">Campus Tour</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Ready to experience Bloom Nepal School? Fill out the form below
@@ -571,7 +582,7 @@ const ContactPage = () => {
                 </div>
               ) : (
                 <>
-                  <div className="bg-gradient-to-r from-brandGreen to-green-600 px-8 py-6">
+                  <div className="bg-brandGreen px-8 py-6">
                     <h3 className="text-xl font-bold text-white flex items-center">
                       <svg
                         className="w-6 h-6 mr-3"
@@ -747,7 +758,7 @@ const ContactPage = () => {
                         disabled={!isFormValid}
                         className={`px-8 my-4 py-4 rounded-xl font-semibold text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl ${
                           isFormValid
-                            ? "bg-gradient-to-r from-brandGreen to-green-600 hover:from-brandGreen/90 hover:to-green-600/90"
+                            ? "bg-brandGreen hover:bg-brandGreen/90"
                             : "bg-gray-400 cursor-not-allowed"
                         }`}
                       >

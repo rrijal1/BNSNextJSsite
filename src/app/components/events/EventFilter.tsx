@@ -258,10 +258,10 @@ const EventFilter: React.FC<EventFilterProps> = ({
               className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 transform hover:scale-105 ${
                 activeFilter === option.key
                   ? option.key === "all" || option.key === "upcoming"
-                    ? "bg-gradient-to-r from-brandBlue to-blue-600 text-white shadow-lg"
+                    ? "bg-brandBlue text-white shadow-lg"
                     : option.key === "ongoing"
-                      ? "bg-gradient-to-r from-brandGreen to-green-600 text-white shadow-lg"
-                      : "bg-gradient-to-r from-brandRed to-red-600 text-white shadow-lg"
+                      ? "bg-brandGreen text-white shadow-lg"
+                      : "bg-brandRed text-white shadow-lg"
                   : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 hover:border-gray-300"
               }`}
             >

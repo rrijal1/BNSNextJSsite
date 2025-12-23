@@ -1,10 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 const CareersPage = () => {
   const [selectedLocation, setSelectedLocation] = useState("all");
+
+  useEffect(() => {
+    document.title = "Careers | Bloom Nepal School";
+
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute(
+      "content",
+      "Join Bloom Nepal School team. Explore teaching and administrative job opportunities across our campuses. Shape the future of education in Nepal."
+    );
+  }, []);
 
   const jobOpenings = [
     {
@@ -204,9 +220,6 @@ const CareersPage = () => {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-gradient-to-br from-brandBlue/10 via-white to-brandGreen/5 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-green-50/30"></div>
-        <div className="absolute top-10 left-10 w-20 h-20 bg-brandBlue/5 rounded-full animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-32 h-32 bg-brandGreen/5 rounded-full animate-bounce"></div>
-        <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-brandRed/5 rounded-full animate-pulse"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center px-4 py-2 bg-brandBlue/10 rounded-full text-brandBlue text-sm font-medium mb-6 hover:bg-brandBlue/20 transition-all duration-300 transform hover:scale-105 cursor-pointer">
@@ -226,14 +239,9 @@ const CareersPage = () => {
               Join Our Team
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
-              <span className="bg-gradient-to-r from-brandBlue via-blue-500 to-blue-600 bg-clip-text text-transparent">
-                Careers
-              </span>{" "}
-              at
+              <span className="text-brandBlue">Careers</span> at
               <br />
-              <span className="bg-gradient-to-r from-brandGreen to-green-600 bg-clip-text text-transparent">
-                Bloom Nepal
-              </span>
+              <span className="text-brandRed">Bloom Nepal</span>
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300">
               Shape the future of education in Nepal. Join our passionate team
@@ -306,11 +314,7 @@ const CareersPage = () => {
                 Our Values
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why{" "}
-                <span className="bg-gradient-to-r from-brandBlue to-blue-600 bg-clip-text text-transparent">
-                  Work
-                </span>{" "}
-                With Us?
+                Why <span className="text-brandBlue">Work</span> With Us?
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 At Bloom Nepal School, we believe in creating an environment
@@ -376,10 +380,8 @@ const CareersPage = () => {
                 Benefits & Perks
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                <span className="bg-gradient-to-r from-brandRed to-red-600 bg-clip-text text-transparent">
-                  Comprehensive
-                </span>{" "}
-                Benefits Package
+                <span className="text-brandRed">Comprehensive</span> Benefits
+                Package
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 We invest in our team members&apos; success and well-being with
@@ -430,10 +432,7 @@ const CareersPage = () => {
                 Current Openings
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                <span className="bg-gradient-to-r from-brandBlue to-blue-600 bg-clip-text text-transparent">
-                  Join
-                </span>{" "}
-                Our Team
+                <span className="text-brandBlue">Join</span> Our Team
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
                 Explore exciting opportunities to make a difference in education
@@ -444,7 +443,7 @@ const CareersPage = () => {
                   <button
                     key={location}
                     onClick={() => setSelectedLocation(location)}
-                    className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 transform hover:scale-105 ${selectedLocation === location ? "bg-gradient-to-r from-brandBlue to-blue-600 text-white shadow-lg" : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 hover:border-gray-300"}`}
+                    className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 transform hover:scale-105 ${selectedLocation === location ? "bg-brandBlue text-white shadow-lg" : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 hover:border-gray-300"}`}
                   >
                     {location === "all"
                       ? "All Locations"
@@ -606,10 +605,7 @@ const CareersPage = () => {
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                 Don&apos;t See the{" "}
-                <span className="bg-gradient-to-r from-brandBlue to-blue-600 bg-clip-text text-transparent">
-                  Perfect
-                </span>{" "}
-                Role?
+                <span className="text-brandBlue">Perfect</span> Role?
               </h3>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
                 We&apos;re always looking for talented individuals who share our

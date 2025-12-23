@@ -1,10 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const TeamPage = () => {
   const [selectedDepartment, setSelectedDepartment] = useState("all");
+
+  useEffect(() => {
+    document.title = "Team | Bloom Nepal School";
+
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute(
+      "content",
+      "Meet the passionate educators and dedicated professionals at Bloom Nepal School committed to nurturing young minds and shaping future leaders."
+    );
+  }, []);
 
   const teamMembers = [
     {
@@ -20,7 +36,7 @@ const TeamPage = () => {
       name: "Ajay Shrestha",
       role: "Executive Director",
       department: "Leadership",
-      imageUrl: "/face-painting.jpeg",
+      imageUrl: "/Ajay.webp",
       bio: "Executive Director responsible for financial oversight and budgeting at Bloom Nepal School. Serves as the primary contact for accounting and reporting matters while also teaching computer science to students.",
       email: "ajay.shrestha@bloom.edu.np",
       qualifications: "Computer Science",
@@ -29,7 +45,7 @@ const TeamPage = () => {
       name: "Surya Karki",
       role: "Director of Business",
       department: "Leadership",
-      imageUrl: "/bloomie.png",
+      imageUrl: "/Surya.webp",
       bio: "Director of Business responsible for identifying and implementing expansion projects at Bloom Nepal School. Focuses on strategic growth initiatives including building new schools and securing new investors to strengthen the organization's development.",
       email: "surya.karki@bloom.edu.np",
       qualifications: "Education",
@@ -38,7 +54,7 @@ const TeamPage = () => {
       name: "Rabindra Maharjan",
       role: "Director of Community Relationships",
       department: "Leadership",
-      imageUrl: "/bloomie.png",
+      imageUrl: "/Rabindra.jpg",
       bio: "Director of Community Relationships focused on building strong community partnerships and fostering a congenial environment among all stakeholders at Bloom Nepal School. Works to strengthen relationships between the school, families, and the broader community.",
       email: "raby255@hotmail.com",
       qualifications: "Community Relations",
@@ -47,7 +63,7 @@ const TeamPage = () => {
       name: "Dinesh Budhathoki",
       role: "Director of Operations at Itahari",
       department: "Leadership",
-      imageUrl: "/bloomie.png",
+      imageUrl: "/Dinesh.png",
       bio: "Director of Operations responsible for overseeing the overall management of daily operations at Bloom Nepal School Itahari campus. Ensures smooth functioning of all operational aspects and maintains high standards of institutional excellence at the Itahari location.",
       email: "dinesh@bloom.edu.np",
       qualifications: "Operations Management",
@@ -56,34 +72,16 @@ const TeamPage = () => {
       name: "Ajit Pokharel",
       role: "Head of Administrative Operations",
       department: "Student Services",
-      imageUrl: "/bloomie.png",
+      imageUrl: "/Ajit.png",
       bio: "Head of Administrative Operations overseeing non-teaching staff administration at Bloom Nepal School. Coordinates closely with teaching staff to ensure smooth school operations and serves as the primary communication officer for the institution.",
       email: "ajitpokhrel@bloom.edu.np",
       qualifications: "Education",
     },
     {
-      name: "Rajesh Thapa",
-      role: "Head of Science Department",
-      department: "Academic",
-      imageUrl: "/bloomie.png",
-      bio: "Experienced science educator passionate about making complex concepts accessible and engaging for students.",
-      email: "rajesh@bloom.edu.np",
-      qualifications: "M.Sc. Physics, B.Ed.",
-    },
-    {
-      name: "Maya Gurung",
-      role: "English Department Head",
-      department: "Academic",
-      imageUrl: "/bloomie.png",
-      bio: "Literature enthusiast committed to developing students' communication skills and critical thinking abilities.",
-      email: "maya@bloom.edu.np",
-      qualifications: "M.A. English Literature, TESOL Certified",
-    },
-    {
       name: "Madhuri Basnet",
       role: "Section In-Charge - Junior",
       department: "Academic",
-      imageUrl: "/bloomie.png",
+      imageUrl: "/Madhuri.png",
       bio: "Section In-Charge responsible for overseeing junior classes at Bloom Nepal School. Serves as the primary point of contact for all matters related to junior student education and believes that teaching is the art of extracting the best out of every student.",
       email: "chhetrimadhuri@bloom.edu.np",
       qualifications: "Education",
@@ -92,16 +90,25 @@ const TeamPage = () => {
       name: "Yasoda Devin Kaphle",
       role: "Teacher",
       department: "Academic",
-      imageUrl: "/bloomie.png",
+      imageUrl: "/Yasoda.webp",
       bio: "Nepali language teacher specializing in secondary level education at Bloom Nepal School. Has been teaching Nepali to secondary students since 2013 and serves as the Section In-Charge for secondary levels, acting as the primary contact for academic and administrative concerns relating to secondary students. Enjoys learning new things, connecting with people, and cooking.",
       email: "yasoda.pokharel@bloom.edu.np",
+      qualifications: "Nepali Language Education",
+    },
+    {
+      name: "Urmila Karki",
+      role: "Teacher",
+      department: "Academic",
+      imageUrl: "/Urmila.png",
+      bio: "Nepali language teacher specializing in primary level education at Bloom Nepal School. She has been teaching Nepali to primary students since 2017, acting as the primary contact for academic and administrative concerns relating to primary students. Enjoys learning new things, connecting with people, and cooking.",
+      email: "urmila.karki@bloom.edu.np",
       qualifications: "Nepali Language Education",
     },
     {
       name: "Mohit Rauniyar",
       role: "Advisor",
       department: "Advisors",
-      imageUrl: "/bloomie.png",
+      imageUrl: "/Mohit.jpg",
       bio: "Strategic advisor providing guidance on institutional development and business operations at Bloom Nepal School. Leverages extensive business expertise to support the school's growth initiatives and organizational excellence.",
       email: "mohit@bloom.edu.np",
       qualifications: "MBA",
@@ -110,19 +117,10 @@ const TeamPage = () => {
       name: "Anju Maharjan",
       role: "Accountant",
       department: "Student Services",
-      imageUrl: "/bloomie.png",
+      imageUrl: "/Anju.webp",
       bio: "School Accountant responsible for managing all financial accounts and billing operations at Bloom Nepal School. Serves as the primary contact for account-related questions, billing concerns, and financial administrative matters.",
       email: "anju.maharjan@bloom.edu.np",
       qualifications: "Accounting",
-    },
-    {
-      name: "Deepak Maharjan",
-      role: "Sports Coordinator",
-      department: "Student Services",
-      imageUrl: "/bloomie.png",
-      bio: "Former national athlete promoting physical fitness and team spirit among students through various sports programs.",
-      email: "deepak@bloom.edu.np",
-      qualifications: "B.P.Ed, Sports Medicine Certificate",
     },
   ];
 
@@ -160,9 +158,6 @@ const TeamPage = () => {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-gradient-to-br from-brandBlue/10 via-white to-brandGreen/5 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-green-50/30"></div>
-        <div className="absolute top-10 left-10 w-20 h-20 bg-brandBlue/5 rounded-full animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-32 h-32 bg-brandGreen/5 rounded-full animate-bounce"></div>
-        <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-brandRed/5 rounded-full animate-pulse"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -184,13 +179,9 @@ const TeamPage = () => {
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
-              <span className="bg-gradient-to-r from-brandBlue via-blue-500 to-blue-600 bg-clip-text text-transparent">
-                Dedicated
-              </span>
+              <span className="text-brandBlue">Dedicated</span>
               <br />
-              <span className="bg-gradient-to-r from-brandGreen to-green-600 bg-clip-text text-transparent">
-                Educators
-              </span>
+              <span className="text-brandBlue">Educators</span>
             </h1>
 
             <p className="text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300">
@@ -356,10 +347,7 @@ const TeamPage = () => {
                 Our Team
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Meet Our{" "}
-                <span className="bg-gradient-to-r from-brandBlue to-blue-600 bg-clip-text text-transparent">
-                  Professionals
-                </span>
+                Meet Our <span className="text-brandBlue">Professionals</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
                 Our diverse team of experienced educators and professionals work
@@ -375,7 +363,7 @@ const TeamPage = () => {
                     onClick={() => setSelectedDepartment(dept)}
                     className={`px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 transform hover:scale-105 ${
                       selectedDepartment === dept
-                        ? "bg-gradient-to-r from-brandBlue to-blue-600 text-white shadow-lg"
+                        ? "bg-brandBlue text-white shadow-lg"
                         : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 hover:border-gray-300"
                     }`}
                   >
@@ -392,12 +380,12 @@ const TeamPage = () => {
                   key={index}
                   className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:border-brandBlue/20 transition-all duration-300 hover:shadow-lg group"
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-64 overflow-hidden bg-gray-100">
                     <Image
                       src={member.imageUrl}
                       alt={`Photo of ${member.name}`}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
@@ -513,10 +501,7 @@ const TeamPage = () => {
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                 Ready to Make a{" "}
-                <span className="bg-gradient-to-r from-brandBlue to-blue-600 bg-clip-text text-transparent">
-                  Difference
-                </span>
-                ?
+                <span className="text-brandBlue">Difference</span>?
               </h3>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
                 Join our passionate team of educators and help us shape the

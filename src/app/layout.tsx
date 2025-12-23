@@ -14,9 +14,64 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Bloom Nepal School",
+  title: {
+    default: "Bloom Nepal School",
+    template: "%s | Bloom Nepal School",
+  },
   description:
     "Nurturing Passion, Shaping the Future – A Center of Excellence in Nepal's School Education",
+  keywords: [
+    "Bloom Nepal School",
+    "Nepal education",
+    "best school in Nepal",
+    "Lalitpur school",
+    "quality education Nepal",
+    "international school Nepal",
+    "STEM education",
+    "holistic education",
+  ],
+  authors: [{ name: "Bloom Nepal School" }],
+  creator: "Bloom Nepal School",
+  publisher: "Bloom Nepal School",
+  metadataBase: new URL("https://bloom.edu.np"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://bloom.edu.np",
+    siteName: "Bloom Nepal School",
+    title: "Bloom Nepal School",
+    description:
+      "Nurturing Passion, Shaping the Future – A Center of Excellence in Nepal's School Education",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Bloom Nepal School",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bloom Nepal School",
+    description:
+      "Nurturing Passion, Shaping the Future – A Center of Excellence in Nepal's School Education",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon/favicon.ico" },

@@ -1,10 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const FacilitiesPage = () => {
   const [selectedCampus, setSelectedCampus] = useState("lalitpur");
+
+  useEffect(() => {
+    document.title = "Facilities | Bloom Nepal School";
+
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute(
+      "content",
+      "Explore world-class facilities at Bloom Nepal School across Lalitpur, Dharan, Biratnagar, and Itahari campuses. Modern classrooms, labs, sports facilities, and more."
+    );
+  }, []);
 
   const campuses = [
     {
@@ -123,9 +139,6 @@ const FacilitiesPage = () => {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-gradient-to-br from-brandBlue/10 via-white to-brandGreen/5 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-green-50/30"></div>
-        <div className="absolute top-10 left-10 w-20 h-20 bg-brandBlue/5 rounded-full animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-32 h-32 bg-brandGreen/5 rounded-full animate-bounce"></div>
-        <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-brandRed/5 rounded-full animate-pulse"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -146,14 +159,10 @@ const FacilitiesPage = () => {
               Our Facilities
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
-              <span className="bg-gradient-to-r from-brandBlue via-blue-500 to-blue-600 bg-clip-text text-transparent">
-                Child Centric
-              </span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+              <span className="text-brandBlue">Child Centric</span>
               <br />
-              <span className="bg-gradient-to-r from-brandGreen to-green-600 bg-clip-text text-transparent">
-                Facilities
-              </span>
+              <span className="text-brandRed">Facilities</span>
             </h1>
 
             <p className="text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300">
@@ -237,10 +246,7 @@ const FacilitiesPage = () => {
                 Our Locations
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Choose Your{" "}
-                <span className="bg-gradient-to-r from-brandBlue to-blue-600 bg-clip-text text-transparent">
-                  Locations
-                </span>
+                Choose Your <span className="text-brandBlue">Locations</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
                 We strive to be consistent with the facilities we provide across
@@ -256,7 +262,7 @@ const FacilitiesPage = () => {
                     onClick={() => setSelectedCampus(campus.id)}
                     className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
                       selectedCampus === campus.id
-                        ? "bg-gradient-to-r from-brandBlue to-blue-600 text-white shadow-lg"
+                        ? "bg-brandBlue text-white shadow-lg"
                         : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 hover:border-gray-300"
                     }`}
                   >
@@ -363,9 +369,7 @@ const FacilitiesPage = () => {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Comprehensive{" "}
-                <span className="bg-gradient-to-r from-brandGreen to-green-600 bg-clip-text text-transparent">
-                  Infrastructure
-                </span>
+                <span className="text-brandBlue">Infrastructure</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Our state-of-the-art facilities support every aspect of student
@@ -452,10 +456,7 @@ const FacilitiesPage = () => {
                   Global Perspective
                 </div>
                 <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  <span className="bg-gradient-to-r from-brandGreen to-green-600 bg-clip-text text-transparent">
-                    International
-                  </span>{" "}
-                  Exposure
+                  <span className="text-brandBlue">International</span> Exposure
                 </h3>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
                   We are graced by the visit of volunteers, teachers, interns
@@ -558,10 +559,7 @@ const FacilitiesPage = () => {
                 Accommodation
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Comfortable{" "}
-                <span className="bg-gradient-to-r from-brandRed to-red-600 bg-clip-text text-transparent">
-                  Living Spaces
-                </span>
+                Comfortable <span className="text-brandRed">Living Spaces</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 We offer flexible accommodation options to suit different family
@@ -619,10 +617,7 @@ const FacilitiesPage = () => {
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                 Ready to Experience Our{" "}
-                <span className="bg-gradient-to-r from-brandBlue to-blue-600 bg-clip-text text-transparent">
-                  Facilities
-                </span>
-                ?
+                <span className="text-brandBlue">Facilities</span>?
               </h3>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
                 Visit our Schools to see firsthand how our world-class

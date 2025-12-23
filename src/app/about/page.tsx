@@ -1,16 +1,29 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 
 const AboutPage = () => {
+  useEffect(() => {
+    document.title = "About | Bloom Nepal School";
+
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement("meta");
+      metaDescription.setAttribute("name", "description");
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute(
+      "content",
+      "Learn about Bloom Nepal School - inspiring passion and purpose in education. Discover our mission, vision, values, and commitment to excellence in Nepal."
+    );
+  }, []);
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28 bg-gradient-to-br from-brandBlue/10 via-white to-brandGreen/10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-green-50/30" />
-        <div className="absolute top-12 left-10 w-24 h-24 bg-brandBlue/5 rounded-full blur animate-pulse" />
-        <div className="absolute -bottom-8 right-16 w-40 h-40 bg-brandGreen/5 rounded-full blur-xl" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -31,14 +44,10 @@ const AboutPage = () => {
               About Bloom Nepal School
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
-              <span className="bg-gradient-to-r from-brandBlue via-blue-500 to-blue-600 bg-clip-text text-transparent">
-                Inspiring
-              </span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+              <span className="text-brandBlue">Inspiring</span>
               <br />
-              <span className="bg-gradient-to-r from-brandGreen to-green-600 bg-clip-text text-transparent">
-                Passion & Purpose
-              </span>
+              <span className="text-brandRed">Passion & Purpose</span>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
@@ -240,10 +249,7 @@ const AboutPage = () => {
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                 Ready to be part of the{" "}
-                <span className="bg-gradient-to-r from-brandBlue to-blue-600 bg-clip-text text-transparent">
-                  Bloom
-                </span>{" "}
-                journey?
+                <span className="text-brandBlue">Bloom</span> journey?
               </h3>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
                 Explore our programs, visit a campus, or talk to our team to see

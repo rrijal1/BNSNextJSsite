@@ -29,7 +29,7 @@ const missionData: MissionTopic[] = [
           Reading Culture
         </div>
         <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-          <span className="text-brandGreen">DEAR</span> Culture at Bloom
+          DEAR Culture at Bloom
         </h3>
         <div className="space-y-4 text-gray-600 leading-relaxed">
           <p className="text-lg">
@@ -185,10 +185,8 @@ const MissionSection: React.FC = () => {
           Mission Programs
         </div>
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-          <span className="bg-gradient-to-r from-brandGreen to-green-600 bg-clip-text text-transparent">
-            Achieving
-          </span>{" "}
-          Our Mission
+          <span className="bg-clip-text text-transparent">Achieving</span> Our
+          Mission
         </h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
           We are always experimenting with various policies, putting forward

@@ -2,6 +2,24 @@ import React from "react";
 import { getRulesAndRegulations } from "../components/data/SanityData";
 import PortableText from "../components/shared/PortableText";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Rules & Regulations",
+  description:
+    "Review Bloom Nepal School's rules, regulations, and code of conduct. Understanding our policies ensures a safe and conducive learning environment for all students.",
+  keywords: [
+    "Bloom Nepal rules",
+    "school regulations",
+    "code of conduct",
+    "student policies",
+  ],
+  openGraph: {
+    title: "Rules & Regulations | Bloom Nepal School",
+    description:
+      "Review our rules, regulations, and code of conduct for a safe learning environment.",
+  },
+};
 
 export default async function RulesPage() {
   const rulesContent = await getRulesAndRegulations();

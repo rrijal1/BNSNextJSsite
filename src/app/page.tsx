@@ -97,13 +97,6 @@ export default async function Home() {
       <WhatsAppButton />
       {/* Hero Section */}
       <HeroSection className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-white">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden opacity-20 -z-10">
-          <div className="absolute -top-40 -right-40 w-[800px] h-[800px] bg-brandBlue/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-          <div className="absolute -bottom-40 -left-40 w-[800px] h-[800px] bg-brandGreen/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-          <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] -translate-x-1/2 -translate-y-1/2 bg-brandRed/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-        </div>
-
         <div className="w-full">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
             {/* Hero Content */}
@@ -125,11 +118,9 @@ export default async function Home() {
                 </svg>
                 Excellence in Education
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                <span className="block text-gray-900">Welcome to</span>
-                <span className="bg-gradient-to-r from-brandBlue via-brandGreen to-brandBlue bg-clip-text text-transparent">
-                  Bloom Nepal School
-                </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-gray-900">
+                Welcome to{" "}
+                <span className="text-brandBlue">Bloom Nepal School</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl">
                 Nurturing Passion, Shaping the Future – A Center of Excellence
@@ -212,7 +203,7 @@ export default async function Home() {
               />
               <div className="absolute bottom-4 left-6 z-10 ">
                 <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium text-white whitespace-nowrap max-w-[calc(100vw-2rem)] overflow-hidden">
-                  <span className="flex-shrink-0 w-2 h-2 bg-brandGreen rounded-full mr-2 animate-pulse"></span>
+                  <span className="flex-shrink-0 w-2 h-2 bg-brandGreen rounded-full mr-2"></span>
                   <span className="truncate">Live: Campus Tour Available</span>
                 </div>
               </div>
@@ -292,7 +283,7 @@ export default async function Home() {
                   Friends & Well-wishers
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-                  Connect With <span className="text-brandGreen">Bloom</span>
+                  Connect With <span className="text-brandBlue">Bloom</span>
                 </h3>
                 <p className="text-lg text-gray-600 mb-8 max-w-2xl">
                   We are committed to reforming education in Nepal. Whether you
@@ -389,10 +380,7 @@ export default async function Home() {
         <div className="w-full md:px-8 px-4">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Excellence in{" "}
-              <span className="bg-gradient-to-r from-brandBlue to-brandGreen bg-clip-text text-transparent">
-                Numbers
-              </span>
+              Excellence in <span className="text-brandBlue">Numbers</span>
             </h2>
             <p className="text-lg text-gray-600 mb-12">
               Our impact in the education sector speaks for itself
@@ -445,10 +433,7 @@ export default async function Home() {
         <div className="w-full md:px-8 px-4">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our{" "}
-              <span className="bg-gradient-to-r from-brandBlue to-brandGreen bg-clip-text text-transparent">
-                Core Values
-              </span>
+              Our <span className="text-brandBlue">Core Values</span>
             </h2>
             <p className="text-lg text-gray-600 mb-12">
               Guiding principles that shape our educational philosophy and
@@ -519,7 +504,7 @@ export default async function Home() {
             <div className="flex flex-col justify-center items-center gap-6 mb-12">
               <div className="text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                  <span className="bg-gradient-to-r from-brandBlue to-brandGreen bg-clip-text text-transparent">
+                  <span className="text-brandBlue">
                     News, Stories and Events
                   </span>
                 </h2>
@@ -791,9 +776,7 @@ export default async function Home() {
       <section className="bg-gray-50">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            <span className="bg-gradient-to-r from-brandBlue to-brandGreen bg-clip-text text-transparent">
-              Alumni Highlights
-            </span>
+            <span className="text-brandBlue">Alumni Highlights</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Where Bloom graduates continue their journey of excellence and make
@@ -917,9 +900,7 @@ export default async function Home() {
       <section className="bg-gray-50">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            <span className="bg-gradient-to-r from-brandBlue to-brandGreen bg-clip-text text-transparent">
-              Frequently Asked Questions
-            </span>
+            <span className="text-brandBlue">Frequently Asked Questions</span>
           </h2>
           <p className="text-lg text-gray-600">
             Everything you need to know about Bloom Nepal School
@@ -1006,9 +987,7 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              <span className="bg-gradient-to-r from-brandBlue to-brandGreen bg-clip-text text-transparent">
-                Our Valued Partners
-              </span>
+              <span className="text-brandBlue">Our Valued Partners</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Collaborating with global leaders in education and innovation
