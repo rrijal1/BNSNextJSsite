@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const TeamPage = () => {
   const [selectedDepartment, setSelectedDepartment] = useState("all");
@@ -29,7 +29,7 @@ const TeamPage = () => {
       department: "Leadership",
       imageUrl: "/ram-rijal.jpg",
       bio: "Education and workforce enthusiast serving as Chairman of Bloom Nepal School. Focuses on strategic expansion activities and serves as the go-to person for investment and accountability matters. Also teaches mathematics and works closely with talented students from across the country.",
-      email: "rijal.ramk@bloom.edu.np",
+      email: "rijal.ramk@bloomn.edu.np",
       qualifications: "Economics, Mathematics",
     },
     {
@@ -38,7 +38,7 @@ const TeamPage = () => {
       department: "Leadership",
       imageUrl: "/Ajay.webp",
       bio: "Executive Director responsible for financial oversight and budgeting at Bloom Nepal School. Serves as the primary contact for accounting and reporting matters while also teaching computer science to students.",
-      email: "ajay.shrestha@bloom.edu.np",
+      email: "ajay.shrestha@bloomn.edu.np",
       qualifications: "Computer Science",
     },
     {
@@ -47,7 +47,7 @@ const TeamPage = () => {
       department: "Leadership",
       imageUrl: "/Surya.webp",
       bio: "Director of Business responsible for identifying and implementing expansion projects at Bloom Nepal School. Focuses on strategic growth initiatives including building new schools and securing new investors to strengthen the organization's development.",
-      email: "surya.karki@bloom.edu.np",
+      email: "surya.karki@bloomn.edu.np",
       qualifications: "Education",
     },
     {
@@ -65,7 +65,7 @@ const TeamPage = () => {
       department: "Leadership",
       imageUrl: "/Dinesh.png",
       bio: "Director of Operations responsible for overseeing the overall management of daily operations at Bloom Nepal School Itahari campus. Ensures smooth functioning of all operational aspects and maintains high standards of institutional excellence at the Itahari location.",
-      email: "dinesh@bloom.edu.np",
+      email: "dinesh@bloomn.edu.np",
       qualifications: "Operations Management",
     },
     {
@@ -74,7 +74,7 @@ const TeamPage = () => {
       department: "Student Services",
       imageUrl: "/Ajit.png",
       bio: "Head of Administrative Operations overseeing non-teaching staff administration at Bloom Nepal School. Coordinates closely with teaching staff to ensure smooth school operations and serves as the primary communication officer for the institution.",
-      email: "ajitpokhrel@bloom.edu.np",
+      email: "ajitpokhrel@bloomn.edu.np",
       qualifications: "Education",
     },
     {
@@ -83,7 +83,7 @@ const TeamPage = () => {
       department: "Academic",
       imageUrl: "/Madhuri.png",
       bio: "Section In-Charge responsible for overseeing junior classes at Bloom Nepal School. Serves as the primary point of contact for all matters related to junior student education and believes that teaching is the art of extracting the best out of every student.",
-      email: "chhetrimadhuri@bloom.edu.np",
+      email: "chhetrimadhuri@bloomn.edu.np",
       qualifications: "Education",
     },
     {
@@ -92,7 +92,7 @@ const TeamPage = () => {
       department: "Academic",
       imageUrl: "/Yasoda.webp",
       bio: "Nepali language teacher specializing in secondary level education at Bloom Nepal School. Has been teaching Nepali to secondary students since 2013 and serves as the Section In-Charge for secondary levels, acting as the primary contact for academic and administrative concerns relating to secondary students. Enjoys learning new things, connecting with people, and cooking.",
-      email: "yasoda.pokharel@bloom.edu.np",
+      email: "yasoda.pokharel@bloomn.edu.np",
       qualifications: "Nepali Language Education",
     },
     {
@@ -101,7 +101,7 @@ const TeamPage = () => {
       department: "Academic",
       imageUrl: "/Urmila.png",
       bio: "Nepali language teacher specializing in primary level education at Bloom Nepal School. She has been teaching Nepali to primary students since 2017, acting as the primary contact for academic and administrative concerns relating to primary students. Enjoys learning new things, connecting with people, and cooking.",
-      email: "urmila.karki@bloom.edu.np",
+      email: "urmila.karki@bloomn.edu.np",
       qualifications: "Nepali Language Education",
     },
     {
@@ -110,7 +110,7 @@ const TeamPage = () => {
       department: "Advisors",
       imageUrl: "/Mohit.jpg",
       bio: "Strategic advisor providing guidance on institutional development and business operations at Bloom Nepal School. Leverages extensive business expertise to support the school's growth initiatives and organizational excellence.",
-      email: "mohit@bloom.edu.np",
+      email: "mohit@bloomn.edu.np",
       qualifications: "MBA",
     },
     {
@@ -119,7 +119,7 @@ const TeamPage = () => {
       department: "Student Services",
       imageUrl: "/Anju.webp",
       bio: "School Accountant responsible for managing all financial accounts and billing operations at Bloom Nepal School. Serves as the primary contact for account-related questions, billing concerns, and financial administrative matters.",
-      email: "anju.maharjan@bloom.edu.np",
+      email: "anju.maharjan@bloomn.edu.np",
       qualifications: "Accounting",
     },
   ];
