@@ -27,6 +27,7 @@ export const menus: MenuItem[] = [
     text: "About US",
     items: [
       { type: "singular", text: "Our values", linkTo: "/about" },
+      { type: "singular", text: "Projects", linkTo: "/projects" },
       { type: "singular", text: "Facilities", linkTo: "/facilities" },
       { type: "singular", text: "Team", linkTo: "/team" },
       { type: "singular", text: "Careers", linkTo: "/careers" },
@@ -37,6 +38,7 @@ export const menus: MenuItem[] = [
     text: "Academics and Events",
     items: [
       { type: "singular", text: "Academics", linkTo: "/academics" },
+      { type: "singular", text: "This year", linkTo: "/activities" },
       { type: "singular", text: "Calendar", linkTo: "/calendar" },
       { type: "singular", text: "Club Events", linkTo: "/events" },
     ],

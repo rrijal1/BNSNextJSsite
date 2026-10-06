@@ -3,6 +3,7 @@ import { getAllPosts } from "@/app/components/data/SanityData";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+import { studentArticles } from "./articles/articles";
 
 export const metadata: Metadata = {
   title: "Stories",
@@ -213,6 +214,27 @@ export default function Stories() {
               extraordinary.
             </p>
 
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+              <Link
+                href="/stories/testimonials"
+                className="inline-flex px-4 py-2 rounded-full bg-white text-brandBlue text-sm font-semibold border border-brandBlue/15 hover:border-brandBlue transition-colors"
+              >
+                Student voices
+              </Link>
+              <Link
+                href="/stories/articles"
+                className="inline-flex px-4 py-2 rounded-full bg-white text-brandBlue text-sm font-semibold border border-brandBlue/15 hover:border-brandBlue transition-colors"
+              >
+                Student writing
+              </Link>
+              <Link
+                href="/activities"
+                className="inline-flex px-4 py-2 rounded-full bg-white text-brandBlue text-sm font-semibold border border-brandBlue/15 hover:border-brandBlue transition-colors"
+              >
+                This year
+              </Link>
+            </div>
+
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm text-gray-500">
               <div className="flex items-center space-x-2">
                 <svg
@@ -262,6 +284,60 @@ export default function Stories() {
                 </svg>
                 <span>Inspiring Journeys</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="writing" className="scroll-mt-28 py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center px-4 py-2 bg-brandBlue/10 rounded-full text-brandBlue text-sm font-medium mb-4">
+                From the students
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Student writing
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Printed as the students wrote them, including the original
+                spelling.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {studentArticles.map((article) => (
+                <article
+                  key={article.slug}
+                  className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm flex flex-col"
+                >
+                  <p className="text-sm text-brandBlue mb-2">
+                    {article.author}
+                    {article.dateLabel.startsWith("Date not")
+                      ? ""
+                      : ` · ${article.dateLabel}`}
+                  </p>
+                  <h3 className="text-xl font-semibold text-gray-900 leading-snug mb-3">
+                    <Link
+                      href={`/stories/articles/${article.slug}`}
+                      className="hover:text-brandBlue transition-colors"
+                    >
+                      {article.title}
+                    </Link>
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed mb-5 flex-1">
+                    {article.excerpt}
+                  </p>
+                  <Link
+                    href={`/stories/articles/${article.slug}`}
+                    className="inline-flex items-center font-semibold text-brandBlue hover:text-brandRed transition-colors"
+                  >
+                    Read the piece
+                    <span className="ml-2" aria-hidden="true">
+                      →
+                    </span>
+                  </Link>
+                </article>
+              ))}
             </div>
           </div>
         </div>

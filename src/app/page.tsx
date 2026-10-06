@@ -285,11 +285,20 @@ export default async function Home() {
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                   Connect With <span className="text-brandBlue">Bloom</span>
                 </h3>
-                <p className="text-lg text-gray-600 mb-8 max-w-2xl">
+                <p className="text-lg text-gray-600 mb-6 max-w-2xl">
                   We are committed to reforming education in Nepal. Whether you
                   want to be an investor, innovator, mentor, or volunteer, we
                   welcome you with open arms to join our mission.
                 </p>
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center font-semibold text-brandBlue hover:text-brandRed transition-colors mb-8"
+                >
+                  Bodhi Borgo, the new classroom building
+                  <span className="ml-2" aria-hidden="true">
+                    →
+                  </span>
+                </Link>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                   <div className="space-y-4">
                     <Link
@@ -773,7 +782,7 @@ export default async function Home() {
         </div>
       </section>
       {/* Alumni Highlights */}
-      <section className="bg-gray-50">
+      <section id="alumni" className="scroll-mt-28 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             <span className="text-brandBlue">Alumni Highlights</span>

@@ -21,6 +21,8 @@ export default function Footer() {
       items: [
         { name: "Home", outLink: false, path: "/" },
         { name: "Our Values", path: "/about" },
+        { name: "Projects", path: "/projects" },
+        { name: "Give", path: "/donate" },
         { name: "Admission", path: "/admission" },
         { name: "Scholarship", path: "/scholarship" },
         { name: "Facilities", path: "/facilities" },
@@ -29,8 +31,11 @@ export default function Footer() {
     {
       title: "Essentials",
       items: [
+        { name: "This year", path: "/activities" },
         { name: "Calendar", path: "/calendar" },
         { name: "Events", path: "/events" },
+        { name: "Student writing", path: "/stories/articles" },
+        { name: "Student voices", path: "/stories/testimonials" },
         {
           name: "School Bus Route (Lalitpur)",
           path: "https://www.google.com/maps/d/edit?mid=1c3WsDgtHqKTsDgXSqP1-yaBMHB5VCgTU&usp=sharing",
