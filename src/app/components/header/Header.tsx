@@ -24,10 +24,12 @@ type MenuItem = SingularMenuItem | GroupMenuItem;
 export const menus: MenuItem[] = [
   {
     type: "group",
-    text: "About US",
+    text: "About Us",
     items: [
-      { type: "singular", text: "Our values", linkTo: "/about" },
+      { type: "singular", text: "Our Values", linkTo: "/about" },
       { type: "singular", text: "Projects", linkTo: "/projects" },
+      { type: "singular", text: "Toastmasters", linkTo: "/projects/toastmasters" },
+      { type: "singular", text: "AI Initiative", linkTo: "/projects/ai" },
       { type: "singular", text: "Facilities", linkTo: "/facilities" },
       { type: "singular", text: "Team", linkTo: "/team" },
       { type: "singular", text: "Careers", linkTo: "/careers" },
@@ -48,7 +50,7 @@ export const menus: MenuItem[] = [
     type: "group",
     text: "Admission",
     items: [
-      { type: "singular", text: "How To Apply", linkTo: "/admission" },
+      { type: "singular", text: "How to Apply", linkTo: "/admission" },
       { type: "singular", text: "Scholarship", linkTo: "/scholarship" },
       { type: "singular", text: "Fees", linkTo: "/fees" },
     ],

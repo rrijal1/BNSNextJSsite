@@ -82,8 +82,7 @@ export default function ActivitiesPage() {
             </h1>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
               A district cup, a perfect SEE result, and awards from the
-              municipality. Each result here comes from a public report or
-              from the school’s own letters.
+              municipality.
             </p>
           </div>
         </div>
@@ -311,8 +310,7 @@ export default function ActivitiesPage() {
                   The Basic Level Examination closes Grade 8 and is conducted
                   by the local government. The 2082 results were released
                   through each school’s ledger on the national education
-                  information system. The school table for that year will be
-                  added here when it is published.
+                  information system.
                 </p>
               </div>
               <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm">
@@ -326,8 +324,7 @@ export default function ActivitiesPage() {
                   The Secondary Education Examination is the national Grade 10
                   examination, graded on a 4.0 scale by the National
                   Examinations Board. The SEE 2082 results were published on 11
-                  May 2026. The school table for that batch will be added here
-                  when it is published.
+                  May 2026.
                 </p>
               </div>
             </div>
@@ -338,19 +335,18 @@ export default function ActivitiesPage() {
                     University
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Graduates already named on the school site are in{" "}
+                    Graduates from Bloom Nepal School continue their studies at
+                    universities in Nepal and abroad. Read more in{" "}
                     <a
                       href="/#alumni"
                       className="text-brandBlue hover:text-brandRed transition-colors"
                     >
                       Alumni Highlights
                     </a>
-                    . A longer placement list belongs on this page when it is
-                    the school’s own list.
+                    .
                   </p>
                   <p className="mt-4 text-sm text-gray-500 leading-relaxed">
-                    The photograph is the ground at the Lalitpur campus, with
-                    the Himalaya beyond. It is not the Sunakothi final.
+                    The ground at the Lalitpur campus, with the Himalaya beyond.
                   </p>
                 </div>
                 <figure className="relative min-h-64 bg-gray-50">

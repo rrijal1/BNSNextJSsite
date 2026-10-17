@@ -28,8 +28,7 @@ export const studentArticles: StudentArticle[] = [
   },
   {
     slug: "lml-prarthana",
-    title:
-      "Reflect on your membership in a community or group to which you feel connected, why is this group meaningful to you?",
+    title: "The LML club",
     author: "Prarthana",
     dateLabel: "28 June 2024",
     description:
@@ -46,8 +45,7 @@ export const studentArticles: StudentArticle[] = [
   },
   {
     slug: "a-community-of-friends",
-    title:
-      "Reflect on a community or a group you feel connected to. Why is this group meaningful to you?",
+    title: "A community of friends",
     author: "Yangchhen",
     dateLabel: "28 June 2024",
     description:
@@ -63,7 +61,7 @@ export const studentArticles: StudentArticle[] = [
   },
   {
     slug: "letter-to-my-five-year-old-self-prasanna",
-    title: "Write a letter to your 5 year old self.",
+    title: "Letter to my five-year-old self",
     author: "Prasanna",
     dateLabel: "Date not written on the piece",
     description:
@@ -85,7 +83,7 @@ export const studentArticles: StudentArticle[] = [
   },
   {
     slug: "letter-to-my-five-year-old-self-kabiraj",
-    title: "Write a letter to your 5 year old self",
+    title: "Letter to my five-year-old self",
     author: "Kabiraj Diyali",
     dateLabel: "1 September 2024",
     description:
@@ -128,7 +126,7 @@ export const studentArticles: StudentArticle[] = [
   },
   {
     slug: "if-i-could-be-born-as-an-animal",
-    title: "If I could be born as an animal",
+    title: "Born as a cheetah",
     author: "Prasiddha",
     dateLabel: "Date not written on the piece",
     description:

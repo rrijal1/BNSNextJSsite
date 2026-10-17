@@ -356,7 +356,7 @@ const ContactPage = () => {
                         Mahalaxmi - 8, Sankhadevi, Lalitpur
                       </p>
                       <a
-                        href="https://www.google.com/maps"
+                        href="https://www.google.com/maps/search/?api=1&query=Bloom+Nepal+School+Mahalaxmi+Lalitpur"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-brandGreen hover:text-brandGreen/80 font-medium text-sm mt-1"
@@ -472,11 +472,11 @@ const ContactPage = () => {
                     </h3>
                   </div>
                 </div>
-                <div className="p-6">
-                  <div className="text-center py-12">
-                    <div className="w-16 h-16 bg-brandBlue/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="p-6 space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-brandBlue/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                       <svg
-                        className="w-8 h-8 text-brandBlue"
+                        className="w-4 h-4 text-brandBlue"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -485,20 +485,25 @@ const ContactPage = () => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeWidth={2}
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                         />
                       </svg>
                     </div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                      Coming Soon
-                    </h4>
-                    <p className="text-gray-600 leading-relaxed">
-                      We&apos;re excited to announce that our Itahari campus is
-                      in development. Stay tuned for more details about this
-                      exciting expansion!
-                    </p>
-                    <div className="mt-4">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-brandBlue/10 text-brandBlue font-medium">
+                    <div>
+                      <p className="font-semibold text-gray-900">Address</p>
+                      <p className="text-gray-600">Itahari, Sunsari</p>
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=Bloom+Nepal+School+Itahari+Sunsari"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-brandBlue hover:text-brandBlue/80 font-medium text-sm mt-1"
+                      >
                         <svg
                           className="w-4 h-4 mr-1"
                           fill="none"
@@ -509,12 +514,50 @@ const ContactPage = () => {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             strokeWidth={2}
-                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                           />
                         </svg>
-                        Updates Coming
-                      </span>
+                        View on Google Maps
+                      </a>
                     </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-brandRed/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                      <svg
+                        className="w-4 h-4 text-brandRed"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">Email</p>
+                      <a
+                        href="mailto:info@bloom.edu.np"
+                        className="text-brandRed hover:text-brandRed/80 font-medium"
+                      >
+                        info@bloom.edu.np
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-50 rounded-xl p-4 mt-4">
+                    <p className="font-semibold text-gray-900 mb-2">
+                      About the Campus
+                    </p>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      Our eastern school serving the Koshi region on a 15-ropani
+                      campus with modern classrooms, technology labs, and
+                      library facilities.
+                    </p>
                   </div>
                 </div>
               </div>

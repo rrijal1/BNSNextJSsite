@@ -86,7 +86,7 @@ export default async function ScholarshipPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-brandGreen/10 via-white to-brandBlue/5 flex items-center">
+      <section className="relative py-20 lg:py-28 bg-gradient-to-br from-brandGreen/10 via-white to-brandBlue/5 flex items-center">
         <div className="absolute inset-0 bg-gradient-to-br from-green-50/50 via-transparent to-blue-50/30"></div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -155,26 +155,6 @@ export default async function ScholarshipPage() {
                       height={400}
                       className="w-full h-auto object-cover"
                     />
-                  </div>
-
-                  <div className="absolute -top-4 -right-4 w-15 h-15 bg-brandWhite rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg animate-bounce">
-                    <Image
-                      src="/logo-bloom.png"
-                      alt="Bloom Nepal School Logo"
-                      width={60}
-                      height={60}
-                      className="object-contain"
-                    />
-                  </div>
-
-                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-brandBlue rounded-full flex items-center justify-center shadow-lg">
-                    <svg
-                      className="w-8 h-8 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
                   </div>
                 </div>
               </div>
@@ -402,14 +382,6 @@ export default async function ScholarshipPage() {
                       height={400}
                       className="w-full h-auto object-cover"
                     />
-                  </div>
-
-                  <div className="absolute -top-4 -right-4 w-20 h-20 bg-brandGreen rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg animate-pulse">
-                    <span className="text-center leading-tight">
-                      Help
-                      <br />
-                      Others
-                    </span>
                   </div>
                 </div>
               </div>

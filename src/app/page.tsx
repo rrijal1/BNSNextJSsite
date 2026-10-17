@@ -151,7 +151,7 @@ export default async function Home() {
                       "/guitar-guys.JPG",
                     ].map((src, index) => (
                       <Link
-                        href="/alumni"
+                        href="#alumni"
                         key={src}
                         className="group relative transition-all duration-300 hover:-translate-y-1"
                         aria-label="View our alumni"
@@ -290,15 +290,35 @@ export default async function Home() {
                   want to be an investor, innovator, mentor, or volunteer, we
                   welcome you with open arms to join our mission.
                 </p>
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center font-semibold text-brandBlue hover:text-brandRed transition-colors mb-8"
-                >
-                  Bodhi Borgo, the new classroom building
-                  <span className="ml-2" aria-hidden="true">
-                    →
-                  </span>
-                </Link>
+                <div className="flex flex-col items-start gap-3 mb-8">
+                  <Link
+                    href="/projects"
+                    className="inline-flex items-center font-semibold text-brandBlue hover:text-brandRed transition-colors"
+                  >
+                    Bodhi Borgo, the new classroom building
+                    <span className="ml-2" aria-hidden="true">
+                      →
+                    </span>
+                  </Link>
+                  <Link
+                    href="/projects/toastmasters"
+                    className="inline-flex items-center font-semibold text-brandBlue hover:text-brandRed transition-colors"
+                  >
+                    Toastmasters, a speaking club for students
+                    <span className="ml-2" aria-hidden="true">
+                      →
+                    </span>
+                  </Link>
+                  <Link
+                    href="/projects/ai"
+                    className="inline-flex items-center font-semibold text-brandBlue hover:text-brandRed transition-colors"
+                  >
+                    AI initiative, Google’s open-source Gemma in the school
+                    <span className="ml-2" aria-hidden="true">
+                      →
+                    </span>
+                  </Link>
+                </div>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                   <div className="space-y-4">
                     <Link
@@ -320,7 +340,7 @@ export default async function Home() {
                           d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                         />
                       </svg>
-                      info@bloomn.edu.np
+                      info@bloom.edu.np
                     </Link>
                     <Link
                       href="tel:+9775530190"
@@ -782,7 +802,7 @@ export default async function Home() {
         </div>
       </section>
       {/* Alumni Highlights */}
-      <section id="alumni" className="scroll-mt-28 bg-gray-50">
+      <section id="alumni" className="scroll-mt-28 py-16 md:py-24 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             <span className="text-brandBlue">Alumni Highlights</span>
@@ -797,88 +817,61 @@ export default async function Home() {
           {[
             {
               name: "Kritim K. Rijal",
+              initials: "KR",
               degree: "Computer Science",
               university: "Richmond University, USA",
               achievement:
                 "Led the robotics club and now researches AI for social impact at Google AI.",
-              image: "/alumni/saraswati.jpg",
             },
             {
-              name: "Prasanna Karki.",
+              name: "Prasanna Karki",
+              initials: "PK",
               degree: "IB DP",
               university: "UWC, Tanzania",
               achievement:
                 "Debate captain; received a full merit scholarship and now works at the World Bank.",
-              image: "/alumni/Prasanna.jpg",
             },
             {
-              name: "Rukmani Ghorasainee.",
-              degree: "Compter Science",
+              name: "Rukmani Ghorasainee",
+              initials: "RG",
+              degree: "Computer Science",
               university: "New York University, Abu Dhabi",
               achievement:
                 "Arts fest winner; now a senior UX designer at Microsoft, specializing in human-centered design.",
-              image: "/alumni/rukmani.jpg",
             },
           ].map((alumni, index) => (
             <div
               key={index}
-              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="group bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
             >
-              <div className="h-48 bg-gray-100 overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-brandBlue/10 to-brandGreen/10 flex items-center justify-center">
-                  <svg
-                    className="w-16 h-16 text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-4 -mt-12 mb-4">
-                  <div className="w-16 h-16 rounded-full border-4 border-white bg-white shadow-md overflow-hidden">
-                    <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">
-                      <svg
-                        className="w-8 h-8"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                          clipRule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
+              <div>
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-14 h-14 rounded-2xl bg-brandBlue/10 text-brandBlue font-bold text-lg flex items-center justify-center shrink-0">
+                    {alumni.initials}
                   </div>
                   <div className="text-left">
                     <h3 className="text-lg font-semibold text-gray-900">
                       {alumni.name}
                     </h3>
-                    <p className="text-sm text-brandBlue">{alumni.degree}</p>
+                    <p className="text-sm font-medium text-brandBlue">
+                      {alumni.degree}
+                    </p>
                   </div>
                 </div>
-                <p className="text-gray-600 text-sm mb-4 text-left">
+                <p className="text-gray-600 text-sm leading-relaxed mb-6 text-left">
                   {alumni.achievement}
                 </p>
-                <div className="flex items-center text-sm text-gray-500">
-                  <svg
-                    className="w-4 h-4 mr-2 text-brandGreen"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 011.21-.502l4 2.5a1 1 0 01-1.078 1.682l-3.5-2.187a1 1 0 00-1.07 0l-3.5 2.187a1 1 0 01-1.562-.795v-5a1 1 0 01.636-.932l4-1.714a1 1 0 01.26-.044l3.5.013v-2.7l-6-2.4zM3 15.054v5.2a1 1 0 001.447.894L10 18.118l5.553 2.03a1 1 0 001.447-.894v-5.2a1 1 0 00-.553-.894l-5-2.25a1 1 0 00-.894 0l-5 2.25a1 1 0 00-.553.894z" />
-                  </svg>
-                  {alumni.university}
-                </div>
+              </div>
+              <div className="flex items-center text-sm text-gray-500 pt-4 border-t border-gray-100">
+                <svg
+                  className="w-4 h-4 mr-2 text-brandGreen shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 011.21-.502l4 2.5a1 1 0 01-1.078 1.682l-3.5-2.187a1 1 0 00-1.07 0l-3.5 2.187a1 1 0 01-1.562-.795v-5a1 1 0 01.636-.932l4-1.714a1 1 0 01.26-.044l3.5.013v-2.7l-6-2.4zM3 15.054v5.2a1 1 0 001.447.894L10 18.118l5.553 2.03a1 1 0 001.447-.894v-5.2a1 1 0 00-.553-.894l-5-2.25a1 1 0 00-.894 0l-5 2.25a1 1 0 00-.553.894z" />
+                </svg>
+                {alumni.university}
               </div>
             </div>
           ))}
@@ -886,10 +879,10 @@ export default async function Home() {
 
         <div className="mt-12 text-center">
           <CTAInlink
-            linkto="/alumni"
+            linkto="/stories"
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-brandBlue hover:bg-brandBlue/90 transition-colors duration-200"
           >
-            Explore Full Alumni Network
+            Read Student & Alumni Stories
             <svg
               className="ml-2 -mr-1 w-5 h-5"
               fill="currentColor"
@@ -906,7 +899,7 @@ export default async function Home() {
         </div>
       </section>
       {/* FAQ Teaser */}
-      <section className="bg-gray-50">
+      <section className="py-16 md:py-24 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             <span className="text-brandBlue">Frequently Asked Questions</span>
@@ -972,10 +965,10 @@ export default async function Home() {
 
         <div className="mt-12 text-center">
           <CTAInlink
-            linkto="/faq"
+            linkto="/contact"
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-brandBlue hover:bg-brandBlue/90 transition-colors duration-200"
           >
-            View All FAQs
+            Have More Questions? Contact Us
             <svg
               className="ml-2 -mr-1 w-5 h-5"
               fill="currentColor"

@@ -21,7 +21,7 @@ const links = {
 
 function SectionHero() {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-brandBlue/10 via-white to-brandGreen/5 flex items-center">
+    <section className="relative py-20 lg:py-28 bg-gradient-to-br from-brandBlue/10 via-white to-brandGreen/5 flex items-center">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-green-50/30"></div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -170,7 +170,7 @@ function SectionHero() {
             <div className="lg:w-1/2 mt-12 lg:mt-0">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-brandBlue/20 to-brandGreen/20 rounded-3xl transform rotate-3"></div>
-                <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl">
                   <Image
                     src="/bloom-main.jpg"
                     alt="Hexagonal Photo Collection of Students"
@@ -179,35 +179,9 @@ function SectionHero() {
                     className="w-full h-auto object-cover"
                   />
                 </div>
-
-                {/* Floating Elements */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-brandRed rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg animate-bounce">
-                  <span>New!</span>
-                </div>
-
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-brandGreen rounded-full flex items-center justify-center shadow-lg">
-                  <svg
-                    className="w-8 h-8 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-brandBlue rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-brandBlue rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
@@ -706,10 +680,10 @@ function FirstStepForm({
                     Fill out the form below to download our admission form. Once
                     completed, you can submit it via email to{" "}
                     <a
-                      href="mailto:info@bloomn.edu.np"
+                      href="mailto:info@bloom.edu.np"
                       className="text-brandBlue hover:text-brandBlue/80 font-medium underline"
                     >
-                      info@bloomn.edu.np
+                      info@bloom.edu.np
                     </a>{" "}
                     or bring it directly to our school.
                   </p>
@@ -953,10 +927,10 @@ function FirstStepForm({
                       <p className="text-sm text-gray-600">
                         Complete the form and email it to{" "}
                         <a
-                          href="mailto:info@bloomn.edu.np"
+                          href="mailto:info@bloom.edu.np"
                           className="text-brandBlue font-medium"
                         >
-                          info@bloomn.edu.np
+                          info@bloom.edu.np
                         </a>
                       </p>
                     </div>
@@ -1033,7 +1007,7 @@ export default function AdmissionPage() {
               <div className="lg:w-1/2 mb-12 lg:mb-0">
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-brandGreen/20 to-brandBlue/20 rounded-3xl transform rotate-2"></div>
-                  <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl transform -rotate-1 hover:rotate-0 transition-transform duration-500">
+                  <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl">
                     <Image
                       src="/two-girls.jpg"
                       alt="Two girl students posing for a photo"
@@ -1041,15 +1015,6 @@ export default function AdmissionPage() {
                       height={500}
                       className="w-full h-auto object-cover"
                     />
-                  </div>
-
-                  {/* Floating Badge */}
-                  <div className="absolute -top-4 -right-4 w-20 h-20 bg-brandGreen rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg animate-pulse">
-                    <span className="text-center leading-tight">
-                      Need
-                      <br />
-                      Help?
-                    </span>
                   </div>
                 </div>
               </div>

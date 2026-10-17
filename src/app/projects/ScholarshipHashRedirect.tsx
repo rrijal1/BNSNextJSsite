@@ -11,6 +11,9 @@ export default function ScholarshipHashRedirect() {
       if (window.location.hash === "#scholarships") {
         router.replace("/scholarship");
       }
+      if (window.location.hash === "#toastmasters") {
+        router.replace("/projects/toastmasters");
+      }
     };
 
     go();

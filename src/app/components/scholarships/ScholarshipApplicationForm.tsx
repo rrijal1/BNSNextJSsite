@@ -241,10 +241,10 @@ export default function ScholarshipApplicationForm() {
                 documents (transcripts, birth certificate, parent&apos;s
                 citizenship) and will submit them via email to{" "}
                 <a
-                  href="mailto:info@bloomn.edu.np"
+                  href="mailto:info@bloom.edu.np"
                   className="text-brandBlue font-medium hover:underline"
                 >
-                  info@bloomn.edu.np
+                  info@bloom.edu.np
                 </a>
               </label>
             </div>

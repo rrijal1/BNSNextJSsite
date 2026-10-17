@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ArticleBanner, { motifForArticle } from "../ArticleBanner";
 import { getStudentArticle, studentArticles } from "../articles";
 
 export function generateStaticParams() {
@@ -43,21 +44,12 @@ export default async function StudentArticlePage({
 
   return (
     <main className="min-h-screen bg-brandWhite text-gray-900">
-      <section className="bg-gradient-to-br from-brandBlue via-brandBlue to-brandGreen text-white">
-        <div className="container mx-auto px-4 py-16 md:py-24">
-          <div className="max-w-3xl">
-            <p className="inline-flex items-center px-4 py-2 bg-white/15 rounded-full text-sm font-medium mb-6">
-              Student writing
-            </p>
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
-              {article.title}
-            </h1>
-            <p className="text-lg md:text-xl text-white/85 leading-relaxed">
-              {article.author} · {article.dateLabel}
-            </p>
-          </div>
-        </div>
-      </section>
+      <ArticleBanner
+        kicker="Student writing"
+        title={article.title}
+        subtitle={`${article.author} · ${article.dateLabel}`}
+        motif={motifForArticle(article.slug)}
+      />
 
       <section className="py-16 md:py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -72,10 +64,6 @@ export default async function StudentArticlePage({
                 <p key={line}>{line}</p>
               ))}
             </div>
-            <p className="mt-6 text-sm text-gray-500">
-              The wording above is the student’s, including the original
-              spelling and punctuation.
-            </p>
             <div className="mt-12 flex flex-wrap gap-3">
               <Link
                 href="/stories/articles"

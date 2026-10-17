@@ -68,12 +68,18 @@ const AcademicsPage: React.FC = () => {
 
             {/* Call to Action Buttons */}
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="px-8 py-3 text-brandBlue font-semibold rounded-full border-2 border-brandBlue/20 bg-brandWhite/20 hover:border-brandBlue hover:bg-brandBlue/5 transform hover:scale-105 transition-all duration-300">
+              <a
+                href="#curriculum"
+                className="px-8 py-3 text-brandBlue font-semibold rounded-full border-2 border-brandBlue/20 bg-brandWhite/20 hover:border-brandBlue hover:bg-brandBlue/5 transform hover:scale-105 transition-all duration-300"
+              >
                 Explore Curriculum
-              </button>
-              <button className="px-8 py-3 bg-white text-brandBlue font-semibold rounded-full border-2 border-brandBlue/20 hover:border-brandBlue hover:bg-brandBlue/5 transform hover:scale-105 transition-all duration-300">
-                View Resources
-              </button>
+              </a>
+              <a
+                href="#hands-on"
+                className="px-8 py-3 bg-white text-brandBlue font-semibold rounded-full border-2 border-brandBlue/20 hover:border-brandBlue hover:bg-brandBlue/5 transform hover:scale-105 transition-all duration-300"
+              >
+                Experiential Learning
+              </a>
             </div>
           </div>
         </div>
@@ -83,7 +89,10 @@ const AcademicsPage: React.FC = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto space-y-16">
           {/* Book List Section */}
-          <section className="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:border-brandBlue/20 transition-all duration-300">
+          <section
+            id="curriculum"
+            className="scroll-mt-28 bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:border-brandBlue/20 transition-all duration-300"
+          >
             <div className="bg-brandBlue px-8 py-6">
               <h2 className="text-2xl font-bold text-white flex items-center">
                 <svg
@@ -113,7 +122,10 @@ const AcademicsPage: React.FC = () => {
           </div>
 
           {/* Hands-On Learning Section */}
-          <section className="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:border-brandGreen/20 transition-all duration-300">
+          <section
+            id="hands-on"
+            className="scroll-mt-28 bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:border-brandGreen/20 transition-all duration-300"
+          >
             <div className="lg:flex items-center">
               <div className="lg:w-1/2 p-8 lg:p-12 transform group-hover:translate-x-1 transition-transform duration-300">
                 <div className="inline-flex items-center px-4 py-2 bg-brandGreen/10 rounded-full text-brandGreen text-sm font-medium mb-6 hover:bg-brandGreen/20 transition-colors duration-300">
@@ -213,21 +225,6 @@ const AcademicsPage: React.FC = () => {
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-brandGreen/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute top-4 right-4 w-16 h-16 bg-brandGreen rounded-full flex items-center justify-center shadow-lg animate-bounce hover:animate-pulse transition-all duration-300">
-                  <svg
-                    className="w-8 h-8 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                </div>
               </div>
             </div>
           </section>
@@ -246,21 +243,6 @@ const AcademicsPage: React.FC = () => {
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-brandRed/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute top-4 left-4 w-16 h-16 bg-brandRed rounded-full flex items-center justify-center shadow-lg animate-pulse hover:animate-bounce transition-all duration-300">
-                  <svg
-                    className="w-8 h-8 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    />
-                  </svg>
-                </div>
               </div>
 
               <div className="lg:w-1/2 p-8 lg:p-12 lg:order-2 transform group-hover:-translate-x-1 transition-transform duration-300">

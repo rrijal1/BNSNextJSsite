@@ -48,8 +48,9 @@ export default function DonatePage() {
               <p className="text-gray-600 leading-relaxed mb-4">
                 Permanent classrooms for Plus Two at the Lalitpur campus,
                 planned to open in August 2028, in place of the prefabricated
-                rooms. Fundrezzo is the major supporter. Rooms are not named
-                for donors.
+                rooms. Bodhi Borgo, this milestone building, is made through
+                the support of Fondazione Albero Rosso (FAR). Further buildings
+                will follow, and the school would welcome a collaboration.
               </p>
               <Link
                 href="/projects#bodhi-borgo"
@@ -76,6 +77,44 @@ export default function DonatePage() {
                 className="text-brandBlue font-medium hover:text-brandRed transition-colors"
               >
                 Scholarship page
+              </Link>
+            </div>
+            <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm">
+              <div className="inline-flex items-center px-3 py-1 bg-brandBlue/10 rounded-full text-brandBlue text-xs font-semibold mb-4">
+                Speaking
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                Toastmasters
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                A club for students. The first year trains 25 students with
+                local Toastmasters clubs in Nepal for about USD 4,000 in total.
+                Those students then teach the next class.
+              </p>
+              <Link
+                href="/projects/toastmasters"
+                className="text-brandBlue font-medium hover:text-brandRed transition-colors"
+              >
+                The speaking club
+              </Link>
+            </div>
+            <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm">
+              <div className="inline-flex items-center px-3 py-1 bg-brandGreen/10 rounded-full text-brandGreen text-xs font-semibold mb-4">
+                Learning
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                AI initiative
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                The school will implement Google’s open-source Gemma for
+                teaching and learning. Physical AI for teaching and learning is
+                the future goal.
+              </p>
+              <Link
+                href="/projects/ai"
+                className="text-brandBlue font-medium hover:text-brandRed transition-colors"
+              >
+                The initiative
               </Link>
             </div>
           </div>

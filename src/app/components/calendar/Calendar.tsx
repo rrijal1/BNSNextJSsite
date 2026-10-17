@@ -112,55 +112,35 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
 
   return (
     <div className="max-w-4xl mx-auto">
-      {/* Header Section */}
-      <div className="bg-brandBlue rounded-2xl p-8 mb-8 text-white">
-        <div className="flex items-center justify-between">
-          <div>
-            <div className="inline-flex items-center px-4 py-2 bg-white/10 rounded-full text-white text-sm font-medium mb-4">
-              <svg
-                className="w-4 h-4 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              School Calendar
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">
-              Upcoming Events
-            </h1>
-            <p className="text-blue-100 text-lg">
-              {today.toLocaleDateString("en-US", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </p>
-          </div>
-          <div className="hidden md:block">
-            <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center">
-              <svg
-                className="w-12 h-12 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-            </div>
-          </div>
+      {/* Today Banner */}
+      <div className="bg-white rounded-2xl border border-gray-100 p-6 mb-8 shadow-sm flex items-center justify-between">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-brandBlue mb-1">
+            Today
+          </p>
+          <p className="text-lg font-semibold text-gray-900">
+            {today.toLocaleDateString("en-US", {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </p>
+        </div>
+        <div className="w-12 h-12 bg-brandBlue/10 rounded-xl flex items-center justify-center text-brandBlue">
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
         </div>
       </div>
 

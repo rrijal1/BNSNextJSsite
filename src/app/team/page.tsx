@@ -29,7 +29,7 @@ const TeamPage = () => {
       department: "Leadership",
       imageUrl: "/ram-rijal.jpg",
       bio: "Education and workforce enthusiast serving as Chairman of Bloom Nepal School. Focuses on strategic expansion activities and serves as the go-to person for investment and accountability matters. Also teaches mathematics and works closely with talented students from across the country.",
-      email: "rijal.ramk@bloomn.edu.np",
+      email: "rijal.ramk@bloom.edu.np",
       qualifications: "Economics, Mathematics",
     },
     {
@@ -38,7 +38,7 @@ const TeamPage = () => {
       department: "Leadership",
       imageUrl: "/Ajay.webp",
       bio: "Executive Director responsible for financial oversight and budgeting at Bloom Nepal School. Serves as the primary contact for accounting and reporting matters while also teaching computer science to students.",
-      email: "ajay.shrestha@bloomn.edu.np",
+      email: "ajay.shrestha@bloom.edu.np",
       qualifications: "Computer Science",
     },
     {
@@ -47,7 +47,7 @@ const TeamPage = () => {
       department: "Leadership",
       imageUrl: "/Surya.webp",
       bio: "Director of Business responsible for identifying and implementing expansion projects at Bloom Nepal School. Focuses on strategic growth initiatives including building new schools and securing new investors to strengthen the organization's development.",
-      email: "surya.karki@bloomn.edu.np",
+      email: "surya.karki@bloom.edu.np",
       qualifications: "Education",
     },
     {
@@ -65,7 +65,7 @@ const TeamPage = () => {
       department: "Leadership",
       imageUrl: "/Dinesh.png",
       bio: "Director of Operations responsible for overseeing the overall management of daily operations at Bloom Nepal School Itahari campus. Ensures smooth functioning of all operational aspects and maintains high standards of institutional excellence at the Itahari location.",
-      email: "dinesh@bloomn.edu.np",
+      email: "dinesh@bloom.edu.np",
       qualifications: "Operations Management",
     },
     {
@@ -74,7 +74,7 @@ const TeamPage = () => {
       department: "Student Services",
       imageUrl: "/Ajit.png",
       bio: "Head of Administrative Operations overseeing non-teaching staff administration at Bloom Nepal School. Coordinates closely with teaching staff to ensure smooth school operations and serves as the primary communication officer for the institution.",
-      email: "ajitpokhrel@bloomn.edu.np",
+      email: "ajitpokhrel@bloom.edu.np",
       qualifications: "Education",
     },
     {
@@ -83,7 +83,7 @@ const TeamPage = () => {
       department: "Academic",
       imageUrl: "/Madhuri.png",
       bio: "Section In-Charge responsible for overseeing junior classes at Bloom Nepal School. Serves as the primary point of contact for all matters related to junior student education and believes that teaching is the art of extracting the best out of every student.",
-      email: "chhetrimadhuri@bloomn.edu.np",
+      email: "chhetrimadhuri@bloom.edu.np",
       qualifications: "Education",
     },
     {
@@ -92,7 +92,7 @@ const TeamPage = () => {
       department: "Academic",
       imageUrl: "/Yasoda.webp",
       bio: "Nepali language teacher specializing in secondary level education at Bloom Nepal School. Has been teaching Nepali to secondary students since 2013 and serves as the Section In-Charge for secondary levels, acting as the primary contact for academic and administrative concerns relating to secondary students. Enjoys learning new things, connecting with people, and cooking.",
-      email: "yasoda.pokharel@bloomn.edu.np",
+      email: "yasoda.pokharel@bloom.edu.np",
       qualifications: "Nepali Language Education",
     },
     {
@@ -101,7 +101,7 @@ const TeamPage = () => {
       department: "Academic",
       imageUrl: "/Urmila.png",
       bio: "Nepali language teacher specializing in primary level education at Bloom Nepal School. She has been teaching Nepali to primary students since 2017, acting as the primary contact for academic and administrative concerns relating to primary students. Enjoys learning new things, connecting with people, and cooking.",
-      email: "urmila.karki@bloomn.edu.np",
+      email: "urmila.karki@bloom.edu.np",
       qualifications: "Nepali Language Education",
     },
     {
@@ -110,7 +110,7 @@ const TeamPage = () => {
       department: "Advisors",
       imageUrl: "/Mohit.jpg",
       bio: "Strategic advisor providing guidance on institutional development and business operations at Bloom Nepal School. Leverages extensive business expertise to support the school's growth initiatives and organizational excellence.",
-      email: "mohit@bloomn.edu.np",
+      email: "mohit@bloom.edu.np",
       qualifications: "MBA",
     },
     {
@@ -119,7 +119,7 @@ const TeamPage = () => {
       department: "Student Services",
       imageUrl: "/Anju.webp",
       bio: "School Accountant responsible for managing all financial accounts and billing operations at Bloom Nepal School. Serves as the primary contact for account-related questions, billing concerns, and financial administrative matters.",
-      email: "anju.maharjan@bloomn.edu.np",
+      email: "anju.maharjan@bloom.edu.np",
       qualifications: "Accounting",
     },
   ];
@@ -317,7 +317,7 @@ const TeamPage = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">500+</h3>
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">750+</h3>
                 <p className="text-gray-600 font-medium">Students Served</p>
               </div>
             </div>
@@ -430,19 +430,8 @@ const TeamPage = () => {
                             d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                           />
                         </svg>
-                        Contact
+                        {member.email}
                       </a>
-                      <div className="flex space-x-2">
-                        <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-brandBlue hover:text-white transition-all duration-200 cursor-pointer">
-                          <svg
-                            className="w-4 h-4"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                          </svg>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>

@@ -22,6 +22,8 @@ export default function Footer() {
         { name: "Home", outLink: false, path: "/" },
         { name: "Our Values", path: "/about" },
         { name: "Projects", path: "/projects" },
+        { name: "Toastmasters", path: "/projects/toastmasters" },
+        { name: "AI Initiative", path: "/projects/ai" },
         { name: "Give", path: "/donate" },
         { name: "Admission", path: "/admission" },
         { name: "Scholarship", path: "/scholarship" },
