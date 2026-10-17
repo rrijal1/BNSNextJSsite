@@ -230,11 +230,6 @@ export default function ProjectsPage() {
                   The building is planned to be in use from August 2028, which
                   is the start of that academic year for Plus Two.
                 </p>
-                <p>
-                  Until then, the program uses prefabricated rooms. Bodhi
-                  Borgo is the replacement for those rooms, not an additional
-                  campus.
-                </p>
               </div>
             </div>
           </div>
